@@ -1,13 +1,13 @@
-import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
+import localFont from "next/font/local";
+import { Afacad } from "next/font/google";
 
-const geistSans = Geist({
-    variable: "--font-geist-sans",
-    subsets: ["latin"],
+const otomanopeeOne = localFont({
+    src: "../../public/fonts/OtomanopeeOne-Regular.ttf",
 });
 
-const geistMono = Geist_Mono({
-    variable: "--font-geist-mono",
+const afacad = Afacad({
+    weight: ["400", "500", "600", "700"],
     subsets: ["latin"],
 });
 
@@ -19,9 +19,7 @@ export const metadata = {
 export default function RootLayout({ children }) {
     return (
         <html lang="en">
-            <body className="antialiased">
-                {children}
-            </body>
+            <body className="antialiased">{children}</body>
         </html>
     );
 }
