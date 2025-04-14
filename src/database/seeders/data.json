@@ -21,6 +21,17 @@
             "createdAt": "2025-04-13T10:00:00",
             "updatedAt": "2025-04-13T10:00:00",
             "deletedAt": null
+        },
+        {
+            "user_id": "ba6ec110-f2dd-4d75-8b19-b2bcfd96db8f",
+            "user_name": "Wendy",
+            "user_lastname": "Navarro",
+            "user_email": "nwendy798@gmail.com",
+            "user_password": "$2b$10$pFB7x37NVOsu7DUiR1t5eubm5t2HxKNrV8cUV9YlRgggBef1DrRgK",
+            "role_id": 1,
+            "createdAt": "2025-04-14T06:10:30.000Z",
+            "updatedAt": "2025-04-14T06:10:30.000Z",
+            "deletedAt": null
         }
     ],
     "roles": [

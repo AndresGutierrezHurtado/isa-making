@@ -45,6 +45,23 @@ export const authOptions = {
         }),
     ],
     callbacks: {
+        async signIn({ account, profile }) {
+            if (account.provider === "google") {
+                console.log(profile);
+                await User.findOrCreate({
+                    where: {
+                        user_email: profile.email,
+                    },
+                    defaults: {
+                        user_name: profile.given_name,
+                        user_lastname: profile.family_name,
+                        user_email: profile.email,
+                        user_password: profile.exp.toString(),
+                    },
+                });
+            }
+            return true;
+        },
         async session({ session, user }) {
             session.user = await User.findOne({
                 where: {
@@ -52,6 +69,9 @@ export const authOptions = {
                 },
             });
             return session;
+        },
+        async redirect({ baseUrl }) {
+            return baseUrl;
         },
     },
     secret: process.env.NEXTAUTH_SECRET,
