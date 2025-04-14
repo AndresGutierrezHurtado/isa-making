@@ -3,8 +3,11 @@ import React from "react";
 
 // Components
 import { UserIcon, SearchIcon, ShoppingCartIcon } from "@/components/icons";
+import { getServerSession } from "next-auth";
+import authOptions from "@/lib/authOptions";
 
-export default function Header() {
+export default async function Header() {
+    const session = await getServerSession(authOptions);
     return (
         <header className="w-full bg-base-content text-base-100 px-3">
             <div className="w-full max-w-[1300px] mx-auto py-2">
@@ -18,7 +21,7 @@ export default function Header() {
                         </Link>
                     </div>
                     <div className="navbar-center">
-                        <ul className="menu menu-horizontal text-xl font-medium">
+                        <ul className="menu menu-horizontal text-xl font-medium gap-2">
                             <li>
                                 <Link href="/collections" className="hover-underline-animation">
                                     Colleciones
@@ -45,7 +48,7 @@ export default function Header() {
                         </ul>
                     </div>
                     <div className="navbar-end gap-3">
-                        <Link href="/login" className="btn btn-ghost btn-circle">
+                        <Link href={!session ? "/login" : "/profile"} className="btn btn-ghost btn-circle">
                             <button className="btn btn-ghost btn-circle">
                                 <UserIcon size={22} />
                             </button>

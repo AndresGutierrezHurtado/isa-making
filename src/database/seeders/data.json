@@ -75,31 +75,37 @@
         {
             "category_id": 1,
             "category_name": "Camisetas",
-            "category_image": "camisetas.jpg"
+            "category_slug": "camisetas",
+            "category_image": "https://dynamobrand.co/cdn/shop/files/Carrusel-categorias-camiseta-basica-oversize-dynamo-gris-web_470x.jpg?v=1724435039"
         },
         {
             "category_id": 2,
             "category_name": "Jeans",
-            "category_image": "jeans.jpg"
+            "category_slug": "jeans",
+            "category_image": "https://dynamobrand.co/cdn/shop/files/Carrusel-categorias-jeans-dynamo-baggy-azul-web_470x.jpg?v=1724435083"
         },
         {
             "category_id": 4,
             "category_name": "Estampadas",
-            "category_image": "estampadas.jpg"
+            "category_slug": "estampadas",
+            "category_image": "https://dynamobrand.co/cdn/shop/files/Carrusel-categorias-camiseta-oversize-dynamo-negro-web_470x.jpg?v=1724436049"
         },
         {
             "category_id": 3,
             "category_name": "Joggers",
-            "category_image": "joggers.jpg"
+            "category_slug": "joggers",
+            "category_image": "https://dynamobrand.co/cdn/shop/files/Carrusel-categorias-joggers-dynamo-caqui-web_470x.jpg?v=1724436131"
         },
         {
             "category_id": 5,
             "category_name": "Mujer",
+            "category_slug": "mujer",
             "category_image": "mujer.jpg"
         },
         {
             "category_id": 6,
             "category_name": "Hombre",
+            "category_slug": "hombre",
             "category_image": "hombre.jpg"
         }
     ],

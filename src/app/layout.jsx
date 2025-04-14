@@ -1,5 +1,6 @@
 import localFont from "next/font/local";
 import { Afacad } from "next/font/google";
+import { headers } from "next/headers";
 
 // Layouts
 import Header from "@/layouts/header";
@@ -24,14 +25,21 @@ export const metadata = {
     description: "Sistema de venta y gestión de prendas de vestir",
 };
 
-export default function RootLayout({ children }) {
+export default async function RootLayout({ children }) {
+    const excludedPaths = ["/login", "/register", "/api"];
+
+    const headersList = await headers();
+    const pathname = headersList.get("x-next-pathname");
+
+    const isExcludedPath = excludedPaths.some((path) => pathname.startsWith(path));
+
     return (
         <html lang="en">
             <body className="antialiased flex flex-col min-h-screen">
                 <AuthProvider>
-                    <Header />
+                    {isExcludedPath ? <></> : <Header />}
                     <main className="flex-grow">{children}</main>
-                    <Footer />
+                    {isExcludedPath ? <></> : <Footer />}
                 </AuthProvider>
             </body>
         </html>
