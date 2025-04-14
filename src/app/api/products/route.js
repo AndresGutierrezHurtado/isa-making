@@ -1,15 +1,28 @@
 import { NextResponse } from "next/server";
-import { Product } from "@/database/models";
+import { Category, Product } from "@/database/models";
+import { Op } from "sequelize";
 
 export async function GET(request) {
     try {
         const { searchParams } = new URL(request.url);
         const page = parseInt(searchParams.get("page")) || 1;
         const limit = parseInt(searchParams.get("limit")) || 10;
+        const category = parseInt(searchParams.get("category")) || null;
         const offset = (page - 1) * limit;
 
         const { rows: data, count: total } = await Product.findAndCountAll({
-            include: ["categories", "sizes", "medias"],
+            include: [
+                {
+                    model: Category,
+                    as: "categories",
+                    where: {
+                        category_id: category ? category : { [Op.ne]: null },
+                    },
+                    required: true,
+                },
+                "sizes",
+                "medias",
+            ],
             offset,
             limit,
         });

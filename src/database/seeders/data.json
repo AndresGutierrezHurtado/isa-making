@@ -86,7 +86,7 @@
         {
             "category_id": 1,
             "category_name": "Camisetas",
-            "category_slug": "camisetas",
+            "category_slug": "tsh",
             "category_image": "https://dynamobrand.co/cdn/shop/files/Carrusel-categorias-camiseta-basica-oversize-dynamo-gris-web_470x.jpg?v=1724435039"
         },
         {
@@ -98,7 +98,7 @@
         {
             "category_id": 4,
             "category_name": "Estampadas",
-            "category_slug": "estampadas",
+            "category_slug": "tsh-estampadas",
             "category_image": "https://dynamobrand.co/cdn/shop/files/Carrusel-categorias-camiseta-oversize-dynamo-negro-web_470x.jpg?v=1724436049"
         },
         {
@@ -110,14 +110,14 @@
         {
             "category_id": 5,
             "category_name": "Mujer",
-            "category_slug": "mujer",
-            "category_image": "mujer.jpg"
+            "category_slug": "woman",
+            "category_image": "https://www.youngla.com/cdn/shop/files/04_10_25_Abigail_eComm2861_598b50bf-de5a-4c7f-bf0d-86a7a9fdedf5.jpg?v=1743749021&width=500"
         },
         {
             "category_id": 6,
             "category_name": "Hombre",
-            "category_slug": "hombre",
-            "category_image": "hombre.jpg"
+            "category_slug": "man",
+            "category_image": "https://eu.gymshark.com/_next/image?url=https%3A%2F%2Fimages.ctfassets.net%2Fwl6q2in9o7k3%2F4BgzL5qNfOILm1JXh1YW9Z%2F53be55b59f009851b0d53856456c6fad%2FHeadless_Cards_-_22559426.png&w=1920&q=85"
         }
     ],
     "medias": [
