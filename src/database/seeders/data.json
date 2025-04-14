@@ -1,0 +1,174 @@
+{
+    "users": [
+        {
+            "user_id": "b0abc550-c22b-4cca-bd50-62fc128512c6",
+            "user_name": "Andrés",
+            "user_lastname": "Gutiérrez Hurtado",
+            "user_email": "andres52885241@gmail.com",
+            "user_password": "$2y$10$.kFm/Fi.gn.G3KI1xuIBp.64VxdjylLF1sm114lqsVRTlikgRw19W",
+            "role_id": 2,
+            "createdAt": "2025-04-13T10:00:00",
+            "updatedAt": "2025-04-13T10:00:00",
+            "deletedAt": null
+        },
+        {
+            "user_id": "466a6548-4f56-4781-bd2f-80d6a1f1e717",
+            "user_name": "Juan Esteban",
+            "user_lastname": "Perez Salamanca",
+            "user_email": "juan@gmail.com",
+            "user_password": "$2y$10$fhWBG.UoGxC84YGoRn1f.ezmmMFR5Yc4b9UI52h14Vwgtrx4jMB2q",
+            "role_id": 1,
+            "createdAt": "2025-04-13T10:00:00",
+            "updatedAt": "2025-04-13T10:00:00",
+            "deletedAt": null
+        }
+    ],
+    "roles": [
+        {
+            "role_id": 1,
+            "role_name": "cliente"
+        },
+        {
+            "role_id": 2,
+            "role_name": "administrador"
+        }
+    ],
+    "products": [
+        {
+            "product_id": "b0abc550-c22b-4cca-bd50-62fc128512c6",
+            "product_name": "Camiseta Beige",
+            "product_description": "Camiseta Oversize confeccionada en un Jersey Premium de alto gramaje de 240gr de peso. En frente tiene un texto y un banderín bordados en esquinas. **ESPECIFICACIONES** * **Texto**: 100% Algodón * **Características**: + Alto gramaje + Tela Premium + Oversize * **Composición y cuidados**: + **Tela principal/Main fabric**: 100% Algodón/Cotton, 98% Algodón/Cotton, 2% Elastano/Spandex + **Cuidados**: - Usa lavadora en ciclo delicado y agua fria - No uses secadora - No uses blanqueador - Plancha a temperatura baja. No planches el estampado - No la retuerzas - No laves en seco - Seca a la sombra",
+            "product_image": "https://b2cmattelsa.vtexassets.com/arquivos/ids/656851-1200-auto?v=638799784313400000&width=1200&height=auto&aspect=true",
+            "product_color": "#F5F5F5",
+            "createdAt": "2025-04-01T10:00:00",
+            "updatedAt": "2025-04-01T10:00:00",
+            "deletedAt": null
+        }
+    ],
+    "sizes": [
+        {
+            "size_id": 1,
+            "size_slug": "XS"
+        },
+        {
+            "size_id": 2,
+            "size_slug": "S"
+        },
+        {
+            "size_id": 3,
+            "size_slug": "M"
+        },
+        {
+            "size_id": 4,
+            "size_slug": "L"
+        },
+        {
+            "size_id": 5,
+            "size_slug": "XL"
+        },
+        {
+            "size_id": 6,
+            "size_slug": "XXL"
+        }
+    ],
+    "categories": [
+        {
+            "category_id": 1,
+            "category_name": "Camisetas",
+            "category_image": "camisetas.jpg"
+        },
+        {
+            "category_id": 2,
+            "category_name": "Jeans",
+            "category_image": "jeans.jpg"
+        },
+        {
+            "category_id": 4,
+            "category_name": "Estampadas",
+            "category_image": "estampadas.jpg"
+        },
+        {
+            "category_id": 3,
+            "category_name": "Joggers",
+            "category_image": "joggers.jpg"
+        },
+        {
+            "category_id": 5,
+            "category_name": "Mujer",
+            "category_image": "mujer.jpg"
+        },
+        {
+            "category_id": 6,
+            "category_name": "Hombre",
+            "category_image": "hombre.jpg"
+        }
+    ],
+    "medias": [
+        {
+            "media_id": "466a6548-4f56-4781-bd2f-80d6a1f1e717",
+            "product_id": "b0abc550-c22b-4cca-bd50-62fc128512c6",
+            "media_image": "https://b2cmattelsa.vtexassets.com/arquivos/ids/656852-1200-auto?v=638799784313400000&width=1200&height=auto&aspect=true"
+        },
+        {
+            "media_id": "ce083994-6089-474a-ab60-bbb4ec9fe743",
+            "product_id": "b0abc550-c22b-4cca-bd50-62fc128512c6",
+            "media_image": "https://b2cmattelsa.vtexassets.com/arquivos/ids/656856-1200-auto?v=638799784313530000&width=1200&height=auto&aspect=true"
+        },
+        {
+            "media_id": "1fcba029-24c5-49cd-ba2f-faef9ee00b5b",
+            "product_id": "b0abc550-c22b-4cca-bd50-62fc128512c6",
+            "media_image": "https://b2cmattelsa.vtexassets.com/arquivos/ids/656854-1200-auto?v=638799784313400000&width=1200&height=auto&aspect=true"
+        }
+    ],
+    "productCategories": [
+        {
+            "product_id": "b0abc550-c22b-4cca-bd50-62fc128512c6",
+            "category_id": 1
+        },
+        {
+            "product_id": "b0abc550-c22b-4cca-bd50-62fc128512c6",
+            "category_id": 5
+        },
+        {
+            "product_id": "b0abc550-c22b-4cca-bd50-62fc128512c6",
+            "category_id": 6
+        }
+    ],
+    "productSizes": [
+        {
+            "product_id": "b0abc550-c22b-4cca-bd50-62fc128512c6",
+            "size_id": 1,
+            "product_price": 70000
+        },
+        {
+            "product_id": "b0abc550-c22b-4cca-bd50-62fc128512c6",
+            "size_id": 2,
+            "product_price": 70000
+        },
+        {
+            "product_id": "b0abc550-c22b-4cca-bd50-62fc128512c6",
+            "size_id": 3,
+            "product_price": 75000
+        },
+        {
+            "product_id": "b0abc550-c22b-4cca-bd50-62fc128512c6",
+            "size_id": 4,
+            "product_price": 75000
+        },
+        {
+            "product_id": "b0abc550-c22b-4cca-bd50-62fc128512c6",
+            "size_id": 5,
+            "product_price": 80000
+        },
+        {
+            "product_id": "b0abc550-c22b-4cca-bd50-62fc128512c6",
+            "size_id": 6,
+            "product_price": 80000
+        }
+    ],
+    "orders": [],
+    "orderProducts": [],
+    "paymentDetails": [],
+    "shippingDetails": [],
+    "shippingHistories": []
+}
