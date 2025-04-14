@@ -10,6 +10,9 @@ import { FaShippingFast as ShippingIcon } from "react-icons/fa";
 import { MdAttachMoney as MoneyIcon } from "react-icons/md";
 import { FaXTwitter as TwitterIcon, FaRegUser as UserIcon } from "react-icons/fa6";
 import { IoSearch as SearchIcon } from "react-icons/io5";
+import { MdAccessTime as ClockIcon } from "react-icons/md";
+import { AiOutlineSwap as ArrowLeftRightIcon } from "react-icons/ai";
+import { FaCreditCard as CreditCardIcon } from "react-icons/fa";
 
 export {
     FacebookIcon,
@@ -23,4 +26,7 @@ export {
     UserIcon,
     SearchIcon,
     ShoppingCartIcon,
+    ClockIcon,
+    ArrowLeftRightIcon,
+    CreditCardIcon,
 };

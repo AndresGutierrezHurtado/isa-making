@@ -1,7 +1,8 @@
+import { useState, useEffect } from "react";
 import Swal from "sweetalert2";
 
 const fetchData = async (endpoint, options) => {
-    const response = await fetch("/api" + endpoint, {
+    const response = await fetch(process.env.NEXT_PUBLIC_URL + "/api" + endpoint, {
         headers: {
             "Content-Type": "application/json",
         },
@@ -10,6 +11,25 @@ const fetchData = async (endpoint, options) => {
     });
     const data = await response.json();
     return data;
+};
+
+export const useGetData = (endpoint, options) => {
+    const [data, setData] = useState(null);
+    const [loading, setLoading] = useState(true);
+    const [trigger, setTrigger] = useState(0);
+
+    useEffect(() => {
+        fetchData(endpoint, options).then((data) => {
+            setData(data.data);
+            setLoading(false);
+        });
+    }, [endpoint, options, trigger]);
+
+    const reload = () => {
+        setTrigger((prev) => prev + 1);
+    };
+
+    return { data, loading, reload };
 };
 
 export const usePostData = async (endpoint, data) => {
