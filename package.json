@@ -24,7 +24,9 @@
         "react-dom": "^19.0.0",
         "react-icons": "^5.5.0",
         "sequelize": "^6.37.7",
-        "sequelize-cli": "^6.6.2"
+        "sequelize-cli": "^6.6.2",
+        "sweetalert2": "^11.17.2",
+        "valibot": "^1.0.0"
     },
     "devDependencies": {
         "@eslint/eslintrc": "^3",
