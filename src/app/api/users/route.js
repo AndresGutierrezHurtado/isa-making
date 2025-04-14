@@ -1,0 +1,50 @@
+import { NextResponse } from "next/server";
+import { User } from "@/database/models";
+
+export async function GET(request) {
+    try {
+        const { searchParams } = new URL(request.url);
+        const page = parseInt(searchParams.get("page")) || 1;
+        const limit = parseInt(searchParams.get("limit")) || 10;
+        const offset = (page - 1) * limit;
+
+        const { rows: data, count: total } = await User.findAndCountAll({
+            include: ["role"],
+            offset,
+            limit,
+        });
+
+        return NextResponse.json({
+            success: true,
+            data,
+            total,
+            message: "Usuarios obtenidos correctamente",
+        }, { status: 200 });
+    } catch (error) {
+        console.error(error);
+        return NextResponse.json({
+            success: false,
+            message: "Error al obtener los usuarios",
+        }, { status: 500 });
+    }
+}
+
+export async function POST(request) {
+    try {
+        const { user: userJSON } = await request.json();
+
+        const user = await User.create(userJSON);
+
+        return NextResponse.json({
+            success: true,
+            data: user,
+            message: "Usuario creado correctamente",
+        }, { status: 201 });
+    } catch (error) {
+        console.error(error);
+        return NextResponse.json({
+            success: false,
+            message: "Error al crear el usuario",
+        }, { status: 500 });
+    }
+}
