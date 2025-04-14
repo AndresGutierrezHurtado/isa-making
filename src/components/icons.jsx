@@ -3,10 +3,24 @@ import {
     FaInstagram as InstagramIcon,
     FaYoutube as YoutubeIcon,
     FaWhatsapp as WhatsappIcon,
+    FaShoppingCart as ShoppingCartIcon,
 } from "react-icons/fa";
 import { BsBoxSeam as BoxIcon } from "react-icons/bs";
 import { FaShippingFast as ShippingIcon } from "react-icons/fa";
 import { MdAttachMoney as MoneyIcon } from "react-icons/md";
-import { FaXTwitter as TwitterIcon } from "react-icons/fa6";
+import { FaXTwitter as TwitterIcon, FaRegUser as UserIcon } from "react-icons/fa6";
+import { IoSearch as SearchIcon } from "react-icons/io5";
 
-export { FacebookIcon, InstagramIcon, TwitterIcon, YoutubeIcon, WhatsappIcon, BoxIcon, ShippingIcon, MoneyIcon };
+export {
+    FacebookIcon,
+    InstagramIcon,
+    TwitterIcon,
+    YoutubeIcon,
+    WhatsappIcon,
+    BoxIcon,
+    ShippingIcon,
+    MoneyIcon,
+    UserIcon,
+    SearchIcon,
+    ShoppingCartIcon,
+};

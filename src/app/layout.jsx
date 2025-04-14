@@ -17,7 +17,7 @@ const afacad = Afacad({
 });
 
 export const metadata = {
-    title: "LSA Making",
+    title: "ISA Making",
     description: "Sistema de venta y gestión de prendas de vestir",
 };
 

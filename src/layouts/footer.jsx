@@ -64,7 +64,7 @@ export default function Footer() {
             <hr className="border-base-300" />
             <div className="w-full max-w-[1300px] mx-auto space-y-2">
                 <h3 className="text-2xl font-otomanopee text-center">
-                    LSA Making
+                    ISA Making
                     <span className="inline-block text-sm font-normal [vertical-align:super] ml-0.5">
                         &copy;
                     </span>
@@ -90,8 +90,8 @@ export default function Footer() {
                         <h4 className="text-2xl font-medium">Contacto</h4>
                         <p>
                             <span className="font-bold mr-1">Email:</span>
-                            <a className="hover:underline" href="mailto:lsamaking@gmail.com">
-                                lsamaking@gmail.com
+                            <a className="hover:underline" href="mailto:isamaking@gmail.com">
+                                isamaking@gmail.com
                             </a>
                         </p>
                         <p>

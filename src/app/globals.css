@@ -33,6 +33,10 @@ body {
     padding-top: 0.1rem;
 }
 
+.hover-underline-animation:active {
+    background-color: transparent;
+}
+
 .hover-underline-animation::after {
     content: "";
     position: absolute;

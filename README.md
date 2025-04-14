@@ -1,4 +1,4 @@
-# 🛍️ LSA Making
+# 🛍️ ISA Making
 
 El sistema de información está diseñado para gestionar todo el proceso de compra, desde la selección del producto hasta el pago final, integrando funcionalidades que permiten al cliente elegir ciertos aspectos de la prenda como el color y talla. Además, permite agregar al carrito, hacer la compra y rastreo del envío con un delivery como Interrapidísimo. Los administradores también pueden gestionar los productos.
 
