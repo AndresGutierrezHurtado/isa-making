@@ -5,6 +5,9 @@ import { Afacad } from "next/font/google";
 import Header from "@/layouts/header";
 import Footer from "@/layouts/footer";
 
+// Contexts
+import AuthProvider from "@/layouts/sessionProvider";
+
 import "./globals.css";
 
 const otomanopeeOne = localFont({
@@ -25,9 +28,11 @@ export default function RootLayout({ children }) {
     return (
         <html lang="en">
             <body className="antialiased flex flex-col min-h-screen">
-                <Header />
-                <main className="flex-grow">{children}</main>
-                <Footer />
+                <AuthProvider>
+                    <Header />
+                    <main className="flex-grow">{children}</main>
+                    <Footer />
+                </AuthProvider>
             </body>
         </html>
     );
