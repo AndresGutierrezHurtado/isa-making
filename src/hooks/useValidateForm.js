@@ -59,15 +59,12 @@ export const useValidateForm = (form, data) => {
                     nonEmpty("El correo es requerido"),
                     email("Ingresa un correo válido")
                 ),
-                user_phone: pipe(
-                    string("El teléfono es requerido"),
-                    nonEmpty("El teléfono es requerido"),
-                    regex(/^\d{10}$/, "El teléfono debe tener 10 dígitos")
-                ),
-                user_image: pipe(
-                    string("La imagen es requerida"),
-                    nonEmpty("La imagen es requerida"),
-                    url("La imagen debe ser una URL válida")
+                user_password: pipe(
+                    string("La contraseña es requerida"),
+                    regex(
+                        /^$|^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[^A-Za-z\d]).{6,}$/,
+                        "La contraseña debe tener al menos 6 caracteres, una mayúscula, una minúscula, un número y un símbolo, o estar vacía"
+                    )
                 ),
             });
             break;

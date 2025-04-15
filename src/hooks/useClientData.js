@@ -51,3 +51,43 @@ export const usePostData = async (endpoint, data) => {
 
     return { success, message, data: json };
 };
+
+export const usePutData = async (endpoint, data) => {
+    const {
+        success,
+        message,
+        data: json,
+    } = await fetchData(endpoint, { method: "PUT", body: JSON.stringify(data) });
+
+    Swal.fire({
+        icon: success ? "success" : "error",
+        title: success ? "¡Éxito!" : "¡Ups!",
+        text: message,
+        confirmButtonText: "Cerrar",
+        background: "var(--color-base-100)",
+        color: "var(--color-base-content)",
+        confirmButtonColor: "var(--color-primary)",
+    });
+
+    return { success, message, data: json };
+};
+
+export const useDeleteData = async (endpoint, data) => {
+    const {
+        success,
+        message,
+        data: json,
+    } = await fetchData(endpoint, { method: "DELETE", body: JSON.stringify(data) });
+
+    Swal.fire({
+        icon: success ? "success" : "error",
+        title: success ? "¡Éxito!" : "¡Ups!",
+        text: message,
+        confirmButtonText: "Cerrar",
+        background: "var(--color-base-100)",
+        color: "var(--color-base-content)",
+        confirmButtonColor: "var(--color-primary)",
+    });
+
+    return { success, message, data: json };
+};
