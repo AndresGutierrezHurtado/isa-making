@@ -67,6 +67,7 @@ export const authOptions = {
                 where: {
                     user_email: user?.email || session.user.email,
                 },
+                include: ["role"],
             });
             return session;
         },

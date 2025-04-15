@@ -31,7 +31,11 @@ export default function Page() {
             <section className="w-full px-3 py-12">
                 <div className="w-full max-w-[1300px] mx-auto">
                     <div className="w-full flex gap-10">
-                        <div className="w-1/2 grid grid-cols-1 md:grid-cols-2 gap-8 h-fit">
+                        <div
+                            className={`w-1/2 grid grid-cols-1 ${
+                                images.length > 1 && "md:grid-cols-2"
+                            } gap-8 h-fit`}
+                        >
                             {images.map((image) => (
                                 <img
                                     key={image.id}
@@ -47,16 +51,35 @@ export default function Page() {
                                 <p className="pl-4">Una vez la tocas, notarás la diferencia</p>
                             </nav>
                             <div className="p-4">
-                                <p>Item: {product.product_id.split("-")[0]}</p>
-                                <h1 className="text-4xl uppercase font-medium">
-                                    {product.product_name}
-                                </h1>
-                                <p className="text-xl">
-                                    $
-                                    {parseInt(
-                                        product.sizes[0].ProductSize.product_price
-                                    ).toLocaleString("es-CO")}
-                                </p>
+                                <div className="space-y-1">
+                                    <p className="text-sm text-base-content/80">
+                                        Item: {product.product_id.split("-")[0]}
+                                    </p>
+                                    <div>
+                                        <h1 className="text-4xl uppercase font-medium">
+                                            {product.product_name}
+                                        </h1>
+                                        <p className="text-xl">
+                                            $
+                                            {parseInt(
+                                                product.sizes[
+                                                    product.sizes.findIndex(
+                                                        (s) => s.size_id === currentSize
+                                                    ) || 0
+                                                ]?.ProductSize.product_price ||
+                                                    product.sizes[0].ProductSize.product_price
+                                            ).toLocaleString("es-CO")}
+                                        </p>
+                                    </div>
+                                    <div className="flex items-center gap-2">
+                                        <p>Color</p>
+                                        <div
+                                            className="w-5 h-5 rounded-full border-2 border-base-content tooltip tooltip-bottom"
+                                            style={{ backgroundColor: product.product_color }}
+                                            data-tip={product.product_color}
+                                        ></div>
+                                    </div>
+                                </div>
                                 <hr className="border-base-content/50 my-5" />
                                 <div className="space-y-4">
                                     <div className="space-y-2">
@@ -66,11 +89,11 @@ export default function Page() {
                                                 <button
                                                     key={s.size_id}
                                                     className={`join-item btn shadow-none ${
-                                                        currentSize === s.size_slug
+                                                        currentSize === s.size_id
                                                             ? "bg-base-200"
                                                             : "bg-base-300"
                                                     }`}
-                                                    onClick={() => setCurrentSize(s.size_slug)}
+                                                    onClick={() => setCurrentSize(s.size_id)}
                                                 >
                                                     {s.size_slug}
                                                 </button>

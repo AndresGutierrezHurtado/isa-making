@@ -34,6 +34,16 @@ export async function PUT(request, { params }) {
         const { id } = await params;
         const { user: userJSON } = await request.json();
 
+        if (!userJSON) {
+            return NextResponse.json(
+                {
+                    success: false,
+                    message: "No se proporcionaron datos para actualizar el usuario",
+                },
+                { status: 400 }
+            );
+        }
+
         const user = await User.findByPk(id);
 
         if (!user) {

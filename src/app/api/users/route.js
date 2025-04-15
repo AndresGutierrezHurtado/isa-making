@@ -14,18 +14,24 @@ export async function GET(request) {
             limit,
         });
 
-        return NextResponse.json({
-            success: true,
-            data,
-            total,
-            message: "Usuarios obtenidos correctamente",
-        }, { status: 200 });
+        return NextResponse.json(
+            {
+                success: true,
+                data,
+                total,
+                message: "Usuarios obtenidos correctamente",
+            },
+            { status: 200 }
+        );
     } catch (error) {
         console.error(error);
-        return NextResponse.json({
-            success: false,
-            message: "Error al obtener los usuarios",
-        }, { status: 500 });
+        return NextResponse.json(
+            {
+                success: false,
+                message: "Error al obtener los usuarios",
+            },
+            { status: 500 }
+        );
     }
 }
 
@@ -33,18 +39,34 @@ export async function POST(request) {
     try {
         const { user: userJSON } = await request.json();
 
+        if (!userJSON) {
+            return NextResponse.json(
+                {
+                    success: false,
+                    message: "No se proporcionaron datos para crear el usuario",
+                },
+                { status: 400 }
+            );
+        }
+
         const user = await User.create(userJSON);
 
-        return NextResponse.json({
-            success: true,
-            data: user,
-            message: "Usuario creado correctamente",
-        }, { status: 201 });
+        return NextResponse.json(
+            {
+                success: true,
+                data: user,
+                message: "Usuario creado correctamente",
+            },
+            { status: 201 }
+        );
     } catch (error) {
         console.error(error);
-        return NextResponse.json({
-            success: false,
-            message: "Error al crear el usuario: " + error.message,
-        }, { status: 500 });
+        return NextResponse.json(
+            {
+                success: false,
+                message: "Error al crear el usuario: " + error.message,
+            },
+            { status: 500 }
+        );
     }
 }

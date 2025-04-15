@@ -16,9 +16,9 @@ import {
 } from "@/database/models";
 
 export async function GET(request) {
-    const users = await User.findAll();
+    const users = await User.findAll({ paranoid: false });
     const roles = await Role.findAll();
-    const products = await Product.findAll();
+    const products = await Product.findAll({ paranoid: false });
     const medias = await Media.findAll();
     const categories = await Category.findAll();
     const sizes = await Size.findAll();
