@@ -20,6 +20,7 @@ const OrderProduct = require("./orderproduct")(sequelize, Sequelize.DataTypes);
 const ShippingHistory = require("./shippinghistory")(sequelize, Sequelize.DataTypes);
 const PaymentDetail = require("./paymentdetail")(sequelize, Sequelize.DataTypes);
 const ShippingDetail = require("./shippingdetail")(sequelize, Sequelize.DataTypes);
+const Cart = require("./cart")(sequelize, Sequelize.DataTypes);
 
 Role.hasMany(User, { foreignKey: "role_id", as: "users" });
 User.belongsTo(Role, { foreignKey: "role_id", as: "role" });
@@ -35,6 +36,15 @@ Size.belongsToMany(Product, { through: ProductSize, foreignKey: "size_id", as: "
 
 Product.hasMany(OrderProduct, { foreignKey: "product_id", as: "orders" });
 OrderProduct.belongsTo(Product, { foreignKey: "product_id", as: "product" });
+
+Product.hasMany(Cart, { foreignKey: "product_id", as: "carts" });
+Cart.belongsTo(Product, { foreignKey: "product_id", as: "product" });
+
+User.hasMany(Cart, { foreignKey: "user_id", as: "carts" });
+Cart.belongsTo(User, { foreignKey: "user_id", as: "user" });
+
+Size.hasMany(Cart, { foreignKey: "size_id", as: "carts" });
+Cart.belongsTo(Size, { foreignKey: "size_id", as: "size" });
 
 User.hasMany(Order, { foreignKey: "user_id", as: "orders" });
 Order.belongsTo(User, { foreignKey: "user_id", as: "user" });
@@ -66,5 +76,5 @@ module.exports = {
     ShippingDetail,
     ProductCategory,
     ProductSize,
+    Cart,
 };
-
