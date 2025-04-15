@@ -9,13 +9,24 @@ export async function GET(request, { params }) {
             where: {
                 user_id: id,
             },
-            include: [{ model: Product, as: "product", include: ["sizes"] }, "size"],
+            include: [{ model: Product, as: "product", include: ["sizes", "categories"] }, "size"],
+        });
+
+        const cartsJSON = carts.map((cart) => cart.toJSON());
+
+        const cart = cartsJSON.map(({ product, ...cart }) => {
+            const { sizes, ...fproduct } = product;
+            return {
+                ...cart,
+                product: fproduct,
+                size: sizes.find((size) => size.size_id === cart.size_id),
+            };
         });
 
         return NextResponse.json(
             {
                 success: true,
-                data: carts,
+                data: cart,
                 message: "Carrito obtenido correctamente",
             },
             { status: 200 }
@@ -95,6 +106,7 @@ export async function PUT(request, { params }) {
                 product_id,
                 size_id,
             },
+            include: ["product"]
         });
 
         if (!cart) {
@@ -107,10 +119,24 @@ export async function PUT(request, { params }) {
             );
         }
 
-        await cart.update({
-            product_quantity:
-                action === "increment" ? cart.product_quantity + 1 : cart.product_quantity - 1,
-        });
+        if (action === "increment" && cart.product_quantity >= cart.product.product_stock) {
+            return NextResponse.json(
+                {
+                    success: false,
+                    message: "No hay stock suficiente",
+                },
+                { status: 400 }
+            );
+        }
+
+        if (action === "increment") {
+            await cart.increment("product_quantity", { by: 1 });
+        } else if (action === "decrement" && cart.product_quantity > 1) {
+            await cart.decrement("product_quantity", { by: 1 });
+        } else if (action === "decrement" && cart.product_quantity === 1) {
+            await cart.destroy();
+        }
+
 
         return NextResponse.json(
             {
