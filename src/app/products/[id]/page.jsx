@@ -1,15 +1,19 @@
 "use client";
 
 import { useState } from "react";
-import { useGetData } from "@/hooks/useClientData";
+import { useGetData, usePostData } from "@/hooks/useClientData";
 import { useParams } from "next/navigation";
 import { BoxIcon, ClockIcon, ArrowLeftRightIcon, CreditCardIcon } from "@/components/icons";
 import Markdown from "react-markdown";
+import { useSession } from "next-auth/react";
+import Swal from "sweetalert2";
 
 export default function Page() {
     const { id } = useParams();
     const [currentSize, setCurrentSize] = useState(null);
     const { data: product, loading: productLoading } = useGetData(`/products/${id}`);
+    const { data: session } = useSession();
+    const userSession = session?.user;
 
     if (productLoading) return <div>Loading...</div>;
 
@@ -25,6 +29,28 @@ export default function Page() {
             alt: product.product_name + " " + index,
         })),
     ];
+
+    const handleAddToCart = async () => {
+        if (!userSession) {
+            return Swal.fire({
+                title: "Inicia sesión para agregar al carrito",
+                icon: "warning",
+                confirmButtonText: "Iniciar sesión",
+            });
+        }
+
+        if (!currentSize) {
+            return Swal.fire({
+                title: "Selecciona una talla",
+                icon: "warning",
+            });
+        }
+
+        await usePostData(`/users/${userSession.user_id}/cart`, {
+            product_id: product.product_id,
+            size_id: currentSize,
+        });
+    };
 
     return (
         <>
@@ -101,7 +127,10 @@ export default function Page() {
                                         </div>
                                     </div>
 
-                                    <button className="btn w-full btn-primary text-lg">
+                                    <button
+                                        onClick={handleAddToCart}
+                                        className="btn w-full btn-primary text-lg"
+                                    >
                                         Agregar al carrito
                                     </button>
 
