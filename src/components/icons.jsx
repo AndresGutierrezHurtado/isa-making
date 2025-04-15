@@ -4,6 +4,7 @@ import {
     FaYoutube as YoutubeIcon,
     FaWhatsapp as WhatsappIcon,
     FaShoppingCart as ShoppingCartIcon,
+    FaTrash as TrashIcon,
 } from "react-icons/fa";
 import { BsBoxSeam as BoxIcon } from "react-icons/bs";
 import { FaShippingFast as ShippingIcon } from "react-icons/fa";
@@ -29,4 +30,5 @@ export {
     ClockIcon,
     ArrowLeftRightIcon,
     CreditCardIcon,
+    TrashIcon,
 };

@@ -1,8 +1,8 @@
 import Link from "next/link";
 import React from "react";
 
-export default function page({ searchParams }) {
-    const error = searchParams.error;
+export default async function page({ searchParams }) {
+    const { error } = await searchParams;
     return (
         <div className="hero bg-base-100 min-h-screen">
             <div className="hero-content text-center">
