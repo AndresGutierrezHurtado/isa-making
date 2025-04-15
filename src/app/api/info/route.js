@@ -13,6 +13,7 @@ import {
     ShippingDetail,
     ProductCategory,
     ProductSize,
+    Cart,
 } from "@/database/models";
 
 export async function GET(request) {
@@ -24,6 +25,7 @@ export async function GET(request) {
     const sizes = await Size.findAll();
     const productSizes = await ProductSize.findAll();
     const productCategories = await ProductCategory.findAll();
+    const carts = await Cart.findAll();
     const orders = await Order.findAll();
     const orderProducts = await OrderProduct.findAll();
     const paymentDetails = await PaymentDetail.findAll();
@@ -40,6 +42,7 @@ export async function GET(request) {
             categories,
             productCategories,
             productSizes,
+            carts,
             orders,
             orderProducts,
             paymentDetails,

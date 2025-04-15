@@ -1,6 +1,6 @@
 "use strict";
 
-const { users, roles } = require("./data.json");
+const { users, roles, carts } = require("./data.json");
 
 /** @type {import('sequelize-cli').Migration} */
 module.exports = {
@@ -10,6 +10,7 @@ module.exports = {
          */
         if (users.length > 0) await queryInterface.bulkInsert("Users", users, {});
         if (roles.length > 0) await queryInterface.bulkInsert("Roles", roles, {});
+        if (carts.length > 0) await queryInterface.bulkInsert("Carts", carts, {});
     },
 
     async down(queryInterface, Sequelize) {
@@ -18,5 +19,6 @@ module.exports = {
          */
         if (users.length > 0) await queryInterface.bulkDelete("Users", null, {});
         if (roles.length > 0) await queryInterface.bulkDelete("Roles", null, {});
+        if (carts.length > 0) await queryInterface.bulkDelete("Carts", null, {});
     },
 };
