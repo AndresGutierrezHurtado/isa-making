@@ -9,7 +9,7 @@ import authOptions from "@/lib/authOptions";
 export default async function Header() {
     const session = await getServerSession(authOptions);
     return (
-        <header className="w-full bg-base-content text-base-100 px-3">
+        <header className="w-full bg-base-content text-base-100 px-3 sticky top-0 z-50 shadow">
             <div className="w-full max-w-[1300px] mx-auto py-2">
                 <nav className="w-full navbar p-0">
                     <div className="navbar-start">
