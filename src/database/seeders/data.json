@@ -54,6 +54,76 @@
             "createdAt": "2025-04-01T10:00:00",
             "updatedAt": "2025-04-01T10:00:00",
             "deletedAt": null
+        },
+        {
+            "product_id": "8b3d76d6-093f-4a1e-8c94-ea8f2f4c300c",
+            "product_name": "Buzo Rojo",
+            "product_description": "### Buzo Cálido y Cómodo\n\n**Descripción del producto:**\n\nEl buzo cálido y cómodo es perfecto para climas fríos o para un look urbano. Confeccionado con materiales de alta durabilidad, este buzo es ideal para aquellos que buscan comodidad y estilo.\n\n**Características:**\n\n* Cálido y cómodo\n* Confeccionado con materiales de alta durabilidad\n* Perfecto para climas fríos o para un look urbano",
+            "product_image": "https://b2cmattelsa.vtexassets.com/arquivos/ids/656972-500-748?v=638799789223830000&width=500&height=748&aspect=true",
+            "product_color": "#B0B0B0",
+            "createdAt": "2025-04-14T00:25:53",
+            "updatedAt": "2025-04-14T00:25:53",
+            "deletedAt": null
+        },
+        {
+            "product_id": "c54bc73e-25a5-45e4-bb54-08e2cb8e1299",
+            "product_name": "Pantalón Cargo Verde",
+            "product_description": "Pantalón estilo cargo con múltiples bolsillos. Perfecto para un look urbano y funcional. **ESPECIFICACIONES** * **Material**: 98% Algodón, 2% Elastano * **Características**: + Corte recto + Bolsillos laterales + Tela resistente * **Composición y cuidados**: + Lavar con colores similares + No usar blanqueador + No usar secadora",
+            "product_image": "https://b2cmattelsa.vtexassets.com/arquivos/ids/656908-500-748?v=638799815040770000&width=500&height=748&aspect=true",
+            "product_color": "#556B2F",
+            "createdAt": "2025-04-01T10:00:00",
+            "updatedAt": "2025-04-01T10:00:00",
+            "deletedAt": null
+        },
+        {
+            "product_id": "aa45e4fc-fecb-4f1a-917d-f837bf290fe3",
+            "product_name": "Tank Top Negra",
+            "product_description": "Tank top liviana y cómoda, ideal para entrenamientos o climas cálidos. **ESPECIFICACIONES** * **Material**: 100% Algodón * **Características**: + Sin mangas + Corte ajustado + Transpirable * **Composición y cuidados**: + Lavar con agua fría + No usar secadora + No planchar sobre el estampado",
+            "product_image": "https://b2cmattelsa.vtexassets.com/arquivos/ids/656884-500-748?v=638799785632570000&width=500&height=748&aspect=true",
+            "product_color": "#000000",
+            "createdAt": "2025-04-01T10:00:00",
+            "updatedAt": "2025-04-01T10:00:00",
+            "deletedAt": null
+        },
+        {
+            "product_id": "2c404ff9-bc15-4be0-a6fc-d84382c12e94",
+            "product_name": "Camiseta Oversize",
+            "product_description": "Camiseta de alta calidad y estilo moderno. Ideal para uso diario o casual.",
+            "product_image": "https://b2cmattelsa.vtexassets.com/arquivos/ids/657667-500-748?v=638800013612600000&width=500&height=748&aspect=true",
+            "product_color": "#D3D3D3",
+            "createdAt": "2025-04-14T00:25:53",
+            "updatedAt": "2025-04-14T00:25:53",
+            "deletedAt": null
+        },
+        {
+            "product_id": "10bc699f-2f6f-42fd-b65e-493a76eb010b",
+            "product_name": "Pantalón Beige",
+            "product_description": "Pantalón de alta calidad y estilo moderno. Ideal para uso diario o casual.",
+            "product_image": "https://b2cmattelsa.vtexassets.com/arquivos/ids/656696-500-748?v=638799814481670000&width=500&height=748&aspect=true",
+            "product_color": "#F5F5F5",
+            "createdAt": "2025-04-14T00:25:53",
+            "updatedAt": "2025-04-14T00:25:53",
+            "deletedAt": null
+        },
+        {
+            "product_id": "e45d83a1-d989-4308-b58a-46095f4fc99c",
+            "product_name": "Shorts Beige",
+            "product_description": "Shorts frescos y modernos, ideales para el clima cálido. Diseño cómodo con materiales resistentes.",
+            "product_image": "https://b2cmattelsa.vtexassets.com/arquivos/ids/657404-500-748?v=638799789773870000&width=500&height=748&aspect=true",
+            "product_color": "#F5F5F5",
+            "createdAt": "2025-04-14T00:25:53",
+            "updatedAt": "2025-04-14T00:25:53",
+            "deletedAt": null
+        },
+        {
+            "product_id": "723c7c69-6223-4a4f-8823-b20f2d1f30a6",
+            "product_name": "Camiseta Negra",
+            "product_description": "Camiseta casual y versátil, confeccionada en algodón suave con ajuste cómodo. Perfecta para cualquier ocasión.",
+            "product_image": "https://b2cmattelsa.vtexassets.com/arquivos/ids/657432-500-748?v=638799782771170000&width=500&height=748&aspect=true",
+            "product_color": "#000000",
+            "createdAt": "2025-04-14T00:25:53",
+            "updatedAt": "2025-04-14T00:25:53",
+            "deletedAt": null
         }
     ],
     "sizes": [
@@ -149,6 +219,62 @@
         {
             "product_id": "b0abc550-c22b-4cca-bd50-62fc128512c6",
             "category_id": 6
+        },
+        {
+            "product_id": "8b3d76d6-093f-4a1e-8c94-ea8f2f4c300c",
+            "category_id": 5
+        },
+        {
+            "product_id": "8b3d76d6-093f-4a1e-8c94-ea8f2f4c300c",
+            "category_id": 6
+        },
+        {
+            "product_id": "c54bc73e-25a5-45e4-bb54-08e2cb8e1299",
+            "category_id": 2
+        },
+        {
+            "product_id": "c54bc73e-25a5-45e4-bb54-08e2cb8e1299",
+            "category_id": 3
+        },
+        {
+            "product_id": "aa45e4fc-fecb-4f1a-917d-f837bf290fe3",
+            "category_id": 1
+        },
+        {
+            "product_id": "aa45e4fc-fecb-4f1a-917d-f837bf290fe3",
+            "category_id": 6
+        },
+        {
+            "product_id": "2c404ff9-bc15-4be0-a6fc-d84382c12e94",
+            "category_id": 1
+        },
+        {
+            "product_id": "aa45e4fc-fecb-4f1a-917d-f837bf290fe3",
+            "category_id": 4
+        },
+        {
+            "product_id": "10bc699f-2f6f-42fd-b65e-493a76eb010b",
+            "category_id": 2
+        },
+        {
+            "product_id": "10bc699f-2f6f-42fd-b65e-493a76eb010b",
+            "category_id": 5
+        },
+        {
+            "product_id": "e45d83a1-d989-4308-b58a-46095f4fc99c",
+            "category_id": 3
+        },
+        {
+            "product_id": "e45d83a1-d989-4308-b58a-46095f4fc99c",
+            "category_id": 6
+        },
+        {
+            "product_id": "723c7c69-6223-4a4f-8823-b20f2d1f30a6",
+            "category_id": 1
+        },
+        {
+            "product_id": "723c7c69-6223-4a4f-8823-b20f2d1f30a6",
+            "category_id": 6
         }
     ],
     "productSizes": [
@@ -179,6 +305,213 @@
         },
         {
             "product_id": "b0abc550-c22b-4cca-bd50-62fc128512c6",
+            "size_id": 6,
+            "product_price": 80000
+        },
+        {
+            "product_id": "8b3d76d6-093f-4a1e-8c94-ea8f2f4c300c",
+            "size_id": 1,
+            "product_price": 80000
+        },
+        {
+            "product_id": "8b3d76d6-093f-4a1e-8c94-ea8f2f4c300c",
+            "size_id": 2,
+            "product_price": 80000
+        },
+        {
+            "product_id": "8b3d76d6-093f-4a1e-8c94-ea8f2f4c300c",
+            "size_id": 3,
+            "product_price": 80000
+        },
+        {
+            "product_id": "8b3d76d6-093f-4a1e-8c94-ea8f2f4c300c",
+            "size_id": 4,
+            "product_price": 80000
+        },
+        {
+            "product_id": "8b3d76d6-093f-4a1e-8c94-ea8f2f4c300c",
+            "size_id": 5,
+            "product_price": 80000
+        },
+        {
+            "product_id": "8b3d76d6-093f-4a1e-8c94-ea8f2f4c300c",
+            "size_id": 6,
+            "product_price": 80000
+        },
+        {
+            "product_id": "c54bc73e-25a5-45e4-bb54-08e2cb8e1299",
+            "size_id": 1,
+            "product_price": 80000
+        },
+        {
+            "product_id": "c54bc73e-25a5-45e4-bb54-08e2cb8e1299",
+            "size_id": 2,
+            "product_price": 80000
+        },
+        {
+            "product_id": "c54bc73e-25a5-45e4-bb54-08e2cb8e1299",
+            "size_id": 3,
+            "product_price": 80000
+        },
+        {
+            "product_id": "c54bc73e-25a5-45e4-bb54-08e2cb8e1299",
+            "size_id": 4,
+            "product_price": 80000
+        },
+        {
+            "product_id": "c54bc73e-25a5-45e4-bb54-08e2cb8e1299",
+            "size_id": 5,
+            "product_price": 80000
+        },
+        {
+            "product_id": "c54bc73e-25a5-45e4-bb54-08e2cb8e1299",
+            "size_id": 6,
+            "product_price": 80000
+        },
+        {
+            "product_id": "aa45e4fc-fecb-4f1a-917d-f837bf290fe3",
+            "size_id": 1,
+            "product_price": 80000
+        },
+        {
+            "product_id": "aa45e4fc-fecb-4f1a-917d-f837bf290fe3",
+            "size_id": 2,
+            "product_price": 80000
+        },
+        {
+            "product_id": "aa45e4fc-fecb-4f1a-917d-f837bf290fe3",
+            "size_id": 3,
+            "product_price": 80000
+        },
+        {
+            "product_id": "aa45e4fc-fecb-4f1a-917d-f837bf290fe3",
+            "size_id": 4,
+            "product_price": 80000
+        },
+        {
+            "product_id": "aa45e4fc-fecb-4f1a-917d-f837bf290fe3",
+            "size_id": 5,
+            "product_price": 80000
+        },
+        {
+            "product_id": "aa45e4fc-fecb-4f1a-917d-f837bf290fe3",
+            "size_id": 6,
+            "product_price": 80000
+        },
+        {
+            "product_id": "2c404ff9-bc15-4be0-a6fc-d84382c12e94",
+            "size_id": 1,
+            "product_price": 80000
+        },
+        {
+            "product_id": "2c404ff9-bc15-4be0-a6fc-d84382c12e94",
+            "size_id": 2,
+            "product_price": 80000
+        },
+        {
+            "product_id": "2c404ff9-bc15-4be0-a6fc-d84382c12e94",
+            "size_id": 3,
+            "product_price": 80000
+        },
+        {
+            "product_id": "2c404ff9-bc15-4be0-a6fc-d84382c12e94",
+            "size_id": 4,
+            "product_price": 80000
+        },
+        {
+            "product_id": "2c404ff9-bc15-4be0-a6fc-d84382c12e94",
+            "size_id": 5,
+            "product_price": 80000
+        },
+        {
+            "product_id": "10bc699f-2f6f-42fd-b65e-493a76eb010b",
+            "size_id": 1,
+            "product_price": 80000
+        },
+        {
+            "product_id": "10bc699f-2f6f-42fd-b65e-493a76eb010b",
+            "size_id": 2,
+            "product_price": 80000
+        },
+        {
+            "product_id": "10bc699f-2f6f-42fd-b65e-493a76eb010b",
+            "size_id": 3,
+            "product_price": 80000
+        },
+        {
+            "product_id": "10bc699f-2f6f-42fd-b65e-493a76eb010b",
+            "size_id": 4,
+            "product_price": 80000
+        },
+        {
+            "product_id": "10bc699f-2f6f-42fd-b65e-493a76eb010b",
+            "size_id": 5,
+            "product_price": 80000
+        },
+        {
+            "product_id": "10bc699f-2f6f-42fd-b65e-493a76eb010b",
+            "size_id": 6,
+            "product_price": 80000
+        },
+
+        {
+            "product_id": "e45d83a1-d989-4308-b58a-46095f4fc99c",
+            "size_id": 1,
+            "product_price": 80000
+        },
+        {
+            "product_id": "e45d83a1-d989-4308-b58a-46095f4fc99c",
+            "size_id": 2,
+            "product_price": 80000
+        },
+        {
+            "product_id": "e45d83a1-d989-4308-b58a-46095f4fc99c",
+            "size_id": 3,
+            "product_price": 80000
+        },
+        {
+            "product_id": "e45d83a1-d989-4308-b58a-46095f4fc99c",
+            "size_id": 4,
+            "product_price": 80000
+        },
+        {
+            "product_id": "e45d83a1-d989-4308-b58a-46095f4fc99c",
+            "size_id": 5,
+            "product_price": 80000
+        },
+        {
+            "product_id": "e45d83a1-d989-4308-b58a-46095f4fc99c",
+            "size_id": 6,
+            "product_price": 80000
+        },
+
+        {
+            "product_id": "723c7c69-6223-4a4f-8823-b20f2d1f30a6",
+            "size_id": 1,
+            "product_price": 80000
+        },
+        {
+            "product_id": "723c7c69-6223-4a4f-8823-b20f2d1f30a6",
+            "size_id": 2,
+            "product_price": 80000
+        },
+        {
+            "product_id": "723c7c69-6223-4a4f-8823-b20f2d1f30a6",
+            "size_id": 3,
+            "product_price": 80000
+        },
+        {
+            "product_id": "723c7c69-6223-4a4f-8823-b20f2d1f30a6",
+            "size_id": 4,
+            "product_price": 80000
+        },
+        {
+            "product_id": "723c7c69-6223-4a4f-8823-b20f2d1f30a6",
+            "size_id": 5,
+            "product_price": 80000
+        },
+        {
+            "product_id": "723c7c69-6223-4a4f-8823-b20f2d1f30a6",
             "size_id": 6,
             "product_price": 80000
         }
