@@ -63,12 +63,14 @@ export const authOptions = {
             return true;
         },
         async session({ session, user }) {
-            session.user = await User.findOne({
+            const dbUser = await User.findOne({
                 where: {
                     user_email: user?.email || session.user.email,
                 },
                 include: ["role"],
             });
+
+            session.user = dbUser.toJSON();
             return session;
         },
         async redirect({ baseUrl }) {
