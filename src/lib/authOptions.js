@@ -47,7 +47,6 @@ export const authOptions = {
     callbacks: {
         async signIn({ account, profile }) {
             if (account.provider === "google") {
-                console.log(profile);
                 await User.findOrCreate({
                     where: {
                         user_email: profile.email,

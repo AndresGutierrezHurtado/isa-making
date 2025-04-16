@@ -38,7 +38,6 @@ export default function Page() {
     const handleSubmit = () => {
         const $form = document.querySelector("form");
         const data = Object.fromEntries(new FormData($form));
-        console.log(data);
         const validation = useValidateForm("checkout-form", data);
 
         if (!validation.success) return;

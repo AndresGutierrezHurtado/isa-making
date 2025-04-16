@@ -14,6 +14,7 @@ import { useValidateForm } from "@/hooks/useValidateForm";
 import Swal from "sweetalert2";
 import { useRouter } from "next/navigation";
 import Image from "next/image";
+import Link from "next/link";
 
 export default function Profile() {
     const router = useRouter();
@@ -197,30 +198,70 @@ export default function Profile() {
                                             No has realizado ningún pedido
                                         </p>
                                     )}
-                                    {orders.map((order) => (
-                                        <div
-                                            key={order.order_id}
-                                            className="border border-base-300 p-5 rounded-lg w-full"
-                                        >
-                                            <div className="flex justify-between w-full">
-                                                <p>Pedido #1234567890</p>
-                                                <p>15/04/2025</p>
-                                            </div>
-                                            <div>
-                                                <p>Numero de pedido: 1234567890</p>
-                                                <div className="flex justify-between">
-                                                    <p>Cantidad: 1</p>
-                                                    <p>Total: 100</p>
+                                    {orders.map(({ products, payment, shipping, ...order }) => {
+                                        const totalProducts = products.reduce(
+                                            (total, p) => total + p.product_quantity,
+                                            0
+                                        );
+                                        return (
+                                            <div
+                                                key={order.order_id}
+                                                className="border border-base-300 p-5 rounded-lg w-full space-y-3"
+                                            >
+                                                <div className="flex items-center justify-between w-full">
+                                                    <p className="text-xl">
+                                                        Pedido {order.order_id.split("-")[0]}
+                                                    </p>
+                                                    <p>
+                                                        {new Date(
+                                                            order.createdAt
+                                                        ).toLocaleDateString()}
+                                                    </p>
+                                                </div>
+                                                <div className="space-y-1">
+                                                    {shipping.shipping_guide ? (
+                                                        <Link
+                                                            href={`https://www.interrapidisimo.com/tracking/${shipping.shipping_guide}`}
+                                                            target="_blank"
+                                                        >
+                                                            <p>
+                                                                Numero de envio:{" "}
+                                                                {shipping.shipping_guide}
+                                                            </p>
+                                                        </Link>
+                                                    ) : (
+                                                        <p>Numero de envio: pendiente</p>
+                                                    )}
+                                                    <div className="flex justify-between">
+                                                        <p>Cantidad: {totalProducts}</p>
+                                                        <p>
+                                                            Total:{" "}
+                                                            {parseInt(
+                                                                payment.payment_amount
+                                                            ).toLocaleString("es-CO")}{" "}
+                                                            COP
+                                                        </p>
+                                                    </div>
+                                                </div>
+                                                <div className="flex items-center justify-between">
+                                                    <Link href={`/orders/${order.order_id}`}>
+                                                        <button className="btn btn-sm btn-primary btn-outline text-base font-normal">
+                                                            Ver detalles
+                                                        </button>
+                                                    </Link>
+                                                    {order.order_state == "completed" ? (
+                                                        <div className="badge badge-success badge-soft border-[1px_solid_var(--color-success)_!important]">
+                                                            Completado
+                                                        </div>
+                                                    )   : (
+                                                        <div className="badge badge-warning badge-soft border-[1px_solid_var(--color-warning)_!important]">
+                                                            Pendiente
+                                                        </div>
+                                                    )}
                                                 </div>
                                             </div>
-                                            <div className="flex items-center justify-between">
-                                                <button className="btn btn-outline">
-                                                    Ver detalles
-                                                </button>
-                                                <p>Pendiente</p>
-                                            </div>
-                                        </div>
-                                    ))}
+                                        );
+                                    })}
                                 </div>
                             </div>
                         </article>

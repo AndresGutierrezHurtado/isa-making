@@ -58,8 +58,6 @@ export async function GET(request) {
             { transaction }
         );
 
-        console.log("payuOrder", payuOrder);
-        console.log("lastTransaction", lastTransaction);
         const paymentDetail = await PaymentDetail.create(
             {
                 order_id: order.order_id,
