@@ -14,6 +14,8 @@ export default function Page() {
         reload,
     } = useGetData(`/users/${userSession?.user_id}/cart`);
 
+    if (cartLoading || status === "loading") return <p>Cargando...</p>;
+
     const totalProducts = cart?.reduce((acc, product) => acc + product.product_quantity, 0);
     const totalPrice = cart?.reduce(
         (acc, product) => acc + product.size.ProductSize.product_price * product.product_quantity,
@@ -31,8 +33,6 @@ export default function Page() {
             reload();
         }
     };
-
-    if (cartLoading || status === "loading") return <p>Cargando...</p>;
 
     return (
         <>
@@ -98,7 +98,7 @@ export default function Page() {
                                                 }
                                                 className="btn btn-primary"
                                             >
-                                                <p>Agregar</p>
+                                                <p>Aumentar</p>
                                             </button>
                                             <input
                                                 type="text"
@@ -114,8 +114,9 @@ export default function Page() {
                                                         "decrement"
                                                     )
                                                 }
-                                                className="btn btn-primary">
-                                                <p>Eliminar</p>
+                                                className="btn btn-primary"
+                                            >
+                                                <p>Disminuir</p>
                                             </button>
                                         </div>
                                     </article>
@@ -125,8 +126,11 @@ export default function Page() {
                         <div className="w-full md:w-1/3 space-y-5">
                             <div className="w-full bg-base-200">
                                 <div className="w-full p-4 bg-base-300">
-                                    <button className="btn w-full text-lg">
-                                        <Link href="/checkout">
+                                    <button
+                                        className="btn w-full text-lg"
+                                        disabled={cart?.length === 0}
+                                    >
+                                        <Link href={cart?.length > 0 ? "/checkout" : "/"}>
                                             <p>Continuar con la compra</p>
                                         </Link>
                                     </button>

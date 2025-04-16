@@ -17,6 +17,7 @@
     "dependencies": {
         "@uiw/react-md-editor": "^4.0.5",
         "bcrypt": "^5.1.1",
+        "crypto": "^1.0.1",
         "mysql2": "^3.14.0",
         "next": "15.3.0",
         "next-auth": "^4.24.11",
