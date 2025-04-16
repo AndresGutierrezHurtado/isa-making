@@ -14,7 +14,7 @@ module.exports = {
             },
             shipping_guide: {
                 type: Sequelize.STRING,
-                allowNull: false,
+                allowNull: true,
             },
             shipping_courier: {
                 type: Sequelize.ENUM("interrapidisimo", "fedex"),
@@ -22,11 +22,11 @@ module.exports = {
             },
             tracking_url: {
                 type: Sequelize.STRING,
-                allowNull: false,
+                allowNull: true,
             },
             shipping_estimated: {
                 type: Sequelize.DATE,
-                allowNull: false,
+                allowNull: true,
             },
             createdAt: {
                 allowNull: false,

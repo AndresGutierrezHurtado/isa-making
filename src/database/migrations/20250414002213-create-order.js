@@ -13,13 +13,8 @@ module.exports = {
                 allowNull: false,
             },
             order_state: {
-                type: Sequelize.ENUM(
-                    "pendiente",
-                    "confirmado",
-                    "preparando",
-                    "enviando",
-                    "entregado"
-                ),
+                type: Sequelize.ENUM("pending", "approved"),
+                defaultValue: "pending",
                 allowNull: false,
             },
             createdAt: {

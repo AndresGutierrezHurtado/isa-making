@@ -37,6 +37,9 @@ Size.belongsToMany(Product, { through: ProductSize, foreignKey: "size_id", as: "
 Product.hasMany(OrderProduct, { foreignKey: "product_id", as: "orders" });
 OrderProduct.belongsTo(Product, { foreignKey: "product_id", as: "product" });
 
+Size.hasMany(OrderProduct, { foreignKey: "size_id", as: "orders" });
+OrderProduct.belongsTo(Size, { foreignKey: "size_id", as: "size" });
+
 Product.hasMany(Cart, { foreignKey: "product_id", as: "carts" });
 Cart.belongsTo(Product, { foreignKey: "product_id", as: "product" });
 

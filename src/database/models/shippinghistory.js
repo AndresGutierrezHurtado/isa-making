@@ -14,7 +14,7 @@ module.exports = (sequelize, DataTypes) => {
                 allowNull: false,
             },
             shipping_state: {
-                type: DataTypes.STRING,
+                type: DataTypes.ENUM("pending", "ready", "recoding", "shipping", "delivered"),
                 allowNull: false,
             },
         },

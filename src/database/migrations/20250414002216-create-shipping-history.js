@@ -14,7 +14,7 @@ module.exports = {
                 allowNull: false,
             },
             shipping_state: {
-                type: Sequelize.STRING,
+                type: Sequelize.ENUM("pending", "ready", "recoding", "shipping", "delivered"),
                 allowNull: false,
             },
             createdAt: {

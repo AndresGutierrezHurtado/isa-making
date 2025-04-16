@@ -15,7 +15,7 @@ module.exports = (sequelize, DataTypes) => {
             },
             shipping_guide: {
                 type: DataTypes.STRING,
-                allowNull: false,
+                allowNull: true,
             },
             shipping_courier: {
                 type: DataTypes.ENUM("interrapidisimo", "fedex"),
@@ -23,11 +23,11 @@ module.exports = (sequelize, DataTypes) => {
             },
             tracking_url: {
                 type: DataTypes.STRING,
-                allowNull: false,
+                allowNull: true,
             },
             shipping_estimated: {
                 type: DataTypes.DATE,
-                allowNull: false,
+                allowNull: true,
             },
         },
         {

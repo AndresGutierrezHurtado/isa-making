@@ -15,8 +15,9 @@ module.exports = (sequelize, DataTypes) => {
                 allowNull: false,
                 primaryKey: true,
             },
-            product_size: {
-                type: DataTypes.STRING,
+            size_id: {
+                type: DataTypes.INTEGER,
+                primaryKey: true,
                 allowNull: false,
             },
             product_price: {

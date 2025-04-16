@@ -42,10 +42,6 @@ module.exports = (sequelize, DataTypes) => {
                 type: DataTypes.STRING,
                 allowNull: false,
             },
-            buyer_phone: {
-                type: DataTypes.STRING,
-                allowNull: false,
-            },
         },
         {
             sequelize,
