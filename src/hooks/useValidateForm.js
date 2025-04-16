@@ -68,6 +68,39 @@ export const useValidateForm = (form, data) => {
                 ),
             });
             break;
+        case "checkout-form":
+            schema = object({
+                payerDocument: pipe(
+                    string("El documento es requerido"),
+                    nonEmpty("El documento es requerido"),
+                    minLength(10, "El documento debe tener al menos 10 caracteres")
+                ),
+                payerDocumentType: pipe(
+                    string("El tipo de documento es requerido"),
+                    nonEmpty("El tipo de documento es requerido")
+                ),
+                payerEmail: pipe(
+                    string("El correo es requerido"),
+                    nonEmpty("El correo es requerido"),
+                    email("Ingresa un correo válido")
+                ),
+                payerFullName: pipe(
+                    string("El nombre es requerido"),
+                    nonEmpty("El nombre es requerido"),
+                    minLength(6, "El nombre debe tener al menos 6 caracteres")
+                ),
+                payerPhone: pipe(
+                    string("El teléfono es requerido"),
+                    nonEmpty("El teléfono es requerido"),
+                    regex(/^[0-9]{10}$/, "El teléfono debe contener exactamente 10 números")
+                ),
+                shippingAddress: pipe(
+                    string("La dirección es requerida"),
+                    nonEmpty("La dirección es requerida"),
+                    minLength(5, "La dirección debe tener al menos 5 caracteres")
+                ),
+            });
+            break;
         default:
             break;
     }

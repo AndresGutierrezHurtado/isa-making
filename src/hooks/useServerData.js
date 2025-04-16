@@ -9,6 +9,7 @@ export const usePostData = async (endpoint, data) => {
         method: "POST",
         body: JSON.stringify(data),
     });
+    return await response.json();
 };
 
 export const usePutData = async (endpoint, data) => {
@@ -16,6 +17,7 @@ export const usePutData = async (endpoint, data) => {
         method: "PUT",
         body: JSON.stringify(data),
     });
+    return await response.json();
 };
 
 export const useDeleteData = async (endpoint, data) => {
@@ -23,4 +25,5 @@ export const useDeleteData = async (endpoint, data) => {
         method: "DELETE",
         body: JSON.stringify(data),
     });
+    return await response.json();
 };

@@ -5,6 +5,7 @@ import crypto from "crypto";
 
 // Hooks
 import { useGetData } from "@/hooks/useClientData";
+import { useValidateForm } from "@/hooks/useValidateForm";
 
 export default function Page() {
     const { data: session, status } = useSession();
@@ -32,7 +33,18 @@ export default function Page() {
     const signatureUncrypted = `${apiKey}~${merchantId}~${referenceCode}~${amount}~${currency}`;
     const signature = crypto.createHash("md5").update(signatureUncrypted).digest("hex");
 
-    const responseUrl = `${process.env.NEXT_PUBLIC_APP_URL}/api/checkout/response`;
+    const responseUrl = `${process.env.NEXT_PUBLIC_URL}/api/orders/callback`;
+
+    const handleSubmit = () => {
+        const $form = document.querySelector("form");
+        const data = Object.fromEntries(new FormData($form));
+        console.log(data);
+        const validation = useValidateForm("checkout-form", data);
+
+        if (!validation.success) return;
+
+        $form.submit();
+    };
 
     return (
         <>
@@ -95,11 +107,11 @@ export default function Page() {
 
                             <fieldset className="fieldset w-full">
                                 <label className="fieldset-label text-base-content/80 text-base">
-                                    Teléfono móvil del pagador:
+                                    Teléfono del pagador:
                                 </label>
                                 <input
-                                    name="payerMobilePhone"
-                                    placeholder="Teléfono móvil del pagador"
+                                    name="payerPhone"
+                                    placeholder="Teléfono del pagador"
                                     className="w-full input input-bordered focus:outline-none focus:border-primary"
                                 />
                             </fieldset>
@@ -158,7 +170,11 @@ export default function Page() {
                             </fieldset>
 
                             <fieldset className="fieldset w-full mt-4">
-                                <button type="submit" className="btn btn-success">
+                                <button
+                                    type="button"
+                                    onClick={handleSubmit}
+                                    className="btn btn-success"
+                                >
                                     Pagar con PayU
                                 </button>
                             </fieldset>
