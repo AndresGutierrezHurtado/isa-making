@@ -13,7 +13,7 @@ import { useValidateForm } from "@/hooks/useValidateForm";
 
 // Components
 import Auth from "@/components/auth";
-import { TrashIcon } from "@/components/icons";
+import { GearIcon, TrashIcon } from "@/components/icons";
 import { IoLogOutOutline } from "react-icons/io5";
 import useSetTitle from "@/hooks/useSetTitle";
 import LoadingComponent from "@/components/loading";
@@ -96,13 +96,23 @@ export default function Profile() {
                                             {userSession.role.role_name}
                                         </span>
                                     </p>
-                                    <button
-                                        className="btn btn-sm btn-outline btn-error"
-                                        onClick={() => signOut({ callbackUrl: "/" })}
-                                    >
-                                        <IoLogOutOutline size={20} />
-                                        Cerrar sesión
-                                    </button>
+                                    <div className="flex gap-2">
+                                        {userSession.role_id === 2 && (
+                                            <Link href="/dashboard/stats">
+                                                <button className="btn btn-sm btn-outline btn-primary">
+                                                    <GearIcon size={15} />
+                                                    Dashboard
+                                                </button>
+                                            </Link>
+                                        )}
+                                        <button
+                                            className="btn btn-sm btn-outline btn-error"
+                                            onClick={() => signOut({ callbackUrl: "/" })}
+                                        >
+                                            <IoLogOutOutline size={20} />
+                                            Cerrar sesión
+                                        </button>
+                                    </div>
                                 </div>
 
                                 <form

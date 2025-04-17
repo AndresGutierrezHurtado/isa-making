@@ -25,7 +25,7 @@ const otomanopeeOne = localFont({
 
 export default function RootLayout({ children }) {
     const pathname = usePathname();
-    const excludedPaths = ["/login", "/register", "/api"];
+    const excludedPaths = ["/login", "/register", "/api", "/dashboard"];
 
     const isExcludedPath = excludedPaths.some((path) => pathname.startsWith(path));
     return (
