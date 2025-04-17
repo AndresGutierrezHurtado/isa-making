@@ -72,18 +72,24 @@ export async function GET(request) {
             { transaction }
         );
 
-        const shippingDetail = await ShippingDetail.create({
-            order_id: order.order_id,
-            shipping_guide: null,
-            shipping_courier: "interrapidisimo",
-            tracking_url: null,
-            shipping_estimated: null,
-        }, { transaction });
+        const shippingDetail = await ShippingDetail.create(
+            {
+                order_id: order.order_id,
+                shipping_guide: null,
+                shipping_courier: "interrapidisimo",
+                tracking_url: null,
+                shipping_estimated: null,
+            },
+            { transaction }
+        );
 
-        const shippingHistory = await ShippingHistory.create({
-            shipping_id: shippingDetail.shipping_id,
-            shipping_state: "pending",
-        }, { transaction });
+        const shippingHistory = await ShippingHistory.create(
+            {
+                shipping_id: shippingDetail.shipping_id,
+                shipping_state: "pending",
+            },
+            { transaction }
+        );
 
         const carts = await Cart.findAll({
             where: {
@@ -101,13 +107,13 @@ export async function GET(request) {
             };
         });
 
-        const cartItems = cart.map((cart) => {
+        const cartItems = cart.map((crt) => {
             return {
                 order_id: order.order_id,
-                product_id: cart.product_id,
-                size_id: cart.size_id,
-                product_quantity: cart.product_quantity,
-                product_price: cart.product.product_price,
+                product_id: crt.product_id,
+                size_id: crt.size_id,
+                product_quantity: crt.product_quantity,
+                product_price: crt.size.ProductSize.product_price,
             };
         });
 
