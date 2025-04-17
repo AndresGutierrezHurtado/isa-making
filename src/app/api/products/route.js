@@ -8,9 +8,24 @@ export async function GET(request) {
         const page = parseInt(searchParams.get("page")) || 1;
         const limit = parseInt(searchParams.get("limit")) || 10;
         const category = parseInt(searchParams.get("category")) || null;
+        const search = searchParams.get("search") || "";
         const offset = (page - 1) * limit;
 
-        const { rows: data, count: total } = await Product.findAndCountAll({
+        const { rows: data } = await Product.findAndCountAll({
+            where: {
+                [Op.or]: [
+                    {
+                        product_name: {
+                            [Op.like]: `%${search}%`,
+                        },
+                    },
+                    {
+                        product_description: {
+                            [Op.like]: `%${search}%`,
+                        },
+                    },
+                ],
+            },
             include: [
                 {
                     model: Category,
@@ -25,6 +40,19 @@ export async function GET(request) {
             ],
             offset,
             limit,
+        });
+
+        const total = await Product.count({
+            where: {
+                [Op.or]: [
+                    {
+                        product_name: { [Op.like]: `%${search}%` },
+                    },
+                    {
+                        product_description: { [Op.like]: `%${search}%` },
+                    },
+                ],
+            },
         });
 
         return NextResponse.json(

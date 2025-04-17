@@ -1,3 +1,5 @@
+"use client";
+
 import { useState, useEffect } from "react";
 import Swal from "sweetalert2";
 
@@ -15,12 +17,14 @@ const fetchData = async (endpoint, options) => {
 
 export const useGetData = (endpoint, options) => {
     const [data, setData] = useState(null);
+    const [total, setTotal] = useState(0);
     const [loading, setLoading] = useState(true);
     const [trigger, setTrigger] = useState(0);
 
     useEffect(() => {
         fetchData(endpoint, options).then((data) => {
             setData(data.data);
+            setTotal(data?.total || 0);
             setLoading(false);
         });
     }, [endpoint, options, trigger]);
@@ -29,7 +33,7 @@ export const useGetData = (endpoint, options) => {
         setTrigger((prev) => prev + 1);
     };
 
-    return { data, loading, reload };
+    return { data, total, loading, reload };
 };
 
 export const usePostData = async (endpoint, data) => {
