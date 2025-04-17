@@ -45,6 +45,27 @@ export async function GET(req) {
             include: ["payment", "products"],
         });
 
+        // ventas de la semana actual
+        const ordersCurrentWeek = await Order.findAll({
+            where: {
+                createdAt: {
+                    [Op.gte]: new Date(new Date().setDate(new Date().getDate() - 7)),
+                },
+            },
+            include: ["payment"],
+        });
+
+        // ventas de la semana pasada
+        const ordersLastWeek = await Order.findAll({
+            where: {
+                createdAt: {
+                    [Op.gte]: new Date(new Date().setDate(new Date().getDate() - 14)),
+                    [Op.lte]: new Date(new Date().setDate(new Date().getDate() - 7)),
+                },
+            },
+            include: ["payment"],
+        });
+
         // categorias mas vendidas
         const categories = await Category.findAll({
             include: [
@@ -73,7 +94,7 @@ export async function GET(req) {
             data: {
                 categories,
                 products,
-                currentMonth: { users, orders },
+                currentMonth: { users, orders, ordersCurrentWeek, ordersLastWeek },
                 lastMonth: { users: usersLastMonth, orders: ordersLastMonth },
             },
             message: "Estadísticas obtenidas correctamente",
