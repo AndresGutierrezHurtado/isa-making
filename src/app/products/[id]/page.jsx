@@ -1,12 +1,17 @@
 "use client";
 
 import { useState } from "react";
-import { useGetData, usePostData } from "@/hooks/useClientData";
 import { useParams } from "next/navigation";
-import { BoxIcon, ClockIcon, ArrowLeftRightIcon, CreditCardIcon } from "@/components/icons";
 import Markdown from "react-markdown";
 import { useSession } from "next-auth/react";
 import Swal from "sweetalert2";
+
+// Hooks
+import { useGetData, usePostData } from "@/hooks/useClientData";
+import useSetTitle from "@/hooks/useSetTitle";
+
+// Components
+import { BoxIcon, ClockIcon, ArrowLeftRightIcon, CreditCardIcon } from "@/components/icons";
 
 export default function Page() {
     const { id } = useParams();
@@ -14,6 +19,8 @@ export default function Page() {
     const { data: product, loading: productLoading } = useGetData(`/products/${id}`);
     const { data: session } = useSession();
     const userSession = session?.user;
+
+    useSetTitle(`${product?.product_name} | ISA Making`);
 
     if (productLoading) return <div>Loading...</div>;
 

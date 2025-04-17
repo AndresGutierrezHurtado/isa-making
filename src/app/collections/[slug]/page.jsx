@@ -1,7 +1,16 @@
-import { Category } from "@/database/models";
 import Link from "next/link";
 import React from "react";
+
+// Database
+import { Category } from "@/database/models";
+
+// Hooks
 import { useGetData } from "@/hooks/useServerData";
+
+export const metadata = {
+    title: "Colección | ISA Making",
+    description: "Colección de ISA Making",
+};
 
 export default async function Page({ params }) {
     const { slug } = await params;

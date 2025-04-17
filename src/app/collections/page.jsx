@@ -2,6 +2,11 @@ import { Category } from "@/database/models";
 import Link from "next/link";
 import React from "react";
 
+export const metadata = {
+    title: "Colecciones | ISA Making",
+    description: "Colecciones de ISA Making",
+};
+
 export default async function Page() {
     const collections = await Category.findAll();
 

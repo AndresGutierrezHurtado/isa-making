@@ -15,6 +15,7 @@ import { useValidateForm } from "@/hooks/useValidateForm";
 import Auth from "@/components/auth";
 import { TrashIcon } from "@/components/icons";
 import { IoLogOutOutline } from "react-icons/io5";
+import useSetTitle from "@/hooks/useSetTitle";
 
 export default function Profile() {
     const router = useRouter();
@@ -59,6 +60,8 @@ export default function Profile() {
             updateSession();
         }
     };
+
+    useSetTitle("Perfil | ISA Making");
 
     if (loading || status === "loading") return <div>Loading...</div>;
     if (status === "unauthenticated") return <Auth />;

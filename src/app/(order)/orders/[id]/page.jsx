@@ -2,6 +2,11 @@ import { useGetData } from "@/hooks/useServerData";
 import Link from "next/link";
 import React from "react";
 
+export const metadata = {
+    title: "Pedido | ISA Making",
+    description: "Pedido de ISA Making",
+};
+
 export default async function Page({ params }) {
     const { id } = await params;
 

@@ -8,9 +8,12 @@ import { signIn } from "next-auth/react";
 // Hooks
 import { usePostData } from "@/hooks/useClientData";
 import { useValidateForm } from "@/hooks/useValidateForm";
+import useSetTitle from "@/hooks/useSetTitle";
 
 export default function Page() {
     const router = useRouter();
+
+    useSetTitle("Registrarme | ISA Making");
 
     const handleSubmit = async (e) => {
         e.preventDefault();

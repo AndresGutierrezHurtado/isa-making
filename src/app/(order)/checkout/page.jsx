@@ -6,10 +6,13 @@ import crypto from "crypto";
 // Hooks
 import { useGetData } from "@/hooks/useClientData";
 import { useValidateForm } from "@/hooks/useValidateForm";
+import useSetTitle from "@/hooks/useSetTitle";
 
 export default function Page() {
     const { data: session, status } = useSession();
     const userSession = session?.user;
+
+    useSetTitle("Checkout | ISA Making");
 
     const { data: cart, loading: cartLoading } = useGetData(`/users/${userSession?.user_id}/cart`);
 

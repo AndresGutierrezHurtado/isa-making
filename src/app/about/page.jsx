@@ -1,5 +1,10 @@
 import React from "react";
 
+export const metadata = {
+    title: "Sobre Nosotros | ISA Making",
+    description: "Sobre Nosotros de ISA Making",
+};
+
 export default function Page() {
     return (
         <section className="w-full px-3">

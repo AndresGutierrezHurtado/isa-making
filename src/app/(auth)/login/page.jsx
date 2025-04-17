@@ -6,8 +6,11 @@ import { signIn } from "next-auth/react";
 
 // Hooks
 import { useValidateForm } from "@/hooks/useValidateForm";
+import useSetTitle from "@/hooks/useSetTitle";
 
 export default function Page() {
+    useSetTitle("Iniciar sesión | ISA Making");
+
     const handleSubmit = (e) => {
         e.preventDefault();
         const data = Object.fromEntries(new FormData(e.target));

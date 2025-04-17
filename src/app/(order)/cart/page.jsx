@@ -1,12 +1,18 @@
 "use client";
-import { useGetData, usePutData } from "@/hooks/useClientData";
-import { useSession } from "next-auth/react";
-import Link from "next/link";
+
 import React from "react";
+import Link from "next/link";
+import { useSession } from "next-auth/react";
+
+// Hooks
+import { useGetData, usePutData } from "@/hooks/useClientData";
+import useSetTitle from "@/hooks/useSetTitle";
 
 export default function Page() {
     const { data: session, status } = useSession();
     const userSession = session?.user;
+
+    useSetTitle("Carrito de compras | ISA Making");
 
     const {
         data: cart,

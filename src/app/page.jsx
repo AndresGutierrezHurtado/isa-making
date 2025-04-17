@@ -2,6 +2,11 @@ import Image from "next/image";
 import Link from "next/link";
 import { Category, Product } from "@/database/models/index";
 
+export const metadata = {
+    title: "Inicio | ISA Making",
+    description: "ISA Making es una tienda de ropa urbana",
+};
+
 export default async function Home() {
     const categories = await Category.findAll({ limit: 4 });
     const products = await Product.findAll({ limit: 8, include: ["sizes"] });
