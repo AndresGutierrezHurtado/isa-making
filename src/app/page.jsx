@@ -13,7 +13,7 @@ export default async function Home() {
 
     return (
         <>
-            <section className="w-full">
+            <section className="w-full min-h-[400px] flex items-center justify-center bg-black">
                 <Image
                     src="/hero-section.jpg"
                     alt="Home"
@@ -26,12 +26,12 @@ export default async function Home() {
             <section className="w-full px-3">
                 <div className="w-full max-w-[1300px] mx-auto py-10 space-y-10">
                     <h1 className="text-5xl font-semibold uppercase text-center">Colecciones</h1>
-                    <div className="flex flex-wrap justify-between">
+                    <div className="flex flex-wrap justify-between gap-10 md:gap-5">
                         {categories.slice(0, 4).map((category) => (
                             <Link
                                 key={category.category_id}
                                 href={`/collections/${category.category_slug}`}
-                                className="w-1/5 space-y-3"
+                                className="w-full md:w-1/5 space-y-3"
                             >
                                 <div className="w-full aspect-square group overflow-hidden rounded-xs">
                                     <img

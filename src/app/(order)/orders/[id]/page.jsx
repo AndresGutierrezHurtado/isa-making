@@ -20,8 +20,8 @@ export default async function Page({ params }) {
         <>
             <section className="w-full px-3">
                 <div className="w-full max-w-[1300px] mx-auto py-20 space-y-10">
-                    <div className="flex gap-12">
-                        <div className="w-3/5 space-y-8">
+                    <div className="flex flex-col md:flex-row gap-12">
+                        <div className="w-full md:w-3/5 space-y-8">
                             {/* Encabezado */}
                             <header className="space-y-2">
                                 <div className="flex justify-between items-center">
@@ -51,14 +51,14 @@ export default async function Page({ params }) {
                             </header>
 
                             {/* Productos */}
-                            <div className="grid grid-cols-[repeat(auto-fill,minmax(350px,1fr))] gap-10">
+                            <div className="grid grid-cols-[repeat(auto-fill,minmax(300px,1fr))] gap-10">
                                 {products.map(({ product, ...orderProduct }, idx) => (
                                     <div
                                         key={idx}
-                                        className="flex rounded overflow-hidden bg-base-200 border border-base-300"
+                                        className="flex flex-col md:flex-row rounded overflow-hidden bg-base-200 border border-base-300 w-fit"
                                     >
                                         <div className="avatar">
-                                            <figure className="w-30 aspect-[10/12] overflow-hidden">
+                                            <figure className="w-full md:w-30 aspect-[10/12] overflow-hidden">
                                                 <img
                                                     src={product.product_image}
                                                     alt={product.product_name}
@@ -97,7 +97,7 @@ export default async function Page({ params }) {
                                 ))}
                             </div>
                         </div>
-                        <div className="w-2/5 space-y-8">
+                        <div className="w-full md:w-2/5 space-y-8">
                             {/* Información del pedido */}
                             <div>
                                 <h3 className="text-2xl font-medium mb-2">Envío</h3>
@@ -164,13 +164,13 @@ export default async function Page({ params }) {
                     </div>
 
                     {/* Botones */}
-                    <div className="flex gap-4">
-                        <Link href="/profile" className="w-1/2 btn text-lg font-normal">
+                    <div className="flex flex-col md:flex-row gap-4">
+                        <Link href="/profile" className="w-full md:w-1/2 btn text-lg font-normal">
                             Volver al perfil
                         </Link>
                         <Link
                             href={`/orders/${order.order_id}/history`}
-                            className="w-1/2 btn text-lg font-normal"
+                            className="w-full md:w-1/2 btn text-lg font-normal"
                         >
                             Ver historial de envío
                         </Link>

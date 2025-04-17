@@ -14,9 +14,9 @@ import * as Icons from "@/components/icons";
 
 export default function Footer() {
     return (
-        <footer className="w-full bg-base-200 border-t border-base-300 text-base-content py-5 space-y-10">
+        <footer className="w-full bg-base-200 border-t border-base-300 text-base-content py-5 px-3 space-y-10">
             <div className="w-full max-w-[1300px] mx-auto">
-                <div className="w-full grid grid-cols-4 gap-10">
+                <div className="w-full grid grid-cols-[repeat(auto-fill,minmax(250px,1fr))] gap-10">
                     {[
                         {
                             icon: "WhatsappIcon",
@@ -85,7 +85,7 @@ export default function Footer() {
                     </button>
                 </span>
 
-                <div className="grid grid-cols-3 gap-4">
+                <div className="grid grid-cols-[repeat(auto-fill,minmax(315px,1fr))] gap-4">
                     <div>
                         <h4 className="text-2xl font-medium">Contacto</h4>
                         <p>

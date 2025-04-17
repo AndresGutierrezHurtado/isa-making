@@ -5,6 +5,7 @@ import {
     FaWhatsapp as WhatsappIcon,
     FaShoppingCart as ShoppingCartIcon,
     FaTrash as TrashIcon,
+    FaBars as MenuIcon,
 } from "react-icons/fa";
 import { BsBoxSeam as BoxIcon } from "react-icons/bs";
 import { FaShippingFast as ShippingIcon } from "react-icons/fa";
@@ -31,4 +32,5 @@ export {
     ArrowLeftRightIcon,
     CreditCardIcon,
     TrashIcon,
+    MenuIcon,
 };

@@ -28,7 +28,7 @@ export default async function Page({ params }) {
             <div className="w-full max-w-[1300px] mx-auto py-10 space-y-10">
                 <h1 className="text-6xl font-extrabold uppercase">Colecciones</h1>
 
-                <div className="grid grid-cols-4 gap-15">
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-15">
                     {products.map((product) => (
                             <div
                                 key={product.product_id}

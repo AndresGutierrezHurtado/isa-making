@@ -69,7 +69,7 @@ export default function Profile() {
         <>
             <section className="w-full px-3">
                 <div className="w-full max-w-[1300px] mx-auto py-10">
-                    <div className="flex gap-10 w-full">
+                    <div className="flex flex-col md:flex-row gap-10 w-full">
                         <article className="card w-full max-w-xl bg-base-200 border border-base-300 h-fit">
                             <div className="card-body">
                                 <div className="space-y-2">
@@ -169,10 +169,10 @@ export default function Profile() {
 
                                     <hr className="my-2 border-base-content/50" />
 
-                                    <div className="flex justify-between">
+                                    <div className="flex flex-col md:flex-row gap-4 justify-between">
                                         <button
                                             type="button"
-                                            className="btn btn-error btn-outline"
+                                            className="btn btn-error btn-outline w-fit"
                                             onClick={handleDeleteAccount}
                                         >
                                             <TrashIcon size={20} />

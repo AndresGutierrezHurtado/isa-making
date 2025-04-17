@@ -63,9 +63,9 @@ export default function Page() {
         <>
             <section className="w-full px-3 py-12">
                 <div className="w-full max-w-[1300px] mx-auto">
-                    <div className="w-full flex gap-10">
+                    <div className="w-full flex flex-col-reverse md:flex-row gap-10">
                         <div
-                            className={`w-1/2 grid grid-cols-1 ${
+                            className={`w-full md:w-1/2 grid grid-cols-1 ${
                                 images.length > 1 && "md:grid-cols-2"
                             } gap-8 h-fit`}
                         >
@@ -78,7 +78,7 @@ export default function Page() {
                                 />
                             ))}
                         </div>
-                        <div className="w-1/2 bg-base-300 h-fit">
+                        <div className="w-full md:w-1/2 bg-base-300 h-fit">
                             <nav className="w-full bg-base-200 p-4 flex divide-x divide-base-content/20">
                                 <strong className="pr-4">TELA PREMIUM</strong>
                                 <p className="pl-4">Una vez la tocas, notarás la diferencia</p>

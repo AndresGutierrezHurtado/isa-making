@@ -4,7 +4,7 @@ import Link from "next/link";
 import React from "react";
 
 // Components
-import { UserIcon, SearchIcon, ShoppingCartIcon } from "@/components/icons";
+import { UserIcon, SearchIcon, ShoppingCartIcon, MenuIcon } from "@/components/icons";
 import { useSession } from "next-auth/react";
 
 export default function Header() {
@@ -16,13 +16,40 @@ export default function Header() {
                     <div className="navbar-start">
                         <Link
                             href="/"
-                            className="text-3xl font-bold uppercase font-otomanopee hover:text-base-300 duration-100"
+                            className="text-lg text-nowrap md:text-3xl font-bold uppercase font-otomanopee hover:text-base-300 duration-100"
                         >
                             ISA Making
                         </Link>
                     </div>
                     <div className="navbar-center">
-                        <ul className="menu menu-horizontal text-xl font-medium gap-2">
+                        <div className="dropdown dropdown-center">
+                            <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
+                                <MenuIcon size={22} />
+                            </div>
+                            <ul
+                                tabIndex={0}
+                                className="menu dropdown-content bg-base-100 text-base-content rounded-box z-1 mt-3 w-52 p-2 shadow"
+                            >
+                                <li>
+                                    <Link href="/collections">Colleciones</Link>
+                                </li>
+                                <li>
+                                    <Link href="/about">Nosotros</Link>
+                                </li>
+                                <li>
+                                    <a>Generos</a>
+                                    <ul className="p-2">
+                                        <li>
+                                            <Link href="/collections/man">Hombre</Link>
+                                        </li>
+                                        <li>
+                                            <Link href="/collections/woman">Mujer</Link>
+                                        </li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </div>
+                        <ul className="menu menu-horizontal text-xl font-medium gap-2 hidden md:flex">
                             <li>
                                 <Link href="/collections" className="hover-underline-animation">
                                     Colleciones
@@ -48,7 +75,7 @@ export default function Header() {
                             </li>
                         </ul>
                     </div>
-                    <div className="navbar-end gap-3">
+                    <div className="navbar-end gap-1 md:gap-3">
                         <Link
                             href={!session ? "/login" : "/profile"}
                             className="btn btn-ghost btn-circle"

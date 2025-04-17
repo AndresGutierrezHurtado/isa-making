@@ -9,8 +9,8 @@ export default function Page() {
     return (
         <section className="w-full px-3">
             <div className="w-full max-w-[1300px] mx-auto py-10">
-                <div className="w-full flex items-center gap-10">
-                    <figure className="w-1/2 aspect-[10/9] rounded-lg overflow-hidden">
+                <div className="w-full flex flex-col md:flex-row items-center gap-10">
+                    <figure className="w-full md:w-1/2 aspect-[10/9] rounded-lg overflow-hidden">
                         <img
                             src="https://static.bershka.net/4/static/itxwebstandard/images/test/company/company14.jpg?20250414015203"
                             alt="About"
@@ -19,7 +19,7 @@ export default function Page() {
                             className="w-full h-full object-cover"
                         />
                     </figure>
-                    <div className="w-1/2 space-y-6">
+                    <div className="w-full md:w-1/2 space-y-6">
                         <h1 className="text-6xl font-extrabold uppercase">Sobre Nosotros</h1>
                         <p className="text-xl text-pretty leading-[1.2]">
                             Isa Making nació de la pasión por la moda como una forma de expresión

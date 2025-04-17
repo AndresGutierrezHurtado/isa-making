@@ -30,9 +30,12 @@ export default function Page() {
     };
 
     return (
-        <div className="hero bg-base-100 min-h-screen">
+        <div className="hero bg-base-100 min-h-screen px-3 py-10 md:py-0">
             <div className="hero-content flex-col lg:flex-row w-full max-w-[1000px] mx-auto p-0 justify-center gap-15">
                 <div className="text-center lg:text-right w-full max-w-md">
+                    <Link href="/" className="text-primary hover:underline">
+                        ISA MAKING
+                    </Link>
                     <h1 className="text-5xl font-otomanopee uppercase">¿No tienes una cuenta?</h1>
                     <p className="py-6 text-2xl leading-[1]">
                         Puedes crear tu cuenta en la siguiente página.{" "}

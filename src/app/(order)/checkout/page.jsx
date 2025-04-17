@@ -53,7 +53,7 @@ export default function Page() {
             <section className="w-full px-3">
                 <div className="w-full max-w-[1300px] mx-auto py-10">
                     <h1 className="text-2xl font-bold mb-4">Formulario de pago</h1>
-                    <div className="bg-base-200 py-8 px-10 rounded">
+                    <div className="bg-base-200 p-4 md:py-8 md:px-10 rounded">
                         <form
                             method="post"
                             action="https://sandbox.checkout.payulatam.com/ppp-web-gateway-payu/"

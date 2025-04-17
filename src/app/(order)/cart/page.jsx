@@ -56,44 +56,49 @@ export default function Page() {
                                 {cart?.map(({ product, size, ...cart }) => (
                                     <article
                                         key={product.product_id + size.size_id}
-                                        className="w-full flex items-center gap-5"
+                                        className="w-full flex flex-col md:flex-row items-center gap-5"
                                     >
-                                        <Link
-                                            href={"/products/" + product.product_id}
-                                            className="w-[150px] aspect-[10/12] rounded overflow-hidden"
-                                        >
-                                            <img
-                                                src={product.product_image}
-                                                alt={product.product_name}
-                                                className="w-full h-full object-cover"
-                                            />
-                                        </Link>
-                                        <div className="grow">
-                                            <div className="flex flex-col gap-3">
-                                                <div className="grow">
-                                                    <h2 className="text-xl uppercase font-medium">
-                                                        {product.product_name}
-                                                    </h2>
-                                                    <div className="flex flex-row gap-3 my-2">
-                                                        {product.categories.map((category) => (
-                                                            <div
-                                                                className="badge badge-primary badge-soft border-[1px_solid_var(--primary)_!important]"
-                                                                key={category.category_id}
-                                                            >
-                                                                <p>{category.category_name}</p>
-                                                            </div>
-                                                        ))}
+                                        <div className="flex grow gap-5">
+                                            <Link
+                                                href={"/products/" + product.product_id}
+                                                className="w-[150px] aspect-[10/12] rounded overflow-hidden"
+                                            >
+                                                <img
+                                                    src={product.product_image}
+                                                    alt={product.product_name}
+                                                    className="w-full h-full object-cover"
+                                                />
+                                            </Link>
+                                            <div className="grow">
+                                                <div className="flex flex-col gap-3">
+                                                    <div className="grow">
+                                                        <h2 className="text-xl uppercase font-medium">
+                                                            {product.product_name}
+                                                        </h2>
+                                                        <div className="flex flex-row flex-wrap gap-3 my-2">
+                                                            {product.categories.map((category) => (
+                                                                <div
+                                                                    className="badge badge-primary badge-soft border-[1px_solid_var(--primary)_!important]"
+                                                                    key={category.category_id}
+                                                                >
+                                                                    <p>{category.category_name}</p>
+                                                                </div>
+                                                            ))}
+                                                        </div>
                                                     </div>
-                                                </div>
-                                                <div className="text-base-content/80">
-                                                    <p>Color: {product.product_color}</p>
-                                                    <p>Talla: {size.size_slug}</p>
-                                                    <p>Cantidad: {cart.product_quantity}</p>
-                                                    <p>Precio: ${size.ProductSize.product_price}</p>
+                                                    <div className="text-base-content/80">
+                                                        <p>Color: {product.product_color}</p>
+                                                        <p>Talla: {size.size_slug}</p>
+                                                        <p>Cantidad: {cart.product_quantity}</p>
+                                                        <p>
+                                                            Precio: $
+                                                            {size.ProductSize.product_price}
+                                                        </p>
+                                                    </div>
                                                 </div>
                                             </div>
                                         </div>
-                                        <div className="flex flex-col items-center gap-3">
+                                        <div className="flex  flex-row md:flex-col items-center gap-3">
                                             <button
                                                 onClick={() =>
                                                     handleUpdateCart(
