@@ -12,6 +12,7 @@ import useSetTitle from "@/hooks/useSetTitle";
 
 // Components
 import { BoxIcon, ClockIcon, ArrowLeftRightIcon, CreditCardIcon } from "@/components/icons";
+import LoadingComponent from "@/components/loading";
 
 export default function Page() {
     const { id } = useParams();
@@ -22,7 +23,7 @@ export default function Page() {
 
     useSetTitle(`${product?.product_name} | ISA Making`);
 
-    if (productLoading) return <div>Loading...</div>;
+    if (productLoading) return <LoadingComponent />;
 
     const images = [
         {

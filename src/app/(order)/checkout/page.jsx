@@ -8,6 +8,9 @@ import { useGetData } from "@/hooks/useClientData";
 import { useValidateForm } from "@/hooks/useValidateForm";
 import useSetTitle from "@/hooks/useSetTitle";
 
+// Components
+import LoadingComponent from "@/components/loading";
+
 export default function Page() {
     const { data: session, status } = useSession();
     const userSession = session?.user;
@@ -16,7 +19,7 @@ export default function Page() {
 
     const { data: cart, loading: cartLoading } = useGetData(`/users/${userSession?.user_id}/cart`);
 
-    if (cartLoading || status === "loading") return <p>Cargando...</p>;
+    if (cartLoading || status === "loading") return <LoadingComponent />;
 
     const totalProducts = cart?.reduce((acc, product) => acc + product.product_quantity, 0);
     const totalPrice = cart?.reduce(
@@ -39,7 +42,7 @@ export default function Page() {
     const responseUrl = `${process.env.NEXT_PUBLIC_URL}/api/orders/callback`;
 
     const handleSubmit = () => {
-        const $form = document.querySelector("form");
+        const $form = document.getElementById("checkout-form");
         const data = Object.fromEntries(new FormData($form));
         const validation = useValidateForm("checkout-form", data);
 
@@ -58,6 +61,7 @@ export default function Page() {
                             method="post"
                             action="https://sandbox.checkout.payulatam.com/ppp-web-gateway-payu/"
                             className="flex flex-col gap-2"
+                            id="checkout-form"
                         >
                             {/* Datos del pedido */}
                             <input name="merchantId" type="hidden" value={merchantId} />

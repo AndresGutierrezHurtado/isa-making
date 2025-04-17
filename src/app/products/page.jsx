@@ -7,6 +7,9 @@ import Link from "next/link";
 import { useGetData } from "@/hooks/useClientData";
 import { useSearchParams } from "next/navigation";
 
+// Components
+import LoadingComponent from "@/components/loading";
+
 export default function Page() {
     const [search, setSearch] = useState("");
     const [limit, setLimit] = useState(8);
@@ -25,7 +28,7 @@ export default function Page() {
         }
     }, [searchParams, products]);
 
-    if (loadingProducts) return <div>Loading...</div>;
+    if (loadingProducts) return <LoadingComponent />;
     return (
         <section className="w-full px-3">
             <div className="w-full max-w-[1300px] mx-auto py-10 space-y-10">

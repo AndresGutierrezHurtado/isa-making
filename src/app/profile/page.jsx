@@ -16,6 +16,7 @@ import Auth from "@/components/auth";
 import { TrashIcon } from "@/components/icons";
 import { IoLogOutOutline } from "react-icons/io5";
 import useSetTitle from "@/hooks/useSetTitle";
+import LoadingComponent from "@/components/loading";
 
 export default function Profile() {
     const router = useRouter();
@@ -63,7 +64,7 @@ export default function Profile() {
 
     useSetTitle("Perfil | ISA Making");
 
-    if (loading || status === "loading") return <div>Loading...</div>;
+    if (loading || status === "loading") return <LoadingComponent />;
     if (status === "unauthenticated") return <Auth />;
     return (
         <>

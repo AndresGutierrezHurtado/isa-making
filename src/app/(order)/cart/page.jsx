@@ -8,6 +8,9 @@ import { useSession } from "next-auth/react";
 import { useGetData, usePutData } from "@/hooks/useClientData";
 import useSetTitle from "@/hooks/useSetTitle";
 
+// Components
+import LoadingComponent from "@/components/loading";
+
 export default function Page() {
     const { data: session, status } = useSession();
     const userSession = session?.user;
@@ -20,7 +23,7 @@ export default function Page() {
         reload,
     } = useGetData(`/users/${userSession?.user_id}/cart`);
 
-    if (cartLoading || status === "loading") return <p>Cargando...</p>;
+    if (cartLoading || status === "loading") return <LoadingComponent />;
 
     const totalProducts = cart?.reduce((acc, product) => acc + product.product_quantity, 0);
     const totalPrice = cart?.reduce(
