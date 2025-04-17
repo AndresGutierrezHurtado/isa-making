@@ -86,7 +86,7 @@ export async function GET(req) {
 
         // productos mas vendidos
         const products = await Product.findAll({
-            include: [{ model: OrderProduct, as: "orders", required: true }],
+            include: [{ model: OrderProduct, as: "orders", required: true }, "sizes"],
         });
 
         return NextResponse.json({

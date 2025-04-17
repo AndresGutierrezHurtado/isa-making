@@ -7,6 +7,8 @@ import { useSession } from "next-auth/react";
 import { DoughnutChart, LineChart } from "@/components/charts";
 import LoadingComponent from "@/components/loading";
 import { useGetData } from "@/hooks/useClientData";
+import Image from "next/image";
+import Link from "next/link";
 
 export default function page() {
     const { data: session, status } = useSession();
@@ -15,6 +17,19 @@ export default function page() {
     const { data: stats, loading } = useGetData("/stats");
 
     if (status === "loading" || loading) return <LoadingComponent />;
+
+    const products = stats.products.map(({ orders, ...product }) => {
+        const totalPrice = orders.reduce(
+            (total, order) => total + order.product_price * order.product_quantity,
+            0
+        );
+        const totalQuantity = orders.reduce((total, order) => total + order.product_quantity, 0);
+        return {
+            ...product,
+            totalPrice,
+            totalQuantity,
+        };
+    });
 
     const usersCurrentMonth = stats.currentMonth.users.length;
     const usersLastMonth = stats.lastMonth.users.length;
@@ -42,10 +57,27 @@ export default function page() {
     return (
         <div className="flex-1 w-full px-3">
             <div className="w-full max-w-[1300px] mx-auto py-10 space-y-8">
-                <h1 className="text-2xl leading-[1.2]">
-                    Bienvenido de nuevo, <br />{" "}
-                    <span className="font-otomanopee">{userSession.user_name}</span>
-                </h1>
+                <div className="w-full flex items-center justify-between">
+                    <h1 className="text-2xl leading-[1.2]">
+                        Bienvenido de nuevo, <br />{" "}
+                        <span className="font-otomanopee">{userSession.user_name}</span>
+                    </h1>
+                    <Link
+                        href="/profile"
+                        className="avatar tooltip tooltip-left"
+                        data-tip="Ir al perfil"
+                    >
+                        <div className="w-12 rounded-full">
+                            <Image
+                                src="/user-profile.jpg"
+                                width={50}
+                                height={50}
+                                alt="user-profile"
+                                className="w-full h-full object-cover scale-150"
+                            />
+                        </div>
+                    </Link>
+                </div>
                 <div className="flex items-center gap-10">
                     <div className="w-full md:w-2/5 grid grid-cols-1 md:grid-cols-2 gap-5 h-fit">
                         <div className="stats shadow bg-base-200 border border-base-300 ">
@@ -144,11 +176,14 @@ export default function page() {
                                         {productsSoldLastMonth === 0
                                             ? "100%"
                                             : `${
-                                                  ((productsSoldCurrentMonth - productsSoldLastMonth) /
+                                                  ((productsSoldCurrentMonth -
+                                                      productsSoldLastMonth) /
                                                       productsSoldLastMonth) *
                                                   100
                                               }%`}{" "}
-                                        {productsSoldCurrentMonth > productsSoldLastMonth ? "mas" : "menos"}
+                                        {productsSoldCurrentMonth > productsSoldLastMonth
+                                            ? "mas"
+                                            : "menos"}
                                     </p>
                                     <p className="text-sm text-base-content/60">
                                         que el mes pasado
@@ -183,31 +218,70 @@ export default function page() {
                                 </div>
                             </div>
                         </div>
-                        <LineChart current={stats.currentMonth.ordersCurrentWeek} last={stats.currentMonth.ordersLastWeek} />
+                        <LineChart
+                            current={stats.currentMonth.ordersCurrentWeek}
+                            last={stats.currentMonth.ordersLastWeek}
+                        />
                     </div>
                 </div>
                 <div className="flex gap-10">
-                    <div className="w-full md:w-5/7 bg-base-200 border border-base-300 rounded-lg p-5 space-y-5">
+                    <div className="w-full md:w-5/7 bg-base-200 border border-base-300 rounded-lg p-5 space-y-5 flex flex-col">
                         <h1 className="text-2xl text-base-content/80 leading-[100%]">
                             Productos más vendidos
                         </h1>
-                        <table className="table table-xs border border-base-300 rounded-lg">
-                            <thead>
-                                <tr>
-                                    <th>Producto</th>
-                                    <th>Precio</th>
-                                    <th>Cantidad</th>
-                                    <th>Dinero</th>
-                                </tr>
-                            </thead>
-                            <tbody></tbody>
-                        </table>
+                        <div className="grow overflow-auto">
+                            <table className="table border border-base-300 rounded-lg">
+                                <thead>
+                                    <tr>
+                                        <th>Producto</th>
+                                        <th>Precio</th>
+                                        <th>Cantidad</th>
+                                        <th>Total</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    {products.map((product) => {
+                                        const sizes = product.sizes.flatMap(
+                                            (size) => size.ProductSize
+                                        );
+                                        const minPrice = Math.min(
+                                            ...sizes.map((s) => parseInt(s.product_price))
+                                        );
+                                        return (
+                                            <tr key={product.product_id}>
+                                                <td>{product.product_name}</td>
+                                                <td>{minPrice.toLocaleString("es-ES")} COP</td>
+                                                <td>{product.totalQuantity}</td>
+                                                <td>
+                                                    {product.totalPrice.toLocaleString("es-ES")} COP
+                                                </td>
+                                            </tr>
+                                        );
+                                    })}
+                                </tbody>
+                            </table>
+                            {products.length === 0 && (
+                                <div className="flex justify-center items-center py-10">
+                                    <p className="text-base-content/60">
+                                        No hay productos vendidos...
+                                    </p>
+                                </div>
+                            )}
+                        </div>
                     </div>
                     <div className="w-full md:w-2/7 bg-base-200 border border-base-300 rounded-lg p-5 space-y-5">
                         <h1 className="text-2xl text-base-content/80 leading-[100%]">
                             Categorías más vendidas
                         </h1>
-                        <DoughnutChart categories={stats.categories} />
+
+                        {stats.categories.length === 0 && (
+                            <div className="flex justify-center items-center py-10">
+                                <p className="text-base-content/60">
+                                    No hay categorías vendidas...
+                                </p>
+                            </div>
+                        )}
+                        {stats.categories.length > 0 && <DoughnutChart categories={stats.categories} />}
                     </div>
                 </div>
             </div>

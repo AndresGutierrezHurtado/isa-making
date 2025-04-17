@@ -48,6 +48,7 @@ export function LineChart({ current, last }) {
         ...currentDataArray.map((item) => item.value),
         ...lastDataArray.map((item) => item.value)
     );
+
     return (
         <Line
             datasetIdKey="id"
@@ -99,7 +100,7 @@ export function LineChart({ current, last }) {
                         grid: {
                             color: "#fafafa20",
                         },
-                        max: Math.ceil(max + max * 0.5),
+                        max: max > 10 ? Math.ceil(max + max * 0.5) : 10,
                     },
                 },
                 animation: {

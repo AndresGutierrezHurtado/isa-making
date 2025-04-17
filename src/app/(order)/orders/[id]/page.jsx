@@ -55,7 +55,7 @@ export default async function Page({ params }) {
                                 {products.map(({ product, ...orderProduct }, idx) => (
                                     <div
                                         key={idx}
-                                        className="flex flex-col md:flex-row rounded overflow-hidden bg-base-200 border border-base-300 w-fit"
+                                        className="flex flex-col md:flex-row rounded overflow-hidden bg-base-200 border border-base-300 w-full"
                                     >
                                         <div className="avatar">
                                             <figure className="w-full md:w-30 aspect-[10/12] overflow-hidden">
