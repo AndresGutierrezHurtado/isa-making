@@ -12,6 +12,7 @@ import Header from "@/layouts/header";
 import Footer from "@/layouts/footer";
 
 import "./globals.css";
+import WhatsappButton from "@/components/whatsappButton";
 
 const afacad = Afacad({
     weight: ["400", "500", "600", "700"],
@@ -34,6 +35,7 @@ export default function RootLayout({ children }) {
                     {!isExcludedPath && <Header />}
                     <main className="flex-grow flex flex-col">{children}</main>
                     {!isExcludedPath && <Footer />}
+                    {!isExcludedPath && <WhatsappButton />}
                 </SessionProvider>
             </body>
         </html>
