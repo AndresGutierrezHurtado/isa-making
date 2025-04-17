@@ -8,9 +8,11 @@ import Auth from "@/components/auth";
 import LoadingComponent from "@/components/loading";
 import Link from "next/link";
 import { IoLogOutOutline } from "react-icons/io5";
+import { usePathname } from "next/navigation";
 
 export default function AdminLayout({ children }) {
     const { status, data: session } = useSession();
+    const pahtname = usePathname();
 
     if (status === "loading") return <LoadingComponent />;
     if (status === "unauthenticated") return <Auth />;
@@ -40,16 +42,30 @@ export default function AdminLayout({ children }) {
                         </div>
                         <div className="space-y-2">
                             <li>
-                                <Link href="/dashboard/stats">Estadísticas</Link>
+                                <Link href="/dashboard/stats" className={`${pahtname === "/dashboard/stats" ? "text-primary" : ""}`}>
+                                    Estadísticas
+                                </Link>
                             </li>
                             <li>
-                                <Link href="/dashboard/products">Productos</Link>
+                                <Link
+                                    href="/dashboard/products"
+                                    className={`${pahtname === "/dashboard/products" ? "text-primary" : ""}`}
+                                >
+                                    Productos
+                                </Link>
                             </li>
                             <li>
-                                <Link href="/dashboard/users">Usuarios</Link>
+                                <Link href="/dashboard/users" className={`${pahtname === "/dashboard/users" ? "text-primary" : ""}`}>
+                                    Usuarios
+                                </Link>
                             </li>
                             <li>
-                                <Link href="/dashboard/orders">Pedidos</Link>
+                                <Link
+                                    href="/dashboard/orders"
+                                    className={`${pahtname === "/dashboard/orders" ? "text-primary" : ""}`}
+                                >
+                                    Pedidos
+                                </Link>
                             </li>
                         </div>
                         <div>

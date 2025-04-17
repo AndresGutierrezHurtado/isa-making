@@ -55,6 +55,13 @@ export default function Page() {
                                     <p>Continuar comprando</p>
                                 </Link>
                             </div>
+                            {cart?.length === 0 && (
+                                <div className="flex justify-center items-center py-10">
+                                    <p className="text-base-content/60">
+                                        No hay productos en el carrito...
+                                    </p>
+                                </div>
+                            )}
                             <div className="w-full flex flex-col gap-7">
                                 {cart?.map(({ product, size, ...cart }) => (
                                     <article

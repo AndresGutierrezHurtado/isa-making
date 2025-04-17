@@ -2,17 +2,22 @@
 
 import React from "react";
 import { useSession } from "next-auth/react";
+import Image from "next/image";
+import Link from "next/link";
 
 // Components
 import { DoughnutChart, LineChart } from "@/components/charts";
 import LoadingComponent from "@/components/loading";
+
+// Hooks
 import { useGetData } from "@/hooks/useClientData";
-import Image from "next/image";
-import Link from "next/link";
+import useSetTitle from "@/hooks/useSetTitle";
 
 export default function page() {
     const { data: session, status } = useSession();
     const userSession = session?.user;
+
+    useSetTitle("Dashboard | ISA Making");
 
     const { data: stats, loading } = useGetData("/stats");
 
@@ -281,7 +286,9 @@ export default function page() {
                                 </p>
                             </div>
                         )}
-                        {stats.categories.length > 0 && <DoughnutChart categories={stats.categories} />}
+                        {stats.categories.length > 0 && (
+                            <DoughnutChart categories={stats.categories} />
+                        )}
                     </div>
                 </div>
             </div>
