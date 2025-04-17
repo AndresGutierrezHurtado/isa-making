@@ -1,13 +1,14 @@
+"use client";
+
 import Link from "next/link";
 import React from "react";
 
 // Components
 import { UserIcon, SearchIcon, ShoppingCartIcon } from "@/components/icons";
-import { getServerSession } from "next-auth";
-import authOptions from "@/lib/authOptions";
+import { useSession } from "next-auth/react";
 
-export default async function Header() {
-    const session = await getServerSession(authOptions);
+export default function Header() {
+    const { data: session } = useSession();
     return (
         <header className="w-full bg-base-content text-base-100 px-3 sticky top-0 z-50 shadow">
             <div className="w-full max-w-[1300px] mx-auto py-2">
@@ -48,7 +49,10 @@ export default async function Header() {
                         </ul>
                     </div>
                     <div className="navbar-end gap-3">
-                        <Link href={!session ? "/login" : "/profile"} className="btn btn-ghost btn-circle">
+                        <Link
+                            href={!session ? "/login" : "/profile"}
+                            className="btn btn-ghost btn-circle"
+                        >
                             <button className="btn btn-ghost btn-circle">
                                 <UserIcon size={22} />
                             </button>

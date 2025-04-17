@@ -1,20 +1,20 @@
 "use client";
-import React from "react";
 
-// Icons
-import { TrashIcon } from "@/components/icons";
-import { IoLogOutOutline } from "react-icons/io5";
+import React from "react";
+import Swal from "sweetalert2";
+import { useRouter } from "next/navigation";
+import Image from "next/image";
+import Link from "next/link";
 
 // Hooks
 import { useDeleteData, useGetData, usePutData } from "@/hooks/useClientData";
 import { signOut, useSession } from "next-auth/react";
 import { useValidateForm } from "@/hooks/useValidateForm";
 
-// Utilities
-import Swal from "sweetalert2";
-import { useRouter } from "next/navigation";
-import Image from "next/image";
-import Link from "next/link";
+// Components
+import Auth from "@/components/auth";
+import { TrashIcon } from "@/components/icons";
+import { IoLogOutOutline } from "react-icons/io5";
 
 export default function Profile() {
     const router = useRouter();
@@ -61,6 +61,7 @@ export default function Profile() {
     };
 
     if (loading || status === "loading") return <div>Loading...</div>;
+    if (status === "unauthenticated") return <Auth />;
     return (
         <>
             <section className="w-full px-3">
@@ -253,7 +254,7 @@ export default function Profile() {
                                                         <div className="badge badge-success badge-soft border-[1px_solid_var(--color-success)_!important]">
                                                             Completado
                                                         </div>
-                                                    )   : (
+                                                    ) : (
                                                         <div className="badge badge-warning badge-soft border-[1px_solid_var(--color-warning)_!important]">
                                                             Pendiente
                                                         </div>
