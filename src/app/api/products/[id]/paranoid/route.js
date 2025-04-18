@@ -11,6 +11,7 @@ export async function GET(request, { params }) {
                     [Op.not]: null,
                 },
             },
+            include: ["sizes"],
         });
 
         return NextResponse.json(
