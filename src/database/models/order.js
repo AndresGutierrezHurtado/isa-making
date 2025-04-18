@@ -15,7 +15,7 @@ module.exports = (sequelize, DataTypes) => {
                 allowNull: false,
             },
             order_state: {
-                type: DataTypes.ENUM("pending", "approved"),
+                type: DataTypes.ENUM("pending", "completed"),
                 defaultValue: "pending",
                 allowNull: false,
             },
