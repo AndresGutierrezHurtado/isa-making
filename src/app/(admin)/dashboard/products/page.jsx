@@ -2,11 +2,11 @@
 
 import React, { useEffect, useState } from "react";
 import { useSession } from "next-auth/react";
-import { BsArrowLeft, BsArrowRight, BsPencil, BsTrash } from "react-icons/bs";
+import { BsArrowLeft, BsArrowRight, BsPencil, BsPlus, BsTrash } from "react-icons/bs";
 import Swal from "sweetalert2";
 
 // Hooks
-import { useDeleteData, useGetData, usePutData } from "@/hooks/useClientData";
+import { useDeleteData, useGetData, usePostData, usePutData } from "@/hooks/useClientData";
 import useSetTitle from "@/hooks/useSetTitle";
 import { useValidateForm } from "@/hooks/useValidateForm";
 
@@ -95,7 +95,7 @@ export default function page() {
                 <div className="w-full max-w-[1300px] mx-auto py-15 space-y-20">
                     <h1 className="text-3xl font-otomanopee">Productos</h1>
                     <div className="bg-base-200 border border-base-300 rounded-lg">
-                        <div className="p-5">
+                        <div className="flex justify-between items-center p-5">
                             <input
                                 type="text"
                                 placeholder="Buscar producto"
@@ -103,6 +103,15 @@ export default function page() {
                                 value={search}
                                 onChange={(e) => setSearch(e.target.value)}
                             />
+                            <button
+                                onClick={() => {
+                                    document.getElementById("create-product-modal").showModal();
+                                }}
+                                className="btn btn-primary shadow-none"
+                            >
+                                <BsPlus size={16} />
+                                <span>Nuevo producto</span>
+                            </button>
                         </div>
                         <div className="overflow-x-auto">
                             <table className="table table-zebra">
@@ -235,6 +244,18 @@ export default function page() {
                     )}
                 </div>
             </section>
+
+            <dialog id="create-product-modal" className="modal">
+                <div className="modal-box w-full max-w-xl max-h-[90vh] overflow-y-auto">
+                    <h1 className="text-lg font-bold">Crear producto</h1>
+                    <p className="py-4">Presiona ESC o click fuera para cerrar</p>
+                    <ProductCreate categories={categories} sizes={sizes} reload={reload} />
+                </div>
+                <form method="dialog" className="modal-backdrop">
+                    <button>close</button>
+                </form>
+            </dialog>
+
             {products.map((product) => (
                 <dialog
                     key={product.product_id}
@@ -551,6 +572,237 @@ const ProductUpdate = ({ product, categories, sizes, reload }) => {
             <fieldset className="fieldset mt-6">
                 <button type="submit" className="btn btn-primary w-full">
                     Actualizar
+                </button>
+            </fieldset>
+        </form>
+    );
+};
+
+const ProductCreate = ({ categories, sizes, reload }) => {
+    const [description, setDescription] = useState("");
+    const [mediaFiles, setMediaFiles] = useState([]);
+    const [productSizes, setProductSizes] = useState([]);
+    const [selectedCategories, setSelectedCategories] = useState([]);
+
+    const handleAddSize = () => {
+        const available = sizes.find((s) => !productSizes.some((ps) => ps.size_id === s.size_id));
+        if (available) {
+            setProductSizes([
+                ...productSizes,
+                {
+                    size_id: available.size_id,
+                    size_slug: available.size_slug,
+                    product_price: 0,
+                },
+            ]);
+        }
+    };
+
+    const handleRemoveSize = (index) => {
+        const updated = [...productSizes];
+        updated.splice(index, 1);
+        setProductSizes(updated);
+    };
+
+    const handleSizeChange = (index, key, value) => {
+        const updated = [...productSizes];
+        updated[index][key] = value;
+        setProductSizes(updated);
+    };
+
+    const handleCategoryChange = (id) => {
+        setSelectedCategories((prev) =>
+            prev.includes(id) ? prev.filter((cid) => cid !== id) : [...prev, id]
+        );
+    };
+
+    const handleCreate = async (e) => {
+        e.preventDefault();
+        const formData = new FormData(e.target);
+        const data = Object.fromEntries(formData);
+        data.product_description = description;
+
+        const mainImage = formData.get("product_image");
+        if (mainImage && mainImage.size > 0) {
+            data.product_image = await useBase64(mainImage);
+        }
+
+        if (mediaFiles.length > 0) {
+            const mediaBase64 = await Promise.all(
+                Array.from(mediaFiles).map((file) => useBase64(file))
+            );
+            data.product_medias = mediaBase64;
+        }
+
+        data.sizes = productSizes;
+        data.categories = selectedCategories;
+
+        const validation = useValidateForm("edit-product-form", data);
+        if (!validation.success) return;
+
+        const fetchData = {
+            product: data,
+            categories: selectedCategories,
+            sizes: productSizes,
+            medias: data.product_medias || [],
+        };
+
+        if (fetchData.sizes.length === 0) return alert("Debes agregar al menos una talla");
+        if (fetchData.categories.length === 0)
+            return alert("Debes seleccionar al menos una categoría");
+
+        console.log(fetchData);
+        const response = await usePostData("/products", fetchData);
+        if (!response.success) return;
+
+        reload();
+        e.target.reset();
+        setDescription("");
+        setMediaFiles([]);
+        setProductSizes([]);
+        setSelectedCategories([]);
+        const $form = document.getElementById("create-product-modal");
+        $form.close();
+    };
+
+    return (
+        <form onSubmit={handleCreate} id="create-product-form">
+            <fieldset className="fieldset">
+                <label className="fieldset-label">
+                    <span>Nombre</span>
+                </label>
+                <input type="text" name="product_name" className="input input-bordered w-full" />
+            </fieldset>
+
+            <fieldset className="fieldset">
+                <label className="fieldset-label">
+                    <span>Descripción</span>
+                </label>
+                <MDEditor value={description} onChange={setDescription} />
+            </fieldset>
+
+            <fieldset className="fieldset">
+                <label className="fieldset-label">
+                    <span>Imagen principal</span>
+                </label>
+                <input
+                    type="file"
+                    name="product_image"
+                    accept="image/*"
+                    className="file-input file-input-bordered w-full"
+                />
+            </fieldset>
+
+            <fieldset className="fieldset">
+                <label className="fieldset-label">
+                    <span>Imágenes adicionales</span>
+                </label>
+                <input
+                    type="file"
+                    multiple
+                    accept="image/*"
+                    onChange={(e) => setMediaFiles(e.target.files)}
+                    className="file-input file-input-bordered w-full"
+                />
+            </fieldset>
+
+            <fieldset className="fieldset">
+                <label className="fieldset-label">
+                    <span>Color</span>
+                </label>
+                <input type="color" name="product_color" className="input input-bordered w-full" />
+            </fieldset>
+
+            <fieldset className="fieldset">
+                <label className="fieldset-label">
+                    <span>Unidades Disponibles</span>
+                </label>
+                <input type="number" name="product_stock" className="input input-bordered w-full" />
+            </fieldset>
+
+            <fieldset className="fieldset">
+                <label className="fieldset-label flex justify-between items-center">
+                    <span>Tallas</span>
+                    <button
+                        type="button"
+                        onClick={handleAddSize}
+                        className="btn btn-sm btn-outline"
+                    >
+                        + Agregar talla
+                    </button>
+                </label>
+                <div className="space-y-2">
+                    {productSizes.map((size, index) => (
+                        <div key={index} className="flex gap-2 items-center">
+                            <select
+                                className="select select-bordered w-1/2"
+                                value={size.size_id}
+                                onChange={(e) => {
+                                    const selected = sizes.find(
+                                        (s) => s.size_id === parseInt(e.target.value)
+                                    );
+                                    handleSizeChange(index, "size_id", selected.size_id);
+                                    handleSizeChange(index, "size_slug", selected.size_slug);
+                                }}
+                            >
+                                <option value={size.size_id}>{size.size_slug}</option>
+                                {sizes
+                                    .filter(
+                                        (s) => !productSizes.some((ps) => ps.size_id === s.size_id)
+                                    )
+                                    .map((s) => (
+                                        <option key={s.size_id} value={s.size_id}>
+                                            {s.size_slug}
+                                        </option>
+                                    ))}
+                            </select>
+                            <input
+                                type="number"
+                                placeholder="Precio"
+                                className="input input-bordered w-full"
+                                value={size.product_price}
+                                onChange={(e) =>
+                                    handleSizeChange(
+                                        index,
+                                        "product_price",
+                                        parseFloat(e.target.value)
+                                    )
+                                }
+                            />
+                            <button
+                                type="button"
+                                className="btn btn-error btn-sm"
+                                onClick={() => handleRemoveSize(index)}
+                            >
+                                ✕
+                            </button>
+                        </div>
+                    ))}
+                </div>
+            </fieldset>
+
+            <fieldset className="fieldset">
+                <label className="fieldset-label">
+                    <span>Categorías</span>
+                </label>
+                <div className="flex flex-wrap gap-3">
+                    {categories.map((cat) => (
+                        <label key={cat.category_id} className="flex items-center gap-1">
+                            <input
+                                type="checkbox"
+                                value={cat.category_id}
+                                checked={selectedCategories.includes(cat.category_id)}
+                                onChange={() => handleCategoryChange(cat.category_id)}
+                            />
+                            {cat.category_name}
+                        </label>
+                    ))}
+                </div>
+            </fieldset>
+
+            <fieldset className="fieldset mt-6">
+                <button type="submit" className="btn btn-primary w-full">
+                    Crear producto
                 </button>
             </fieldset>
         </form>
