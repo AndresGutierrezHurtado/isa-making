@@ -119,6 +119,11 @@ export default function Profile() {
                                     onSubmit={handleUpdateUser}
                                     className="mt-5 flex flex-col gap-2"
                                 >
+                                    <input
+                                        type="hidden"
+                                        name="role_id"
+                                        value={userSession.role_id}
+                                    />
                                     <hr className="mb-2 border-base-content/50" />
 
                                     <div className="flex">

@@ -5,7 +5,7 @@
             "user_name": "Andrés",
             "user_lastname": "Gutiérrez Hurtado",
             "user_email": "andres52885241@gmail.com",
-            "user_password": "$2a$10$Duc2lOeb3OXbSL4QQj4q3esc/xgkAJoxJm3BjBj5FyVqu13NnjLKW",
+            "user_password": "$2a$10$qj.SdONvXNdkf7liF15lwONxleohHkWjXCcu.QFrGTfgQhWKGZTyq",
             "role_id": 2,
             "createdAt": "2025-04-13T10:00:00",
             "updatedAt": "2025-04-13T10:00:00",
@@ -16,7 +16,7 @@
             "user_name": "Juan Esteban",
             "user_lastname": "Perez Salamanca",
             "user_email": "juan@gmail.com",
-            "user_password": "$2a$10$qgoPKwk7M6UHRIEeXRrWDeYaV0LQweEt4qJWlDOF5tVioiyMjEuMO",
+            "user_password": "$2a$10$x29ARwWx.owWUokcHJ5lDuRwxdOBM54iFHKI0C0qj.UkoJDmpCwu2",
             "role_id": 1,
             "createdAt": "2025-04-13T10:00:00",
             "updatedAt": "2025-04-13T10:00:00",
@@ -27,10 +27,87 @@
             "user_name": "Wendy",
             "user_lastname": "Navarro",
             "user_email": "nwendy798@gmail.com",
-            "user_password": "$2b$10$pFB7x37NVOsu7DUiR1t5eubm5t2HxKNrV8cUV9YlRgggBef1DrRgK",
+            "user_password": "$2a$10$JuL.pohukEpVdkNjhkfDlu1s2XcstDhwzaEw2wyvrvvDhVZU7LzlG",
             "role_id": 1,
             "createdAt": "2025-04-14T06:10:30.000Z",
             "updatedAt": "2025-04-14T06:10:30.000Z",
+            "deletedAt": null
+        },
+        {
+            "user_id": "12a3d456-7f89-4abc-a123-4567ef123abc",
+            "user_name": "Carlos",
+            "user_lastname": "Ramírez Torres",
+            "user_email": "carlos.ramirez@gmail.com",
+            "user_password": "$2a$10$t/638X5z4mGua/B.jEylx.2HcSXNcvD4ltXJkWpKhoSxgBd72Dm.S",
+            "role_id": 1,
+            "createdAt": "2025-03-05T08:30:00",
+            "updatedAt": "2025-03-05T08:30:00",
+            "deletedAt": null
+        },
+        {
+            "user_id": "34b5c678-9d01-4def-b456-7890gh456def",
+            "user_name": "Laura",
+            "user_lastname": "Martínez Gómez",
+            "user_email": "laura.martinez@gmail.com",
+            "user_password": "$2a$10$4.EN7kUr/9QSjvnDREY1Z.R2f58so0VSpwW6d9bIz6lr6lDRoSTru",
+            "role_id": 1,
+            "createdAt": "2025-03-15T12:45:00",
+            "updatedAt": "2025-03-15T12:45:00",
+            "deletedAt": null
+        },
+        {
+            "user_id": "56d7e890-1f23-4ghi-c789-0123ij789ghi",
+            "user_name": "Mateo",
+            "user_lastname": "González Ríos",
+            "user_email": "mateo.gonzalez@gmail.com",
+            "user_password": "$2a$10$fk2/Yy.y/zW30A.S/n8s4.JPIbGIwA8VROV0HfUGi/.Gv3t4pTvz6",
+            "role_id": 1,
+            "createdAt": "2025-03-28T09:15:00",
+            "updatedAt": "2025-03-28T09:15:00",
+            "deletedAt": null
+        },
+        {
+            "user_id": "78f9g012-3h45-6jkl-d012-3456kl012jkl",
+            "user_name": "Valentina",
+            "user_lastname": "Lopez Herrera",
+            "user_email": "valentina.lopez@gmail.com",
+            "user_password": "$2a$10$asFLqIdBK2OAiZiexBCHiuDSq6DTeRlGyH2aRhw4QwOr5ILTJtMZ.",
+            "role_id": 1,
+            "createdAt": "2025-04-02T14:00:00",
+            "updatedAt": "2025-04-02T14:00:00",
+            "deletedAt": null
+        },
+        {
+            "user_id": "90h1i234-5k67-8mno-e345-6789mn345mno",
+            "user_name": "Sebastián",
+            "user_lastname": "Morales Díaz",
+            "user_email": "sebastian.morales@gmail.com",
+            "user_password": "$2a$10$Qtml1BWaKRV00uwxjxcWAuJadDnp6MrVu0W.e4VHsMUBDISdT6RTq",
+            "role_id": 1,
+            "createdAt": "2025-04-08T16:20:00",
+            "updatedAt": "2025-04-08T16:20:00",
+            "deletedAt": null
+        },
+        {
+            "user_id": "12j3k456-7l89-0pqr-f678-9012pq678pqr",
+            "user_name": "Camila",
+            "user_lastname": "Ortiz Méndez",
+            "user_email": "camila.ortiz@gmail.com",
+            "user_password": "$2a$10$na.LMoNk05HXXk5Afbw/POKnphYgebxDIjS/RgAqZ18.m0rTaqznW",
+            "role_id": 1,
+            "createdAt": "2025-04-11T11:35:00",
+            "updatedAt": "2025-04-11T11:35:00",
+            "deletedAt": null
+        },
+        {
+            "user_id": "34k5l678-9m01-2stu-g901-2345st901stu",
+            "user_name": "Santiago",
+            "user_lastname": "Reyes Beltrán",
+            "user_email": "santiago.reyes@gmail.com",
+            "user_password": "$2a$10$FflovQAjiCp4Y2e2qlEfK.Xria0vdaOUAHI8O7Y13AyD.HU2NdxUW",
+            "role_id": 1,
+            "createdAt": "2025-03-17T18:50:00",
+            "updatedAt": "2025-03-17T18:50:00",
             "deletedAt": null
         }
     ],
@@ -44,93 +121,138 @@
             "role_name": "administrador"
         }
     ],
+
     "products": [
+        {
+            "product_id": "097055ce-0c7f-4d83-9137-fa8efd08efe6",
+            "product_name": "Pantalón Regular Fit Beige Cargo ",
+            "product_description": "# Pantalón Cargo - Drill Premium 6.9 oz\n\nPantalón de estilo **cargo**, confeccionado en **drill premium de 6,9 oz**, un tejido resistente, cómodo y con la estructura ideal para el uso diario. Cuenta con **bolsillos tipo cargo** que aportan funcionalidad y un look urbano.\n\nSu diseño incluye **botón marcado**, **cierre en jota**, y **detalles de cortes y pinzas en la parte frontal**, que enriquecen su silueta. En la parte posterior destaca una **garra Mattelsa en la pretina**, que aporta un sutil toque distintivo.\n\n---\n\n## Especificaciones\n\n- **Estilo:** Cargo  \n- **Tejido:** Drill Premium  \n- **Peso del tejido:** 6,9 oz  \n- **Cierre:** En jota con botón marcado  \n- **Bolsillos:** Tipo cargo  \n- **Detalles:** Cortes y pinzas frontales  \n- **Etiqueta:** Garra Mattelsa en pretina posterior  \n- **Fit:** Cargo  \n- **Composición:** 98% Algodón / 2% Elastano (principal), 100% Poliéster (detalles)\n\n---\n\n## Composición y cuidados\n\n### Tela principal / Main fabric  \n**98% ALGODÓN / COTTON**  \n**2% ELASTANO / ELASTANE**  \n**Detalles: 100% POLIÉSTER / POLYESTER**\n\n### Instrucciones de cuidado\n\n- 🧺 Lavar a máquina en **ciclo delicado con agua fría**  \n- 🚫 No usar secadora  \n- 🚫 No usar blanqueador  \n- 🔥 Planchar a **temperatura baja** (evitar el estampado)  \n- 🚫 No retorcer la prenda  \n- 🚫 No lavar en seco  \n- 🌤 Secar a la sombra\n\n---\n\n*Diseñado para ofrecer funcionalidad, confort y estilo, este pantalón cargo es ideal para looks casuales con actitud.*\n",
+            "product_image": "https://res.cloudinary.com/dyuh7jesr/image/upload/v1745012879/isa-making/products/097055ce-0c7f-4d83-9137-fa8efd08efe6.webp",
+            "product_color": "#aead99",
+            "product_stock": 17,
+            "createdAt": "2025-04-18T21:47:58.000Z",
+            "updatedAt": "2025-04-18T21:47:59.000Z",
+            "deletedAt": null
+        },
+        {
+            "product_id": "309f1062-4eb1-415b-9df3-c16100eb2e42",
+            "product_name": "Buzo Hoodie Oversize Negro Ilustración ",
+            "product_description": "# Buzo Regular Fit - Burda Premium 400gr\n\nBuzo de silueta **regular fit**, confeccionado en una **Burda Premium de alto gramaje (400gr)** que brinda cuerpo, estructura y abrigo. Diseñado con **puños y fajón en rib** para un mejor ajuste y comodidad. \n\nCuenta con **estampación en plastisol** tanto en el **frente como en la espalda**, acompañada de un **bordado decorativo en las mangas**, detalles que elevan su valor estético. Incluye además un **cordón 100% algodón con punteras en níquel mate**, aportando un toque de calidad y estilo.\n\n---\n\n## Especificaciones\n\n- **Estilo:** Regular fit  \n- **Ilustraciones:** Estampación frontal y posterior (plastisol)  \n- **Detalle adicional:** Bordado en mangas  \n- **Peso del tejido:** 400gr  \n- **Cordón:** 100% algodón con punteras níquel mate  \n- **Composición principal:** 95% Algodón / 5% Elastano  \n- **Tejido adicional:** Refuerzo de 100% algodón  \n\n---\n\n## Composición y cuidados\n\n### Tela principal / Main fabric  \n**95% ALGODÓN / COTTON**  \n**5% ELASTANO / SPANDEX**  \n**Refuerzos: 100% ALGODÓN / COTTON**\n\n### Instrucciones de cuidado\n\n- 🧺 Lavar a máquina en **ciclo delicado con agua fría**  \n- 🚫 No usar secadora  \n- 🚫 No usar blanqueador  \n- 🔥 Planchar a **temperatura baja** (no planchar sobre estampados o bordados)  \n- 🚫 No retorcer la prenda  \n- 🚫 No lavar en seco  \n- 🌤 Secar a la sombra\n\n---\n\n*Una prenda que combina calidad, diseño y confort, ideal para un look urbano con detalles que marcan la diferencia.*\n",
+            "product_image": "https://res.cloudinary.com/dyuh7jesr/image/upload/v1745012390/isa-making/products/309f1062-4eb1-415b-9df3-c16100eb2e42.webp",
+            "product_color": "#111111",
+            "product_stock": 6,
+            "createdAt": "2025-04-18T21:39:49.000Z",
+            "updatedAt": "2025-04-18T21:39:50.000Z",
+            "deletedAt": null
+        },
+        {
+            "product_id": "33ce3d08-f42c-46a6-9995-7127ba72882c",
+            "product_name": "Buzo Pullover Marfil Ilustración ",
+            "product_description": "# Buzo Crop con Cierre - Burda Premium 400gr\n\nBuzo marfil de **fit amplio y largo crop**, confeccionado en una **burda de alto gramaje (400gr)** que ofrece estructura, abrigo y suavidad. Esta prenda forma parte de una **cápsula especial inspirada en el Día de la Tierra**, fusionando diseño y propósito.\n\nCuenta con un **cierre frontal con puller contramarcado**, que le da un toque distintivo y funcional. Además, incorpora **puños y fajón en rib acanalado 2x2**, que mejoran el ajuste y aportan textura al diseño.\n\n---\n\n## Especificaciones\n\n- **Estilo:** Fit amplio  \n- **Largo:** Crop  \n- **Color:** Marfil  \n- **Inspiración:** Cápsula Día de la Tierra  \n- **Tejido:** Burda Premium  \n- **Peso del tejido:** 400gr  \n- **Detalles:** Cierre especial con puller contramarcado  \n- **Terminaciones:** Rib acanalado 2x2 en puños y fajón  \n- **Composición:** 95% Algodón / 5% Elastano (principal), 100% Algodón (detalles)\n\n---\n\n## Composición y cuidados\n\n### Tela principal / Main fabric  \n**95% ALGODÓN / COTTON**  \n**5% ELASTANO / SPANDEX**  \n**Detalles: 100% ALGODÓN / COTTON**\n\n### Instrucciones de cuidado\n\n- 🧺 Lavar a máquina en **ciclo delicado con agua fría**  \n- 🚫 No usar secadora  \n- 🚫 No usar blanqueador  \n- 🔥 Planchar a **temperatura baja** (no planchar sobre estampados)  \n- 🚫 No retorcer la prenda  \n- 🚫 No lavar en seco  \n- 🌤 Secar a la sombra\n\n---\n\n*Una prenda con conciencia, pensada para ofrecer estilo, calidad y un mensaje claro en cada uso.*\n",
+            "product_image": "https://res.cloudinary.com/dyuh7jesr/image/upload/v1745013086/isa-making/products/33ce3d08-f42c-46a6-9995-7127ba72882c.webp",
+            "product_color": "#f7faf1",
+            "product_stock": 14,
+            "createdAt": "2025-04-18T21:51:26.000Z",
+            "updatedAt": "2025-04-18T21:51:27.000Z",
+            "deletedAt": null
+        },
         {
             "product_id": "b0abc550-c22b-4cca-bd50-62fc128512c6",
             "product_name": "Camiseta Beige",
-            "product_description": "Camiseta Oversize confeccionada en un Jersey Premium de alto gramaje de 240gr de peso. En frente tiene un texto y un banderín bordados en esquinas. **ESPECIFICACIONES** * **Texto**: 100% Algodón * **Características**: + Alto gramaje + Tela Premium + Oversize * **Composición y cuidados**: + **Tela principal/Main fabric**: 100% Algodón/Cotton, 98% Algodón/Cotton, 2% Elastano/Spandex + **Cuidados**: - Usa lavadora en ciclo delicado y agua fria - No uses secadora - No uses blanqueador - Plancha a temperatura baja. No planches el estampado - No la retuerzas - No laves en seco - Seca a la sombra",
-            "product_image": "https://b2cmattelsa.vtexassets.com/arquivos/ids/656851-1200-auto?v=638799784313400000&width=1200&height=auto&aspect=true",
-            "product_color": "#F5F5F5",
-            "product_stock": 10,
-            "createdAt": "2025-04-01T10:00:00",
-            "updatedAt": "2025-04-01T10:00:00",
+            "product_description": "### 🧥 Camiseta Beige - Oversize Premium\n\n**Descripción:**  \nCamiseta oversize elaborada en **jersey premium de alto gramaje (240 g)**. Cuenta con **bordado de texto y un banderín** en las esquinas del frente, lo que le da un toque distintivo y de alta calidad.\n\n---\n\n#### ✨ Especificaciones\n\n- **Tipo de tela:** 100% algodón\n- **Gramaje:** Alto (240 g)\n- **Fit:** Oversize\n- **Detalles:** Bordado frontal (texto + banderín)\n\n---\n\n#### 🧵 Composición\n\n- **Tela principal:**  \n  - 100% Algodón  \n  - 98% Algodón, 2% Elastano (Spandex)\n\n---\n\n#### 🧼 Cuidados\n\n- ✅ Lavar a máquina en **ciclo delicado** con **agua fría**  \n- ❌ No usar **secadora**  \n- ❌ No usar **blanqueador**  \n- 🧺 **Planchar a temperatura baja** (evitar el estampado)  \n- ❌ No **retorcer**  \n- ❌ No **lavar en seco**\n",
+            "product_image": "https://res.cloudinary.com/dyuh7jesr/image/upload/v1745012143/isa-making/products/b0abc550-c22b-4cca-bd50-62fc128512c6.webp",
+            "product_color": "#d6d3c9",
+            "product_stock": 13,
+            "createdAt": "2025-04-01T10:00:00.000Z",
+            "updatedAt": "2025-04-18T21:35:43.000Z",
             "deletedAt": null
         },
         {
-            "product_id": "8b3d76d6-093f-4a1e-8c94-ea8f2f4c300c",
-            "product_name": "Buzo Rojo",
-            "product_description": "### Buzo Cálido y Cómodo\n\n**Descripción del producto:**\n\nEl buzo cálido y cómodo es perfecto para climas fríos o para un look urbano. Confeccionado con materiales de alta durabilidad, este buzo es ideal para aquellos que buscan comodidad y estilo.\n\n**Características:**\n\n* Cálido y cómodo\n* Confeccionado con materiales de alta durabilidad\n* Perfecto para climas fríos o para un look urbano",
-            "product_image": "https://b2cmattelsa.vtexassets.com/arquivos/ids/656972-500-748?v=638799789223830000&width=500&height=748&aspect=true",
-            "product_color": "#B0B0B0",
-            "product_stock": 4,
-            "createdAt": "2025-04-14T00:25:53",
-            "updatedAt": "2025-04-14T00:25:53",
-            "deletedAt": null
-        },
-        {
-            "product_id": "c54bc73e-25a5-45e4-bb54-08e2cb8e1299",
-            "product_name": "Pantalón Cargo Verde",
-            "product_description": "Pantalón estilo cargo con múltiples bolsillos. Perfecto para un look urbano y funcional. **ESPECIFICACIONES** * **Material**: 98% Algodón, 2% Elastano * **Características**: + Corte recto + Bolsillos laterales + Tela resistente * **Composición y cuidados**: + Lavar con colores similares + No usar blanqueador + No usar secadora",
-            "product_image": "https://b2cmattelsa.vtexassets.com/arquivos/ids/656908-500-748?v=638799815040770000&width=500&height=748&aspect=true",
-            "product_color": "#556B2F",
+            "product_id": "bacd17a6-9f35-4b4e-a8a0-a4822529160c",
+            "product_name": "Buzo Hoodie Rojo Texto ",
+            "product_description": "# Prenda Regular Fit - Jersey Premium de Alto Gramaje\n\nPrenda de **silueta regular**, elaborada en **tela premium de alto gramaje**, ideal para quienes buscan comodidad con estructura. Presenta **estampado tipográfico** como elemento gráfico principal, brindando un toque de estilo sin perder la versatilidad.\n\nGracias a su composición de **algodón con una ligera mezcla de elastano**, se adapta al cuerpo sin perder su forma, garantizando confort en el uso diario.\n\n---\n\n## Especificaciones\n\n- **Estilo:** Regular Fit  \n- **Tipo de gráfico:** Texto  \n- **Tejido:** Premium  \n- **Gramaje:** Alto  \n- **Composición:** \n  - Principal: 100% Algodón  \n  - Secundario: 97% Algodón / 3% Elastano  \n\n---\n\n## Composición y cuidados\n\n### Tela principal / Main fabric  \n**100% ALGODÓN / COTTON**  \n**97% ALGODÓN / COTTON — 3% ELASTANO / SPANDEX**\n\n### Instrucciones de cuidado\n\n- 🧺 Lavar a máquina en **ciclo delicado con agua fría**  \n- 🚫 No usar secadora  \n- 🚫 No usar blanqueador  \n- 🔥 Planchar a **temperatura baja** (evitar planchar sobre el estampado)  \n- 🚫 No retorcer  \n- 🚫 No lavar en seco  \n- 🌤 Secar a la sombra\n\n---\n\n*Una prenda básica elevada, con estética limpia, comodidad y materiales que marcan la diferencia.*\n",
+            "product_image": "https://res.cloudinary.com/dyuh7jesr/image/upload/v1745014416/isa-making/products/bacd17a6-9f35-4b4e-a8a0-a4822529160c.webp",
+            "product_color": "#ff1717",
             "product_stock": 5,
-            "createdAt": "2025-04-01T10:00:00",
-            "updatedAt": "2025-04-01T10:00:00",
+            "createdAt": "2025-04-18T22:13:35.000Z",
+            "updatedAt": "2025-04-18T22:13:36.000Z",
             "deletedAt": null
         },
         {
-            "product_id": "aa45e4fc-fecb-4f1a-917d-f837bf290fe3",
-            "product_name": "Tank Top Negra",
-            "product_description": "Tank top liviana y cómoda, ideal para entrenamientos o climas cálidos. **ESPECIFICACIONES** * **Material**: 100% Algodón * **Características**: + Sin mangas + Corte ajustado + Transpirable * **Composición y cuidados**: + Lavar con agua fría + No usar secadora + No planchar sobre el estampado",
-            "product_image": "https://b2cmattelsa.vtexassets.com/arquivos/ids/656884-500-748?v=638799785632570000&width=500&height=748&aspect=true",
+            "product_id": "e45d9f43-01f2-4418-ba8a-d227a2ef407e",
+            "product_name": "Camiseta Negro Texto",
+            "product_description": "# Camiseta Oversize - Jersey Premium 345gr\n\nCamiseta de silueta **oversize**, confeccionada en un **Jersey Premium de alto gramaje (345gr)** que aporta estructura, suavidad y durabilidad. Su diseño incorpora **estampación en plastisol tanto en el frente como en la espalda**, logrando un acabado definido y de alta calidad.\n\nUn detalle distintivo de esta prenda es su **espalda completa sin corte de sisa**, lo que proporciona un look más limpio y moderno. Además, cuenta con un **banderín decorativo**, que refuerza su carácter estético y diferenciador.\n\n---\n\n## Especificaciones\n\n- **Estilo:** Oversize  \n- **Estampación:** Frente y espalda (plastisol)  \n- **Diseño especial:** Espalda sin corte de sisa  \n- **Detalle:** Banderín decorativo  \n- **Tejido:** Jersey Premium  \n- **Peso del tejido:** 345gr  \n- **Composición:** 100% Algodón  \n\n---\n\n## Composición y cuidados\n\n### Tela principal / Main fabric  \n**100% ALGODÓN / COTTON**\n\n### Instrucciones de cuidado\n\n- 🧺 Lavar a máquina en **ciclo delicado con agua fría**  \n- 🚫 No usar secadora  \n- 🚫 No usar blanqueador  \n- 🔥 Planchar a **temperatura baja** (evita planchar sobre el estampado)  \n- 🚫 No retorcer la prenda  \n- 🚫 No lavar en seco  \n- 🌤 Secar a la sombra\n\n---\n\n*Diseñada para quienes buscan calidad, estilo oversize y detalles únicos que hacen la diferencia.*\n",
+            "product_image": "https://res.cloudinary.com/dyuh7jesr/image/upload/v1745012758/isa-making/products/e45d9f43-01f2-4418-ba8a-d227a2ef407e.webp",
+            "product_color": "#141414",
+            "product_stock": 7,
+            "createdAt": "2025-04-18T21:45:58.000Z",
+            "updatedAt": "2025-04-18T21:45:58.000Z",
+            "deletedAt": null
+        },
+        {
+            "product_id": "e8eeff09-7c0d-4fcf-bd84-478b1cf7a4c9",
+            "product_name": "Camiseta Oversize Negro Lavandería ",
+            "product_description": "## Camiseta Oversize - Jersey Premium 250gr\n\nCamiseta de silueta **oversize**, confeccionada en un **Jersey Premium de alto gramaje (250gr)**, ideal para brindar estructura, durabilidad y un estilo moderno. Cuenta con **cuello y ruedos de mangas en rib**, detalles que mejoran el ajuste y el acabado. Además, ha sido sometida a un proceso de **lavandería en tono negro**, lo que le aporta un color intenso y duradero. \n\nSu diseño incluye **corte de mangas centrado en los hombros** y un **banderín decorativo en la parte frontal**, detalles que elevan su estilo y la hacen destacar.\n\n---\n\n## Especificaciones\n\n- **Estilo:** Oversize  \n- **Color:** Negro (lavandería)  \n- **Tejido:** Jersey Premium  \n- **Peso del tejido:** 250gr  \n- **Composición:** 100% Algodón  \n\n---\n\n## Composición y cuidados\n\n### Tela principal / Main fabric\n**100% ALGODÓN / COTTON**\n\n### Instrucciones de cuidado\n\n- 🧺 Lavar a máquina en ciclo delicado con **agua fría**  \n- 🚫 No usar secadora  \n- 🚫 No usar blanqueador  \n- 🔥 Planchar a **temperatura baja** (evitar el estampado)  \n- 🚫 No retorcer la prenda  \n- 🚫 No lavar en seco  \n- 🌤 Secar a la sombra\n\n---\n\n*Una prenda pensada para quienes buscan estilo, comodidad y calidad en una sola pieza.*\n",
+            "product_image": "https://res.cloudinary.com/dyuh7jesr/image/upload/v1745012464/isa-making/products/e8eeff09-7c0d-4fcf-bd84-478b1cf7a4c9.webp",
+            "product_color": "#000000",
+            "product_stock": 10,
+            "createdAt": "2025-04-18T21:33:14.000Z",
+            "updatedAt": "2025-04-18T21:41:04.000Z",
+            "deletedAt": null
+        },
+        {
+            "product_id": "ecb7a623-6bde-4de9-90fd-9984dcd7e9a2",
+            "product_name": "Joggers Negro Cargo ",
+            "product_description": "# Jogger Oversize Cargo - Burda Premium 305gr\n\nJogger de **silueta oversize**, confeccionado en **burda premium de alto gramaje (305gr)** que ofrece una excelente estructura y confort. Su diseño robusto incluye **corte frontal**, **bolsillos tipo cargo con cierre lateral**, y un **detalle estampado en hiladilla sobre el bolsillo posterior**, aportando un toque gráfico sutil y distintivo.\n\nUna prenda pensada para combinar estilo urbano con funcionalidad, ideal para el día a día.\n\n---\n\n## Especificaciones\n\n- **Estilo:** Oversize  \n- **Tipo:** Cargo  \n- **Tejido:** Burda Premium  \n- **Peso del tejido:** 305gr  \n- **Detalles:** Corte frontal, bolsillos cargo con cierre, hiladilla estampada en bolsillo posterior  \n- **Composición:** \n  - Principal: 100% Algodón  \n  - Con elasticidad: 96% Algodón / 4% Elastano  \n\n---\n\n## Composición y cuidados\n\n### Tela principal / Main fabric  \n**100% ALGODÓN / COTTON**  \n**96% ALGODÓN / COTTON — 4% ELASTANO / SPANDEX**\n\n### Instrucciones de cuidado\n\n- 🧺 Lavar a máquina en **ciclo delicado con agua fría**  \n- 🚫 No usar secadora  \n- 🚫 No usar blanqueador  \n- 🔥 Planchar a **temperatura baja** (no planchar el estampado)  \n- 🚫 No retorcer la prenda  \n- 🚫 No lavar en seco  \n- 🌤 Secar a la sombra\n\n---\n\n*Funcionalidad, diseño y comodidad: un jogger que lleva lo esencial del estilo urbano a otro nivel.*\n",
+            "product_image": "https://res.cloudinary.com/dyuh7jesr/image/upload/v1745014298/isa-making/products/ecb7a623-6bde-4de9-90fd-9984dcd7e9a2.webp",
+            "product_color": "#000000",
+            "product_stock": 8,
+            "createdAt": "2025-04-18T22:11:37.000Z",
+            "updatedAt": "2025-04-18T22:11:38.000Z",
+            "deletedAt": null
+        },
+        {
+            "product_id": "f44350c3-d9f4-482d-9160-71f1834be337",
+            "product_name": "Jeans Loose Fit Azul Medio Lavandería",
+            "product_description": "# Jean Denim Premium - Lavandería Azul Medio\n\nJean confeccionado en **denim premium de 11,3 oz**, resistente y de alta calidad, ideal para un uso diario con estilo. Presenta una **lavandería en tono azul medio** que le otorga un acabado moderno y versátil.\n\nIncluye **bigotes e iluminaciones en la parte frontal**, generando un **efecto de desgaste natural**, con un look auténtico y bien trabajado. En la parte posterior destaca un **detalle de garra Mattelsa en la pretina**, aportando un sutil contraste que refuerza su carácter distintivo.\n\n---\n\n## Especificaciones\n\n- **Estilo:** Casual / Denim clásico  \n- **Color:** Azul medio (lavandería)  \n- **Tejido:** Denim Premium  \n- **Peso del tejido:** 11,3 oz  \n- **Composición:** 100% Algodón  \n\n---\n\n## Composición y cuidados\n\n### Tela principal / Main fabric\n**100% ALGODÓN / COTTON**\n\n### Instrucciones de cuidado\n\n- 🧺 Lavar a máquina en **ciclo delicado con agua fría**  \n- 🚫 No usar secadora  \n- 🚫 No usar blanqueador  \n- 🔥 Planchar a **temperatura baja** (no planchar sobre estampados o aplicaciones)  \n- 🚫 No retorcer la prenda  \n- 🚫 No lavar en seco  \n- 🌤 Secar a la sombra\n\n---\n\n*Un jean diseñado para destacar con un look urbano y auténtico, sin comprometer la calidad ni la comodidad.*\n",
+            "product_image": "https://res.cloudinary.com/dyuh7jesr/image/upload/v1745012280/isa-making/products/f44350c3-d9f4-482d-9160-71f1834be337.webp",
+            "product_color": "#8a9faa",
+            "product_stock": 8,
+            "createdAt": "2025-04-18T21:37:59.000Z",
+            "updatedAt": "2025-04-18T21:38:00.000Z",
+            "deletedAt": null
+        },
+        {
+            "product_id": "f7babb7f-d10e-4d86-a120-eb2fe01fcfd4",
+            "product_name": "Buzo Pullover Negro Texto ",
+            "product_description": "# Buzo Oversize con Cortes - Jersey Premium 345gr\n\nBuzo de **fit amplio y largo over**, confeccionado en **jersey premium de alto gramaje (345gr)** que proporciona una excelente caída, suavidad y durabilidad. Presenta un diseño de **cortes estructurados** que aportan carácter a la prenda.\n\nCuenta con **arte tipográfico en frente y espalda**, realizado con **técnica de plastisol en alta densidad** en tono rosado, generando un efecto en relieve llamativo. Los **acabados en cuello, puños y fajón** están elaborados en **rib acanalado 1x1**, para un mejor ajuste y acabado visual.\n\n---\n\n## Especificaciones\n\n- **Estilo:** Fit amplio  \n- **Largo:** Over  \n- **Tejido:** Jersey Premium  \n- **Peso del tejido:** 345gr  \n- **Estampado:** Plastisol en alta densidad (rosado)  \n- **Detalles:** Arte tipográfico en frente y espalda  \n- **Acabados:** Rib acanalado 1x1 en cuello, puños y fajón  \n- **Composición:** 100% Algodón  \n\n---\n\n## Composición y cuidados\n\n### Tela principal / Main fabric  \n**100% ALGODÓN / COTTON**\n\n### Instrucciones de cuidado\n\n- 🧺 Lavar a máquina en **ciclo delicado con agua fría**  \n- 🚫 No usar secadora  \n- 🚫 No usar blanqueador  \n- 🔥 Planchar a **temperatura baja** (no planchar sobre el estampado)  \n- 🚫 No retorcer la prenda  \n- 🚫 No lavar en seco  \n- 🌤 Secar a la sombra\n\n---\n\n*Una pieza con presencia y estilo gráfico, ideal para quienes buscan vestir con intención y diseño urbano.*\n",
+            "product_image": "https://res.cloudinary.com/dyuh7jesr/image/upload/v1745013255/isa-making/products/f7babb7f-d10e-4d86-a120-eb2fe01fcfd4.webp",
             "product_color": "#000000",
             "product_stock": 4,
-            "createdAt": "2025-04-01T10:00:00",
-            "updatedAt": "2025-04-01T10:00:00",
+            "createdAt": "2025-04-18T21:54:14.000Z",
+            "updatedAt": "2025-04-18T21:54:15.000Z",
             "deletedAt": null
         },
         {
-            "product_id": "2c404ff9-bc15-4be0-a6fc-d84382c12e94",
-            "product_name": "Camiseta Oversize",
-            "product_description": "Camiseta de alta calidad y estilo moderno. Ideal para uso diario o casual.",
-            "product_image": "https://b2cmattelsa.vtexassets.com/arquivos/ids/657667-500-748?v=638800013612600000&width=500&height=748&aspect=true",
-            "product_color": "#D3D3D3",
+            "product_id": "f8ff1fea-1be1-45df-92a3-c3dfa2b51ae5",
+            "product_name": "Joggers Marfil Texto ",
+            "product_description": "# Jogger Oversize - Burda Premium 305gr\n\nJogger de silueta **oversize**, confeccionado en **Burda Premium de alto gramaje (305gr)**, que asegura comodidad y durabilidad. Presenta una **estampación en alta densidad en el frente**, lo que genera un efecto de relieve en el texto, añadiendo un toque distintivo.\n\nEl diseño incluye **cortes en la parte posterior** que le brindan un estilo único y moderno, además de un **cordón interno** para un ajuste personalizado.\n\n---\n\n## Especificaciones\n\n- **Estilo:** Oversize  \n- **Estampación:** Texto en alta densidad (relieve)  \n- **Cortes:** Posteriores para mayor estilo  \n- **Composición:** 96% Algodón / 4% Elastano  \n- **Peso del tejido:** 305gr  \n- **Tejido:** Burda Premium  \n- **Cordón interno:** Ajustable\n\n---\n\n## Composición y cuidados\n\n### Tela principal / Main fabric  \n**96% ALGODÓN / COTTON**  \n**4% ELASTANO / SPANDEX**\n\n### Instrucciones de cuidado\n\n- 🧺 Lavar a máquina en **ciclo delicado con agua fría**  \n- 🚫 No usar secadora  \n- 🚫 No usar blanqueador  \n- 🔥 Planchar a **temperatura baja** (no planchar sobre estampados)  \n- 🚫 No retorcer la prenda  \n- 🚫 No lavar en seco  \n- 🌤 Secar a la sombra\n\n---\n\n*Un jogger con diseño moderno, confort y detalles que lo hacen único para un look urbano y relajado.*\n",
+            "product_image": "https://res.cloudinary.com/dyuh7jesr/image/upload/v1745012625/isa-making/products/f8ff1fea-1be1-45df-92a3-c3dfa2b51ae5.webp",
+            "product_color": "#efefef",
             "product_stock": 8,
-            "createdAt": "2025-04-14T00:25:53",
-            "updatedAt": "2025-04-14T00:25:53",
+            "createdAt": "2025-04-18T21:43:44.000Z",
+            "updatedAt": "2025-04-18T21:44:13.000Z",
             "deletedAt": null
         },
         {
-            "product_id": "10bc699f-2f6f-42fd-b65e-493a76eb010b",
-            "product_name": "Pantalón Beige",
-            "product_description": "Pantalón de alta calidad y estilo moderno. Ideal para uso diario o casual.",
-            "product_image": "https://b2cmattelsa.vtexassets.com/arquivos/ids/656696-500-748?v=638799814481670000&width=500&height=748&aspect=true",
-            "product_color": "#F5F5F5",
-            "product_stock": 12,
-            "createdAt": "2025-04-14T00:25:53",
-            "updatedAt": "2025-04-14T00:25:53",
-            "deletedAt": null
-        },
-        {
-            "product_id": "e45d83a1-d989-4308-b58a-46095f4fc99c",
-            "product_name": "Shorts Beige",
-            "product_description": "Shorts frescos y modernos, ideales para el clima cálido. Diseño cómodo con materiales resistentes.",
-            "product_image": "https://b2cmattelsa.vtexassets.com/arquivos/ids/657404-500-748?v=638799789773870000&width=500&height=748&aspect=true",
-            "product_color": "#F5F5F5",
-            "product_stock": 15,
-            "createdAt": "2025-04-14T00:25:53",
-            "updatedAt": "2025-04-14T00:25:53",
-            "deletedAt": null
-        },
-        {
-            "product_id": "723c7c69-6223-4a4f-8823-b20f2d1f30a6",
-            "product_name": "Camiseta Negra",
-            "product_description": "Camiseta casual y versátil, confeccionada en algodón suave con ajuste cómodo. Perfecta para cualquier ocasión.",
-            "product_image": "https://b2cmattelsa.vtexassets.com/arquivos/ids/657432-500-748?v=638799782771170000&width=500&height=748&aspect=true",
-            "product_color": "#000000",
-            "product_stock": 2,
-            "createdAt": "2025-04-14T00:25:53",
-            "updatedAt": "2025-04-14T00:25:53",
+            "product_id": "fb2ed5ee-2aee-4c2b-a6d5-06528c21adcb",
+            "product_name": "Camiseta Oversize Rosado Ilustración ",
+            "product_description": "# Camiseta Oversize - Jersey Premium 200gr\n\nCamiseta de silueta **oversize**, confeccionada en **jersey premium de gramaje medio (200gr)**, ideal para brindar comodidad y frescura sin perder estructura. Su diseño incluye **estampación en frente y espalda**, ambos aplicados con **técnica de plastisol**, que garantiza alta definición y durabilidad en los gráficos.\n\nUna prenda versátil y con estilo urbano, perfecta para quienes buscan autenticidad en su vestuario diario.\n\n---\n\n## Especificaciones\n\n- **Estilo:** Oversize  \n- **Tejido:** Jersey Premium  \n- **Gramaje:** 200gr  \n- **Estampado:** Plastisol (frente y espalda)  \n- **Composición:** 100% Algodón  \n\n---\n\n## Composición y cuidados\n\n### Tela principal / Main fabric  \n**100% ALGODÓN / COTTON**\n\n### Instrucciones de cuidado\n\n- 🧺 Lavar a máquina en **ciclo delicado con agua fría**  \n- 🚫 No usar secadora  \n- 🚫 No usar blanqueador  \n- 🔥 Planchar a **temperatura baja** (evitar planchar sobre el estampado)  \n- 🚫 No retorcer la prenda  \n- 🚫 No lavar en seco  \n- 🌤 Secar a la sombra\n\n---\n\n*Una básica no tan básica: diseño gráfico + comodidad premium en una sola camiseta.*\n",
+            "product_image": "https://res.cloudinary.com/dyuh7jesr/image/upload/v1745014220/isa-making/products/fb2ed5ee-2aee-4c2b-a6d5-06528c21adcb.webp",
+            "product_color": "#ffceb7",
+            "product_stock": 8,
+            "createdAt": "2025-04-18T22:10:19.000Z",
+            "updatedAt": "2025-04-18T22:10:20.000Z",
             "deletedAt": null
         }
     ],
@@ -164,370 +286,537 @@
         {
             "category_id": 1,
             "category_name": "Camisetas",
-            "category_slug": "tsh",
-            "category_image": "https://dynamobrand.co/cdn/shop/files/Carrusel-categorias-camiseta-basica-oversize-dynamo-gris-web_470x.jpg?v=1724435039"
+            "category_image": "https://res.cloudinary.com/dyuh7jesr/image/upload/v1745003017/isa-making/categories/1.webp",
+            "category_slug": "tsh"
         },
         {
             "category_id": 2,
             "category_name": "Jeans",
-            "category_slug": "jeans",
-            "category_image": "https://dynamobrand.co/cdn/shop/files/Carrusel-categorias-jeans-dynamo-baggy-azul-web_470x.jpg?v=1724435083"
-        },
-        {
-            "category_id": 4,
-            "category_name": "Estampadas",
-            "category_slug": "tsh-estampadas",
-            "category_image": "https://dynamobrand.co/cdn/shop/files/Carrusel-categorias-camiseta-oversize-dynamo-negro-web_470x.jpg?v=1724436049"
+            "category_image": "https://res.cloudinary.com/dyuh7jesr/image/upload/v1745003024/isa-making/categories/2.webp",
+            "category_slug": "jeans"
         },
         {
             "category_id": 3,
             "category_name": "Joggers",
-            "category_slug": "joggers",
-            "category_image": "https://dynamobrand.co/cdn/shop/files/Carrusel-categorias-joggers-dynamo-caqui-web_470x.jpg?v=1724436131"
+            "category_image": "https://res.cloudinary.com/dyuh7jesr/image/upload/v1745003031/isa-making/categories/3.webp",
+            "category_slug": "joggers"
+        },
+        {
+            "category_id": 4,
+            "category_name": "Estampadas",
+            "category_image": "https://res.cloudinary.com/dyuh7jesr/image/upload/v1745003041/isa-making/categories/4.webp",
+            "category_slug": "tsh-estampadas"
         },
         {
             "category_id": 5,
             "category_name": "Mujer",
-            "category_slug": "woman",
-            "category_image": "https://www.youngla.com/cdn/shop/files/04_10_25_Abigail_eComm2861_598b50bf-de5a-4c7f-bf0d-86a7a9fdedf5.jpg?v=1743749021&width=500"
+            "category_image": "https://res.cloudinary.com/dyuh7jesr/image/upload/v1745003051/isa-making/categories/5.webp",
+            "category_slug": "woman"
         },
         {
             "category_id": 6,
             "category_name": "Hombre",
-            "category_slug": "man",
-            "category_image": "https://eu.gymshark.com/_next/image?url=https%3A%2F%2Fimages.ctfassets.net%2Fwl6q2in9o7k3%2F4BgzL5qNfOILm1JXh1YW9Z%2F53be55b59f009851b0d53856456c6fad%2FHeadless_Cards_-_22559426.png&w=1920&q=85"
+            "category_image": "https://res.cloudinary.com/dyuh7jesr/image/upload/v1745003057/isa-making/categories/6.avif",
+            "category_slug": "man"
+        },
+        {
+            "category_id": 7,
+            "category_name": "Hoddies",
+            "category_image": "https://res.cloudinary.com/dyuh7jesr/image/upload/v1745003074/isa-making/categories/7.webp",
+            "category_slug": "hoddies"
         }
     ],
     "medias": [
         {
-            "media_id": "466a6548-4f56-4781-bd2f-80d6a1f1e717",
-            "product_id": "b0abc550-c22b-4cca-bd50-62fc128512c6",
-            "media_image": "https://b2cmattelsa.vtexassets.com/arquivos/ids/656852-1200-auto?v=638799784313400000&width=1200&height=auto&aspect=true"
+            "media_id": "0a480089-377f-46aa-ae16-e5344fc5cad9",
+            "product_id": "e45d9f43-01f2-4418-ba8a-d227a2ef407e",
+            "media_image": "https://res.cloudinary.com/dyuh7jesr/image/upload/v1745012759/isa-making/medias/0a480089-377f-46aa-ae16-e5344fc5cad9.webp"
         },
         {
-            "media_id": "ce083994-6089-474a-ab60-bbb4ec9fe743",
-            "product_id": "b0abc550-c22b-4cca-bd50-62fc128512c6",
-            "media_image": "https://b2cmattelsa.vtexassets.com/arquivos/ids/656856-1200-auto?v=638799784313530000&width=1200&height=auto&aspect=true"
+            "media_id": "11da2a68-01d3-493d-a492-bde4aaf11e43",
+            "product_id": "bacd17a6-9f35-4b4e-a8a0-a4822529160c",
+            "media_image": "https://res.cloudinary.com/dyuh7jesr/image/upload/v1745014416/isa-making/medias/11da2a68-01d3-493d-a492-bde4aaf11e43.webp"
         },
         {
-            "media_id": "1fcba029-24c5-49cd-ba2f-faef9ee00b5b",
+            "media_id": "134786f0-6f0b-4c02-81fd-8dc1f769c443",
             "product_id": "b0abc550-c22b-4cca-bd50-62fc128512c6",
-            "media_image": "https://b2cmattelsa.vtexassets.com/arquivos/ids/656854-1200-auto?v=638799784313400000&width=1200&height=auto&aspect=true"
+            "media_image": "https://res.cloudinary.com/dyuh7jesr/image/upload/v1745012144/isa-making/medias/134786f0-6f0b-4c02-81fd-8dc1f769c443.webp"
+        },
+        {
+            "media_id": "2145643f-c4b4-4066-b956-dfafe0ee7f20",
+            "product_id": "309f1062-4eb1-415b-9df3-c16100eb2e42",
+            "media_image": "https://res.cloudinary.com/dyuh7jesr/image/upload/v1745012391/isa-making/medias/2145643f-c4b4-4066-b956-dfafe0ee7f20.webp"
+        },
+        {
+            "media_id": "27cc43e0-b340-4a60-a6e6-f1bb2a6e1a73",
+            "product_id": "f7babb7f-d10e-4d86-a120-eb2fe01fcfd4",
+            "media_image": "https://res.cloudinary.com/dyuh7jesr/image/upload/v1745013256/isa-making/medias/27cc43e0-b340-4a60-a6e6-f1bb2a6e1a73.webp"
+        },
+        {
+            "media_id": "43474e00-2108-4e2d-aeee-60e1053cf361",
+            "product_id": "33ce3d08-f42c-46a6-9995-7127ba72882c",
+            "media_image": "https://res.cloudinary.com/dyuh7jesr/image/upload/v1745013087/isa-making/medias/43474e00-2108-4e2d-aeee-60e1053cf361.webp"
+        },
+        {
+            "media_id": "4733329b-aa41-4abe-82e6-1cb1436de264",
+            "product_id": "e8eeff09-7c0d-4fcf-bd84-478b1cf7a4c9",
+            "media_image": "https://res.cloudinary.com/dyuh7jesr/image/upload/v1745011996/isa-making/medias/4733329b-aa41-4abe-82e6-1cb1436de264.webp"
+        },
+        {
+            "media_id": "514d171a-0e4e-4a69-a89f-98a941ee86f6",
+            "product_id": "ecb7a623-6bde-4de9-90fd-9984dcd7e9a2",
+            "media_image": "https://res.cloudinary.com/dyuh7jesr/image/upload/v1745014299/isa-making/medias/514d171a-0e4e-4a69-a89f-98a941ee86f6.webp"
+        },
+        {
+            "media_id": "5d68ebb6-c2a5-4cf3-98c4-c459d4c17994",
+            "product_id": "ecb7a623-6bde-4de9-90fd-9984dcd7e9a2",
+            "media_image": "https://res.cloudinary.com/dyuh7jesr/image/upload/v1745014299/isa-making/medias/5d68ebb6-c2a5-4cf3-98c4-c459d4c17994.webp"
+        },
+        {
+            "media_id": "6364bd87-b796-47e7-a88d-53cd62607e24",
+            "product_id": "309f1062-4eb1-415b-9df3-c16100eb2e42",
+            "media_image": "https://res.cloudinary.com/dyuh7jesr/image/upload/v1745012391/isa-making/medias/6364bd87-b796-47e7-a88d-53cd62607e24.webp"
+        },
+        {
+            "media_id": "65f71454-fc2d-4859-9d7b-e9b28a6434d4",
+            "product_id": "309f1062-4eb1-415b-9df3-c16100eb2e42",
+            "media_image": "https://res.cloudinary.com/dyuh7jesr/image/upload/v1745012390/isa-making/medias/65f71454-fc2d-4859-9d7b-e9b28a6434d4.webp"
+        },
+        {
+            "media_id": "696e94d5-0907-4965-8d1e-33da4291a2cf",
+            "product_id": "33ce3d08-f42c-46a6-9995-7127ba72882c",
+            "media_image": "https://res.cloudinary.com/dyuh7jesr/image/upload/v1745013087/isa-making/medias/696e94d5-0907-4965-8d1e-33da4291a2cf.webp"
+        },
+        {
+            "media_id": "6c6b983d-59e2-4799-946d-d6059c6d58f3",
+            "product_id": "ecb7a623-6bde-4de9-90fd-9984dcd7e9a2",
+            "media_image": "https://res.cloudinary.com/dyuh7jesr/image/upload/v1745014299/isa-making/medias/6c6b983d-59e2-4799-946d-d6059c6d58f3.webp"
+        },
+        {
+            "media_id": "6e15824d-8142-4db6-8979-ef4e16e6c02b",
+            "product_id": "097055ce-0c7f-4d83-9137-fa8efd08efe6",
+            "media_image": "https://res.cloudinary.com/dyuh7jesr/image/upload/v1745012880/isa-making/medias/6e15824d-8142-4db6-8979-ef4e16e6c02b.webp"
+        },
+        {
+            "media_id": "73e5d1e4-8c2c-4bc3-892f-8ea57ffe682a",
+            "product_id": "309f1062-4eb1-415b-9df3-c16100eb2e42",
+            "media_image": "https://res.cloudinary.com/dyuh7jesr/image/upload/v1745012391/isa-making/medias/73e5d1e4-8c2c-4bc3-892f-8ea57ffe682a.webp"
+        },
+        {
+            "media_id": "761e40ca-bd40-439a-ab32-c2ac4474380e",
+            "product_id": "e8eeff09-7c0d-4fcf-bd84-478b1cf7a4c9",
+            "media_image": "https://res.cloudinary.com/dyuh7jesr/image/upload/v1745011996/isa-making/medias/761e40ca-bd40-439a-ab32-c2ac4474380e.webp"
+        },
+        {
+            "media_id": "7928adac-ea80-4592-a625-472e6b912985",
+            "product_id": "f8ff1fea-1be1-45df-92a3-c3dfa2b51ae5",
+            "media_image": "https://res.cloudinary.com/dyuh7jesr/image/upload/v1745012626/isa-making/medias/7928adac-ea80-4592-a625-472e6b912985.webp"
+        },
+        {
+            "media_id": "7f8ce2a5-c8f7-4ab5-95c6-47f0e8f4129c",
+            "product_id": "fb2ed5ee-2aee-4c2b-a6d5-06528c21adcb",
+            "media_image": "https://res.cloudinary.com/dyuh7jesr/image/upload/v1745014221/isa-making/medias/7f8ce2a5-c8f7-4ab5-95c6-47f0e8f4129c.webp"
+        },
+        {
+            "media_id": "8360a2b4-c2bc-4a1c-9e7d-ef1cf2a2a341",
+            "product_id": "e45d9f43-01f2-4418-ba8a-d227a2ef407e",
+            "media_image": "https://res.cloudinary.com/dyuh7jesr/image/upload/v1745012759/isa-making/medias/8360a2b4-c2bc-4a1c-9e7d-ef1cf2a2a341.webp"
+        },
+        {
+            "media_id": "8468078b-5195-4f02-8384-4ec718dd94e9",
+            "product_id": "097055ce-0c7f-4d83-9137-fa8efd08efe6",
+            "media_image": "https://res.cloudinary.com/dyuh7jesr/image/upload/v1745012880/isa-making/medias/8468078b-5195-4f02-8384-4ec718dd94e9.webp"
+        },
+        {
+            "media_id": "8565c2b4-ba2e-48c2-bd84-e6ac83540fd1",
+            "product_id": "f7babb7f-d10e-4d86-a120-eb2fe01fcfd4",
+            "media_image": "https://res.cloudinary.com/dyuh7jesr/image/upload/v1745013256/isa-making/medias/8565c2b4-ba2e-48c2-bd84-e6ac83540fd1.webp"
+        },
+        {
+            "media_id": "8d861398-4210-4a91-bba2-ca6183fc21d6",
+            "product_id": "f8ff1fea-1be1-45df-92a3-c3dfa2b51ae5",
+            "media_image": "https://res.cloudinary.com/dyuh7jesr/image/upload/v1745012626/isa-making/medias/8d861398-4210-4a91-bba2-ca6183fc21d6.webp"
+        },
+        {
+            "media_id": "9ebf0d15-cc08-47dd-ad4e-04d78c84cb0a",
+            "product_id": "fb2ed5ee-2aee-4c2b-a6d5-06528c21adcb",
+            "media_image": "https://res.cloudinary.com/dyuh7jesr/image/upload/v1745014221/isa-making/medias/9ebf0d15-cc08-47dd-ad4e-04d78c84cb0a.webp"
+        },
+        {
+            "media_id": "a0bdd847-4c4f-47fc-92aa-f593443b4cdb",
+            "product_id": "f44350c3-d9f4-482d-9160-71f1834be337",
+            "media_image": "https://res.cloudinary.com/dyuh7jesr/image/upload/v1745012281/isa-making/medias/a0bdd847-4c4f-47fc-92aa-f593443b4cdb.webp"
+        },
+        {
+            "media_id": "a5347bb9-e5e8-4dc3-85a0-f6e566c29a4e",
+            "product_id": "e8eeff09-7c0d-4fcf-bd84-478b1cf7a4c9",
+            "media_image": "https://res.cloudinary.com/dyuh7jesr/image/upload/v1745011996/isa-making/medias/a5347bb9-e5e8-4dc3-85a0-f6e566c29a4e.webp"
+        },
+        {
+            "media_id": "b1f0a168-c953-4e34-b254-c8fecce80e60",
+            "product_id": "fb2ed5ee-2aee-4c2b-a6d5-06528c21adcb",
+            "media_image": "https://res.cloudinary.com/dyuh7jesr/image/upload/v1745014221/isa-making/medias/b1f0a168-c953-4e34-b254-c8fecce80e60.webp"
+        },
+        {
+            "media_id": "b8d63001-c049-4395-ae7c-8ef717585002",
+            "product_id": "f7babb7f-d10e-4d86-a120-eb2fe01fcfd4",
+            "media_image": "https://res.cloudinary.com/dyuh7jesr/image/upload/v1745013255/isa-making/medias/b8d63001-c049-4395-ae7c-8ef717585002.webp"
+        },
+        {
+            "media_id": "ba0ec692-e308-4003-99d3-6ceca150cd83",
+            "product_id": "f8ff1fea-1be1-45df-92a3-c3dfa2b51ae5",
+            "media_image": "https://res.cloudinary.com/dyuh7jesr/image/upload/v1745012626/isa-making/medias/ba0ec692-e308-4003-99d3-6ceca150cd83.webp"
+        },
+        {
+            "media_id": "c0a77a25-699d-4175-95db-d167b6bca825",
+            "product_id": "b0abc550-c22b-4cca-bd50-62fc128512c6",
+            "media_image": "https://res.cloudinary.com/dyuh7jesr/image/upload/v1745012144/isa-making/medias/c0a77a25-699d-4175-95db-d167b6bca825.webp"
+        },
+        {
+            "media_id": "c7c8764b-1a78-454a-85a5-07e6eb46bf79",
+            "product_id": "ecb7a623-6bde-4de9-90fd-9984dcd7e9a2",
+            "media_image": "https://res.cloudinary.com/dyuh7jesr/image/upload/v1745014299/isa-making/medias/c7c8764b-1a78-454a-85a5-07e6eb46bf79.webp"
+        },
+        {
+            "media_id": "c87fbdca-a00e-4fd8-9927-dd4d60137b1d",
+            "product_id": "e45d9f43-01f2-4418-ba8a-d227a2ef407e",
+            "media_image": "https://res.cloudinary.com/dyuh7jesr/image/upload/v1745012759/isa-making/medias/c87fbdca-a00e-4fd8-9927-dd4d60137b1d.webp"
+        },
+        {
+            "media_id": "d2de2fe0-d21f-4b77-9723-379eed9c02a6",
+            "product_id": "b0abc550-c22b-4cca-bd50-62fc128512c6",
+            "media_image": "https://res.cloudinary.com/dyuh7jesr/image/upload/v1745012144/isa-making/medias/d2de2fe0-d21f-4b77-9723-379eed9c02a6.webp"
+        },
+        {
+            "media_id": "d4f1fc0a-c01b-48f8-943e-c54b987b1018",
+            "product_id": "bacd17a6-9f35-4b4e-a8a0-a4822529160c",
+            "media_image": "https://res.cloudinary.com/dyuh7jesr/image/upload/v1745014417/isa-making/medias/d4f1fc0a-c01b-48f8-943e-c54b987b1018.webp"
+        },
+        {
+            "media_id": "d501d4a9-04c9-47ec-ba0e-48dc501972b2",
+            "product_id": "33ce3d08-f42c-46a6-9995-7127ba72882c",
+            "media_image": "https://res.cloudinary.com/dyuh7jesr/image/upload/v1745013087/isa-making/medias/d501d4a9-04c9-47ec-ba0e-48dc501972b2.webp"
+        },
+        {
+            "media_id": "de080c21-0211-4647-befd-d54b5ae6f36b",
+            "product_id": "fb2ed5ee-2aee-4c2b-a6d5-06528c21adcb",
+            "media_image": "https://res.cloudinary.com/dyuh7jesr/image/upload/v1745014221/isa-making/medias/de080c21-0211-4647-befd-d54b5ae6f36b.webp"
+        },
+        {
+            "media_id": "f96a112f-6a77-4338-a9a8-3121f90561da",
+            "product_id": "f44350c3-d9f4-482d-9160-71f1834be337",
+            "media_image": "https://res.cloudinary.com/dyuh7jesr/image/upload/v1745012281/isa-making/medias/f96a112f-6a77-4338-a9a8-3121f90561da.webp"
+        },
+        {
+            "media_id": "fc332964-35eb-4ee4-babf-475bcae03fed",
+            "product_id": "bacd17a6-9f35-4b4e-a8a0-a4822529160c",
+            "media_image": "https://res.cloudinary.com/dyuh7jesr/image/upload/v1745014417/isa-making/medias/fc332964-35eb-4ee4-babf-475bcae03fed.webp"
         }
     ],
     "productCategories": [
         {
-            "product_id": "b0abc550-c22b-4cca-bd50-62fc128512c6",
-            "category_id": 1
-        },
-        {
-            "product_id": "b0abc550-c22b-4cca-bd50-62fc128512c6",
-            "category_id": 5
-        },
-        {
-            "product_id": "b0abc550-c22b-4cca-bd50-62fc128512c6",
-            "category_id": 6
-        },
-        {
-            "product_id": "8b3d76d6-093f-4a1e-8c94-ea8f2f4c300c",
-            "category_id": 5
-        },
-        {
-            "product_id": "8b3d76d6-093f-4a1e-8c94-ea8f2f4c300c",
-            "category_id": 6
-        },
-        {
-            "product_id": "c54bc73e-25a5-45e4-bb54-08e2cb8e1299",
+            "product_id": "097055ce-0c7f-4d83-9137-fa8efd08efe6",
             "category_id": 2
         },
         {
-            "product_id": "c54bc73e-25a5-45e4-bb54-08e2cb8e1299",
+            "product_id": "097055ce-0c7f-4d83-9137-fa8efd08efe6",
             "category_id": 3
         },
         {
-            "product_id": "aa45e4fc-fecb-4f1a-917d-f837bf290fe3",
-            "category_id": 1
-        },
-        {
-            "product_id": "aa45e4fc-fecb-4f1a-917d-f837bf290fe3",
+            "product_id": "097055ce-0c7f-4d83-9137-fa8efd08efe6",
             "category_id": 6
         },
         {
-            "product_id": "2c404ff9-bc15-4be0-a6fc-d84382c12e94",
-            "category_id": 1
-        },
-        {
-            "product_id": "aa45e4fc-fecb-4f1a-917d-f837bf290fe3",
+            "product_id": "309f1062-4eb1-415b-9df3-c16100eb2e42",
             "category_id": 4
         },
         {
-            "product_id": "10bc699f-2f6f-42fd-b65e-493a76eb010b",
-            "category_id": 2
-        },
-        {
-            "product_id": "10bc699f-2f6f-42fd-b65e-493a76eb010b",
+            "product_id": "309f1062-4eb1-415b-9df3-c16100eb2e42",
             "category_id": 5
         },
         {
-            "product_id": "e45d83a1-d989-4308-b58a-46095f4fc99c",
-            "category_id": 3
-        },
-        {
-            "product_id": "e45d83a1-d989-4308-b58a-46095f4fc99c",
+            "product_id": "309f1062-4eb1-415b-9df3-c16100eb2e42",
             "category_id": 6
         },
         {
-            "product_id": "723c7c69-6223-4a4f-8823-b20f2d1f30a6",
+            "product_id": "309f1062-4eb1-415b-9df3-c16100eb2e42",
+            "category_id": 7
+        },
+        {
+            "product_id": "33ce3d08-f42c-46a6-9995-7127ba72882c",
+            "category_id": 5
+        },
+        {
+            "product_id": "33ce3d08-f42c-46a6-9995-7127ba72882c",
+            "category_id": 7
+        },
+        {
+            "product_id": "b0abc550-c22b-4cca-bd50-62fc128512c6",
             "category_id": 1
         },
         {
-            "product_id": "723c7c69-6223-4a4f-8823-b20f2d1f30a6",
+            "product_id": "b0abc550-c22b-4cca-bd50-62fc128512c6",
+            "category_id": 5
+        },
+        {
+            "product_id": "b0abc550-c22b-4cca-bd50-62fc128512c6",
+            "category_id": 6
+        },
+        {
+            "product_id": "bacd17a6-9f35-4b4e-a8a0-a4822529160c",
+            "category_id": 4
+        },
+        {
+            "product_id": "bacd17a6-9f35-4b4e-a8a0-a4822529160c",
+            "category_id": 5
+        },
+        {
+            "product_id": "bacd17a6-9f35-4b4e-a8a0-a4822529160c",
+            "category_id": 6
+        },
+        {
+            "product_id": "bacd17a6-9f35-4b4e-a8a0-a4822529160c",
+            "category_id": 7
+        },
+        {
+            "product_id": "e45d9f43-01f2-4418-ba8a-d227a2ef407e",
+            "category_id": 1
+        },
+        {
+            "product_id": "e45d9f43-01f2-4418-ba8a-d227a2ef407e",
+            "category_id": 4
+        },
+        {
+            "product_id": "e45d9f43-01f2-4418-ba8a-d227a2ef407e",
+            "category_id": 5
+        },
+        {
+            "product_id": "e45d9f43-01f2-4418-ba8a-d227a2ef407e",
+            "category_id": 6
+        },
+        {
+            "product_id": "e8eeff09-7c0d-4fcf-bd84-478b1cf7a4c9",
+            "category_id": 1
+        },
+        {
+            "product_id": "e8eeff09-7c0d-4fcf-bd84-478b1cf7a4c9",
+            "category_id": 5
+        },
+        {
+            "product_id": "e8eeff09-7c0d-4fcf-bd84-478b1cf7a4c9",
+            "category_id": 6
+        },
+        {
+            "product_id": "ecb7a623-6bde-4de9-90fd-9984dcd7e9a2",
+            "category_id": 3
+        },
+        {
+            "product_id": "ecb7a623-6bde-4de9-90fd-9984dcd7e9a2",
+            "category_id": 5
+        },
+        {
+            "product_id": "ecb7a623-6bde-4de9-90fd-9984dcd7e9a2",
+            "category_id": 6
+        },
+        {
+            "product_id": "f44350c3-d9f4-482d-9160-71f1834be337",
+            "category_id": 2
+        },
+        {
+            "product_id": "f44350c3-d9f4-482d-9160-71f1834be337",
+            "category_id": 6
+        },
+        {
+            "product_id": "f7babb7f-d10e-4d86-a120-eb2fe01fcfd4",
+            "category_id": 4
+        },
+        {
+            "product_id": "f7babb7f-d10e-4d86-a120-eb2fe01fcfd4",
+            "category_id": 5
+        },
+        {
+            "product_id": "f7babb7f-d10e-4d86-a120-eb2fe01fcfd4",
+            "category_id": 7
+        },
+        {
+            "product_id": "f8ff1fea-1be1-45df-92a3-c3dfa2b51ae5",
+            "category_id": 3
+        },
+        {
+            "product_id": "f8ff1fea-1be1-45df-92a3-c3dfa2b51ae5",
+            "category_id": 5
+        },
+        {
+            "product_id": "f8ff1fea-1be1-45df-92a3-c3dfa2b51ae5",
+            "category_id": 6
+        },
+        {
+            "product_id": "fb2ed5ee-2aee-4c2b-a6d5-06528c21adcb",
+            "category_id": 1
+        },
+        {
+            "product_id": "fb2ed5ee-2aee-4c2b-a6d5-06528c21adcb",
+            "category_id": 4
+        },
+        {
+            "product_id": "fb2ed5ee-2aee-4c2b-a6d5-06528c21adcb",
+            "category_id": 5
+        },
+        {
+            "product_id": "fb2ed5ee-2aee-4c2b-a6d5-06528c21adcb",
             "category_id": 6
         }
     ],
     "productSizes": [
         {
-            "product_id": "b0abc550-c22b-4cca-bd50-62fc128512c6",
+            "product_id": "097055ce-0c7f-4d83-9137-fa8efd08efe6",
             "size_id": 1,
-            "product_price": 70000
+            "product_price": "169000"
         },
         {
-            "product_id": "b0abc550-c22b-4cca-bd50-62fc128512c6",
-            "size_id": 2,
-            "product_price": 70000
+            "product_id": "309f1062-4eb1-415b-9df3-c16100eb2e42",
+            "size_id": 1,
+            "product_price": "259000"
         },
         {
-            "product_id": "b0abc550-c22b-4cca-bd50-62fc128512c6",
-            "size_id": 3,
-            "product_price": 75000
-        },
-        {
-            "product_id": "b0abc550-c22b-4cca-bd50-62fc128512c6",
-            "size_id": 4,
-            "product_price": 75000
+            "product_id": "33ce3d08-f42c-46a6-9995-7127ba72882c",
+            "size_id": 1,
+            "product_price": "153000"
         },
         {
             "product_id": "b0abc550-c22b-4cca-bd50-62fc128512c6",
-            "size_id": 5,
-            "product_price": 80000
-        },
-        {
-            "product_id": "b0abc550-c22b-4cca-bd50-62fc128512c6",
-            "size_id": 6,
-            "product_price": 80000
-        },
-        {
-            "product_id": "8b3d76d6-093f-4a1e-8c94-ea8f2f4c300c",
             "size_id": 1,
-            "product_price": 80000
+            "product_price": "89000"
         },
         {
-            "product_id": "8b3d76d6-093f-4a1e-8c94-ea8f2f4c300c",
-            "size_id": 2,
-            "product_price": 80000
-        },
-        {
-            "product_id": "8b3d76d6-093f-4a1e-8c94-ea8f2f4c300c",
-            "size_id": 3,
-            "product_price": 80000
-        },
-        {
-            "product_id": "8b3d76d6-093f-4a1e-8c94-ea8f2f4c300c",
-            "size_id": 4,
-            "product_price": 80000
-        },
-        {
-            "product_id": "8b3d76d6-093f-4a1e-8c94-ea8f2f4c300c",
-            "size_id": 5,
-            "product_price": 80000
-        },
-        {
-            "product_id": "8b3d76d6-093f-4a1e-8c94-ea8f2f4c300c",
-            "size_id": 6,
-            "product_price": 80000
-        },
-        {
-            "product_id": "c54bc73e-25a5-45e4-bb54-08e2cb8e1299",
+            "product_id": "bacd17a6-9f35-4b4e-a8a0-a4822529160c",
             "size_id": 1,
-            "product_price": 80000
+            "product_price": "179000"
         },
         {
-            "product_id": "c54bc73e-25a5-45e4-bb54-08e2cb8e1299",
-            "size_id": 2,
-            "product_price": 80000
-        },
-        {
-            "product_id": "c54bc73e-25a5-45e4-bb54-08e2cb8e1299",
-            "size_id": 3,
-            "product_price": 80000
-        },
-        {
-            "product_id": "c54bc73e-25a5-45e4-bb54-08e2cb8e1299",
-            "size_id": 4,
-            "product_price": 80000
-        },
-        {
-            "product_id": "c54bc73e-25a5-45e4-bb54-08e2cb8e1299",
-            "size_id": 5,
-            "product_price": 80000
-        },
-        {
-            "product_id": "c54bc73e-25a5-45e4-bb54-08e2cb8e1299",
-            "size_id": 6,
-            "product_price": 80000
-        },
-        {
-            "product_id": "aa45e4fc-fecb-4f1a-917d-f837bf290fe3",
+            "product_id": "e45d9f43-01f2-4418-ba8a-d227a2ef407e",
             "size_id": 1,
-            "product_price": 80000
+            "product_price": "109000"
         },
         {
-            "product_id": "aa45e4fc-fecb-4f1a-917d-f837bf290fe3",
-            "size_id": 2,
-            "product_price": 80000
-        },
-        {
-            "product_id": "aa45e4fc-fecb-4f1a-917d-f837bf290fe3",
-            "size_id": 3,
-            "product_price": 80000
-        },
-        {
-            "product_id": "aa45e4fc-fecb-4f1a-917d-f837bf290fe3",
-            "size_id": 4,
-            "product_price": 80000
-        },
-        {
-            "product_id": "aa45e4fc-fecb-4f1a-917d-f837bf290fe3",
-            "size_id": 5,
-            "product_price": 80000
-        },
-        {
-            "product_id": "aa45e4fc-fecb-4f1a-917d-f837bf290fe3",
-            "size_id": 6,
-            "product_price": 80000
-        },
-        {
-            "product_id": "2c404ff9-bc15-4be0-a6fc-d84382c12e94",
+            "product_id": "e8eeff09-7c0d-4fcf-bd84-478b1cf7a4c9",
             "size_id": 1,
-            "product_price": 80000
+            "product_price": "109000"
         },
         {
-            "product_id": "2c404ff9-bc15-4be0-a6fc-d84382c12e94",
-            "size_id": 2,
-            "product_price": 80000
-        },
-        {
-            "product_id": "2c404ff9-bc15-4be0-a6fc-d84382c12e94",
-            "size_id": 3,
-            "product_price": 80000
-        },
-        {
-            "product_id": "2c404ff9-bc15-4be0-a6fc-d84382c12e94",
-            "size_id": 4,
-            "product_price": 80000
-        },
-        {
-            "product_id": "2c404ff9-bc15-4be0-a6fc-d84382c12e94",
-            "size_id": 5,
-            "product_price": 80000
-        },
-        {
-            "product_id": "10bc699f-2f6f-42fd-b65e-493a76eb010b",
+            "product_id": "ecb7a623-6bde-4de9-90fd-9984dcd7e9a2",
             "size_id": 1,
-            "product_price": 80000
+            "product_price": "159000"
         },
         {
-            "product_id": "10bc699f-2f6f-42fd-b65e-493a76eb010b",
-            "size_id": 2,
-            "product_price": 80000
-        },
-        {
-            "product_id": "10bc699f-2f6f-42fd-b65e-493a76eb010b",
-            "size_id": 3,
-            "product_price": 80000
-        },
-        {
-            "product_id": "10bc699f-2f6f-42fd-b65e-493a76eb010b",
-            "size_id": 4,
-            "product_price": 80000
-        },
-        {
-            "product_id": "10bc699f-2f6f-42fd-b65e-493a76eb010b",
-            "size_id": 5,
-            "product_price": 80000
-        },
-        {
-            "product_id": "10bc699f-2f6f-42fd-b65e-493a76eb010b",
-            "size_id": 6,
-            "product_price": 80000
-        },
-
-        {
-            "product_id": "e45d83a1-d989-4308-b58a-46095f4fc99c",
+            "product_id": "f44350c3-d9f4-482d-9160-71f1834be337",
             "size_id": 1,
-            "product_price": 80000
+            "product_price": "159000"
         },
         {
-            "product_id": "e45d83a1-d989-4308-b58a-46095f4fc99c",
-            "size_id": 2,
-            "product_price": 80000
-        },
-        {
-            "product_id": "e45d83a1-d989-4308-b58a-46095f4fc99c",
-            "size_id": 3,
-            "product_price": 80000
-        },
-        {
-            "product_id": "e45d83a1-d989-4308-b58a-46095f4fc99c",
-            "size_id": 4,
-            "product_price": 80000
-        },
-        {
-            "product_id": "e45d83a1-d989-4308-b58a-46095f4fc99c",
-            "size_id": 5,
-            "product_price": 80000
-        },
-        {
-            "product_id": "e45d83a1-d989-4308-b58a-46095f4fc99c",
-            "size_id": 6,
-            "product_price": 80000
-        },
-
-        {
-            "product_id": "723c7c69-6223-4a4f-8823-b20f2d1f30a6",
+            "product_id": "f7babb7f-d10e-4d86-a120-eb2fe01fcfd4",
             "size_id": 1,
-            "product_price": 80000
+            "product_price": "129000"
         },
         {
-            "product_id": "723c7c69-6223-4a4f-8823-b20f2d1f30a6",
-            "size_id": 2,
-            "product_price": 80000
+            "product_id": "f8ff1fea-1be1-45df-92a3-c3dfa2b51ae5",
+            "size_id": 1,
+            "product_price": "159000"
         },
         {
-            "product_id": "723c7c69-6223-4a4f-8823-b20f2d1f30a6",
-            "size_id": 3,
-            "product_price": 80000
-        },
-        {
-            "product_id": "723c7c69-6223-4a4f-8823-b20f2d1f30a6",
-            "size_id": 4,
-            "product_price": 80000
-        },
-        {
-            "product_id": "723c7c69-6223-4a4f-8823-b20f2d1f30a6",
-            "size_id": 5,
-            "product_price": 80000
-        },
-        {
-            "product_id": "723c7c69-6223-4a4f-8823-b20f2d1f30a6",
-            "size_id": 6,
-            "product_price": 80000
+            "product_id": "fb2ed5ee-2aee-4c2b-a6d5-06528c21adcb",
+            "size_id": 1,
+            "product_price": "79000"
         }
     ],
     "carts": [],
-    "orders": [],
-    "orderProducts": [],
-    "paymentDetails": [],
-    "shippingDetails": [],
-    "shippingHistories": []
+    "orders": [
+        {
+            "order_id": "6139a36a-16cc-4483-8ccb-a45abb80b0ee",
+            "user_id": "ba6ec110-f2dd-4d75-8b19-b2bcfd96db8f",
+            "order_state": "pending",
+            "createdAt": "2025-04-18T22:45:36.000Z",
+            "updatedAt": "2025-04-18T22:45:36.000Z"
+        }
+    ],
+    "orderProducts": [
+        {
+            "order_id": "6139a36a-16cc-4483-8ccb-a45abb80b0ee",
+            "product_id": "309f1062-4eb1-415b-9df3-c16100eb2e42",
+            "size_id": 1,
+            "product_price": "259000",
+            "product_quantity": 2
+        },
+        {
+            "order_id": "6139a36a-16cc-4483-8ccb-a45abb80b0ee",
+            "product_id": "33ce3d08-f42c-46a6-9995-7127ba72882c",
+            "size_id": 1,
+            "product_price": "153000",
+            "product_quantity": 1
+        },
+        {
+            "order_id": "6139a36a-16cc-4483-8ccb-a45abb80b0ee",
+            "product_id": "e45d9f43-01f2-4418-ba8a-d227a2ef407e",
+            "size_id": 1,
+            "product_price": "109000",
+            "product_quantity": 1
+        },
+        {
+            "order_id": "6139a36a-16cc-4483-8ccb-a45abb80b0ee",
+            "product_id": "e8eeff09-7c0d-4fcf-bd84-478b1cf7a4c9",
+            "size_id": 1,
+            "product_price": "109000",
+            "product_quantity": 1
+        }
+    ],
+    "paymentDetails": [
+        {
+            "payment_id": "8bbe5a76-de01-44f8-a1ba-40f0acb6a81d",
+            "order_id": "6139a36a-16cc-4483-8ccb-a45abb80b0ee",
+            "payu_reference": "ba6ec110-f2dd-4d75-8b19-b2bcfd96db8f1745016241178",
+            "payment_method": "VISA",
+            "payment_amount": "889000",
+            "buyer_name": "APPROVED",
+            "buyer_email": "nwendy798@gmail.com",
+            "buyer_document_type": "CC",
+            "buyer_document_number": "1025532941",
+            "createdAt": "2025-04-18T22:45:36.000Z",
+            "updatedAt": "2025-04-18T22:45:36.000Z"
+        }
+    ],
+    "shippingDetails": [
+        {
+            "shipping_id": "9025ede9-0485-421a-a838-ccc8f8beea9e",
+            "order_id": "6139a36a-16cc-4483-8ccb-a45abb80b0ee",
+            "shipping_guide": "75029875409287345",
+            "shipping_courier": "interrapidisimo",
+            "tracking_url": "https://inerrapidismo.com/track/75029875409287345",
+            "shipping_estimated": null,
+            "createdAt": "2025-04-18T22:45:36.000Z",
+            "updatedAt": "2025-04-18T22:49:51.000Z"
+        }
+    ],
+    "shippingHistories": [
+        {
+            "history_id": "52788982-e383-4cc5-933f-79e063762ba3",
+            "shipping_id": "9025ede9-0485-421a-a838-ccc8f8beea9e",
+            "shipping_state": "pending",
+            "createdAt": "2025-04-18T22:45:36.000Z",
+            "updatedAt": "2025-04-18T22:45:36.000Z"
+        },
+        {
+            "history_id": "ac7b9a75-f856-424f-a813-cc2b2ffb9f34",
+            "shipping_id": "9025ede9-0485-421a-a838-ccc8f8beea9e",
+            "shipping_state": "ready",
+            "createdAt": "2025-04-18T22:49:51.000Z",
+            "updatedAt": "2025-04-18T22:49:51.000Z"
+        },
+        {
+            "history_id": "c248f640-6f6f-48a2-af00-86451e1aad8d",
+            "shipping_id": "9025ede9-0485-421a-a838-ccc8f8beea9e",
+            "shipping_state": "recoding",
+            "createdAt": "2025-04-18T22:50:05.000Z",
+            "updatedAt": "2025-04-18T22:50:05.000Z"
+        }
+    ]
 }

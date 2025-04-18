@@ -35,7 +35,7 @@ export async function GET(request) {
                     where: {
                         category_id: category ? category : { [Op.ne]: null },
                     },
-                    required: true,
+                    required: false,
                 },
                 "sizes",
                 "medias",

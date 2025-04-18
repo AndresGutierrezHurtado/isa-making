@@ -67,7 +67,10 @@ export default async function Home() {
                                 key={product.product_id}
                                 className="rounded-xl overflow-hidden bg-base-200"
                             >
-                                <Link href={`/products/${product.product_id}`} className="block w-full group aspect-[9/10] overflow-hidden">
+                                <Link
+                                    href={`/products/${product.product_id}`}
+                                    className="block w-full group aspect-[9/10] overflow-hidden"
+                                >
                                     <img
                                         src={product.product_image}
                                         alt={product.product_name}
@@ -79,7 +82,8 @@ export default async function Home() {
                                         {product.product_name}
                                     </h3>
                                     <p className="text-3xl font-bold w-full text-center leading-tight">
-                                        ${Math.min(
+                                        $
+                                        {Math.min(
                                             ...product.sizes.flatMap(
                                                 (size) => size.ProductSize.product_price
                                             )
@@ -88,6 +92,18 @@ export default async function Home() {
                                 </div>
                             </div>
                         ))}
+                    </div>
+                    <div className="flex justify-center w-full gap-2">
+                        <Link href="/collections">
+                            <button className="btn btn-primary btn-wide shadow-none font-normal text-base">
+                                Ver más
+                            </button>
+                        </Link>
+                        <Link href="/products?search=">
+                            <button className="btn btn-primary btn-wide btn-outline font-normal text-base shadow-none">
+                                Ver Todos
+                            </button>
+                        </Link>
                     </div>
                 </div>
             </section>

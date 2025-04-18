@@ -100,9 +100,10 @@ export default function page() {
                                         {usersLastMonth === 0
                                             ? "100%"
                                             : `${
-                                                  ((usersCurrentMonth - usersLastMonth) /
-                                                      usersLastMonth) *
-                                                  100
+                                                  (
+                                                      (usersCurrentMonth - usersLastMonth) /
+                                                      usersLastMonth
+                                                  ).toFixed(2) * 100
                                               }%`}{" "}
                                         {usersCurrentMonth > usersLastMonth ? "mas" : "menos"}
                                     </p>
@@ -127,9 +128,10 @@ export default function page() {
                                         {ordersLastMonth === 0
                                             ? "100%"
                                             : `${
-                                                  ((ordersCurrentMonth - ordersLastMonth) /
-                                                      ordersLastMonth) *
-                                                  100
+                                                  (
+                                                      (ordersCurrentMonth - ordersLastMonth) /
+                                                      ordersLastMonth
+                                                  ).toFixed(2) * 100
                                               }%`}{" "}
                                         {ordersCurrentMonth > ordersLastMonth ? "mas" : "menos"}
                                     </p>
@@ -154,9 +156,10 @@ export default function page() {
                                         {earningsLastMonth === 0
                                             ? "100%"
                                             : `${
-                                                  ((earningsCurrentMonth - earningsLastMonth) /
-                                                      earningsLastMonth) *
-                                                  100
+                                                  (
+                                                      (earningsCurrentMonth - earningsLastMonth) /
+                                                      earningsLastMonth
+                                                  ).toFixed(2) * 100
                                               }%`}{" "}
                                         {earningsCurrentMonth > earningsLastMonth ? "mas" : "menos"}
                                     </p>
@@ -181,10 +184,11 @@ export default function page() {
                                         {productsSoldLastMonth === 0
                                             ? "100%"
                                             : `${
-                                                  ((productsSoldCurrentMonth -
-                                                      productsSoldLastMonth) /
-                                                      productsSoldLastMonth) *
-                                                  100
+                                                  (
+                                                      (productsSoldCurrentMonth -
+                                                          productsSoldLastMonth) /
+                                                      productsSoldLastMonth
+                                                  ).toFixed(2) * 100
                                               }%`}{" "}
                                         {productsSoldCurrentMonth > productsSoldLastMonth
                                             ? "mas"

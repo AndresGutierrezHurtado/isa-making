@@ -24,7 +24,7 @@ export default async function Page({ params }) {
     const getTitle = (state) => {
         switch (state) {
             case "pending":
-                return "En camino";
+                return "Preparando para ser enviado";
             case "ready":
                 return "Listo para ser enviado";
             case "recoding":

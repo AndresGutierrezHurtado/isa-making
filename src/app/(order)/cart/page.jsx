@@ -162,11 +162,17 @@ export default function Page() {
                                         <div className="bg-base-300 w-full p-5 space-y-3">
                                             <p>{totalProducts} Productos</p>
                                             <hr className="border-white/50" />
-                                            <p>Subtotal: ${totalPrice}</p>
+                                            <p>
+                                                Subtotal: $
+                                                {parseInt(totalPrice).toLocaleString("es-CO")}
+                                            </p>
                                             <hr className="border-white/50" />
                                             <p>Envio: $0</p>
                                             <hr className="border-white/50" />
-                                            <p>Total: ${totalPrice + 0}</p>
+                                            <p>
+                                                Total: $
+                                                {parseInt(totalPrice + 0).toLocaleString("es-CO")}
+                                            </p>
                                         </div>
                                     </div>
                                 </div>
