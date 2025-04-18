@@ -18,6 +18,7 @@
         "@uiw/react-md-editor": "^4.0.5",
         "bcrypt": "^5.1.1",
         "chart.js": "^4.4.9",
+        "cloudinary": "^2.6.0",
         "crypto": "^1.0.1",
         "mysql2": "^3.14.0",
         "next": "15.3.0",
