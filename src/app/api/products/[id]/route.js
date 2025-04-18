@@ -1,5 +1,11 @@
 import { NextResponse } from "next/server";
-import { Product } from "@/database/models";
+import { Op } from "sequelize";
+import crypto from "crypto";
+
+// Models
+import { Media, Product, ProductCategory, ProductSize } from "@/database/models";
+
+// Hooks
 import { uploadImage } from "@/hooks/useCloudinary";
 
 export async function GET(request, { params }) {
@@ -34,7 +40,7 @@ export async function PUT(request, { params }) {
     const transaction = await Product.sequelize.transaction();
     try {
         const { id } = await params;
-        const { product: body } = await request.json();
+        const { product: body, categories, sizes, medias } = await request.json();
 
         const product = await Product.findByPk(id);
 
@@ -50,9 +56,92 @@ export async function PUT(request, { params }) {
 
         await product.update(body, { transaction });
 
+        categories.forEach(async (category) => {
+            const [productCategory, created] = await ProductCategory.findOrCreate({
+                where: {
+                    product_id: product.product_id,
+                    category_id: category,
+                },
+                defaults: {
+                    product_id: product.product_id,
+                    category_id: category,
+                },
+                transaction,
+            });
+
+            if (!created) {
+                await productCategory.update(
+                    {
+                        category_id: category,
+                    },
+                    { transaction }
+                );
+            }
+        });
+
+        await ProductCategory.destroy({
+            where: {
+                product_id: product.product_id,
+                category_id: { [Op.notIn]: categories },
+            },
+            transaction,
+        });
+
+        sizes.forEach(async (size) => {
+            const [productSize, created] = await ProductSize.findOrCreate({
+                where: {
+                    product_id: product.product_id,
+                    size_id: size.size_id,
+                },
+                defaults: {
+                    product_id: product.product_id,
+                    size_id: size.size_id,
+                    product_price: size.product_price,
+                },
+                transaction,
+            });
+
+            if (!created) {
+                await productSize.update(
+                    {
+                        product_price: size.product_price,
+                    },
+                    { transaction }
+                );
+            }
+        });
+
+        await ProductSize.destroy({
+            where: {
+                product_id: product.product_id,
+                size_id: { [Op.notIn]: sizes.map((s) => s.size_id) },
+            },
+            transaction,
+        });
+
         if (body.product_image) {
-            const { data: imageUrl } = await uploadImage("/products", body.product_image, product.product_id);
+            const { data: imageUrl } = await uploadImage(
+                "/products",
+                body.product_image,
+                product.product_id
+            );
             await product.update({ product_image: imageUrl }, { transaction });
+        }
+
+        if (medias.length > 0) {
+            medias.forEach(async (media) => {
+                const mediaId = crypto.randomUUID();
+                const { data: imageUrl } = await uploadImage("/medias", media, mediaId);
+
+                await Media.create(
+                    {
+                        media_id: mediaId,
+                        media_image: imageUrl,
+                        product_id: product.product_id,
+                    },
+                    { transaction }
+                );
+            });
         }
 
         await transaction.commit();
@@ -71,7 +160,7 @@ export async function PUT(request, { params }) {
         return NextResponse.json(
             {
                 success: false,
-                message: "Error al actualizar el producto",
+                message: "Error al actualizar el producto: " + error.message,
             },
             { status: 500 }
         );
