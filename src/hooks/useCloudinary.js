@@ -23,7 +23,7 @@ export const uploadImage = async (folder, image, name) => {
             data: result.secure_url,
         };
     } catch (error) {
-        console.log(error);
+        console.error(error);
         return {
             success: false,
             message: "Error al subir la imagen: " + error.message,
@@ -35,12 +35,20 @@ export const deleteFile = async (public_id) => {
     try {
         const result = await cloudinary.uploader.destroy("isa-making" + public_id);
 
+        if (result.result === "not found") {
+            return {
+                success: false,
+                message: "Imagen no encontrada",
+            };
+        }
+
         return {
             success: true,
             message: "Imagen eliminada correctamente",
             data: result,
         };
     } catch (error) {
+        console.error(error);
         return {
             success: false,
             message: "Error al eliminar la imagen: " + error.message,
@@ -48,4 +56,3 @@ export const deleteFile = async (public_id) => {
         };
     }
 };
-

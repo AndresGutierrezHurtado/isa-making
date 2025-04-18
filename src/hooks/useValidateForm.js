@@ -106,6 +106,21 @@ export const useValidateForm = (form, data) => {
                 ),
             });
             break;
+        case "category-form":
+            schema = object({
+                category_name: pipe(
+                    string("El nombre es requerido"),
+                    nonEmpty("El nombre es requerido"),
+                    minLength(2, "El nombre debe tener al menos 2 caracteres")
+                ),
+                category_slug: pipe(
+                    string("El slug es requerido"),
+                    nonEmpty("El slug es requerido"),
+                    minLength(2, "El slug debe tener al menos 2 caracteres"),
+                    regex(/^[a-z]+(?:-[a-z]+)*$/, "El slug debe contener solo letras minúsculas y guiones")
+                ),
+            });
+            break;
         default:
             break;
     }
