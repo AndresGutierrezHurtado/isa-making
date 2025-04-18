@@ -129,19 +129,21 @@ export async function PUT(request, { params }) {
         }
 
         if (medias.length > 0) {
-            medias.forEach(async (media) => {
-                const mediaId = crypto.randomUUID();
-                const { data: imageUrl } = await uploadImage("/medias", media, mediaId);
+            await Promise.all(
+                medias.map(async (media) => {
+                    const mediaId = crypto.randomUUID();
+                    const { data: imageUrl } = await uploadImage("/medias", media, mediaId);
 
-                await Media.create(
-                    {
-                        media_id: mediaId,
-                        media_image: imageUrl,
-                        product_id: product.product_id,
-                    },
-                    { transaction }
-                );
-            });
+                    await Media.create(
+                        {
+                            media_id: mediaId,
+                            media_image: imageUrl,
+                            product_id: product.product_id,
+                        },
+                        { transaction }
+                    );
+                })
+            );
         }
 
         await transaction.commit();

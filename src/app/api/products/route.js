@@ -1,6 +1,8 @@
 import { NextResponse } from "next/server";
-import { Category, Product } from "@/database/models";
+import { Category, Media, Product, ProductCategory, ProductSize } from "@/database/models";
 import { Op } from "sequelize";
+import crypto from "crypto";
+import { uploadImage } from "@/hooks/useCloudinary";
 
 export async function GET(request) {
     try {
@@ -77,10 +79,75 @@ export async function GET(request) {
 }
 
 export async function POST(request) {
+    const transaction = await Product.sequelize.transaction();
     try {
-        const { product: productJSON } = await request.json();
+        const { product: body, categories, sizes, medias } = await request.json();
 
-        const product = await Product.create(productJSON);
+        const { product_image, ...productData } = body;
+        const product = await Product.create(
+            { ...productData, product_image: "/default.jpg" },
+            { transaction }
+        );
+
+        if (!product) {
+            return NextResponse.json(
+                {
+                    success: false,
+                    message: "Error al crear el producto",
+                },
+                { status: 500 }
+            );
+        }
+
+        categories.forEach(async (category) => {
+            await ProductCategory.create(
+                {
+                    product_id: product.product_id,
+                    category_id: category,
+                },
+                { transaction }
+            );
+        });
+
+        sizes.forEach(async (size) => {
+            await ProductSize.create(
+                {
+                    product_id: product.product_id,
+                    size_id: size.size_id,
+                    product_price: size.product_price,
+                },
+                { transaction }
+            );
+        });
+
+        if (product_image) {
+            const { data: imageUrl } = await uploadImage(
+                "/products",
+                product_image,
+                product.product_id
+            );
+            await product.update({ product_image: imageUrl }, { transaction });
+        }
+
+        if (medias.length > 0) {
+            await Promise.all(
+                medias.map(async (media) => {
+                    const mediaId = crypto.randomUUID();
+                    const { data: imageUrl } = await uploadImage("/medias", media, mediaId);
+
+                    await Media.create(
+                        {
+                            media_id: mediaId,
+                            media_image: imageUrl,
+                            product_id: product.product_id,
+                        },
+                        { transaction }
+                    );
+                })
+            );
+        }
+
+        await transaction.commit();
 
         return NextResponse.json(
             {
@@ -92,6 +159,7 @@ export async function POST(request) {
         );
     } catch (error) {
         console.error(error);
+        await transaction.rollback();
         return NextResponse.json(
             {
                 success: false,

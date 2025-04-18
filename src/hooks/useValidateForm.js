@@ -128,11 +128,6 @@ export const useValidateForm = (form, data) => {
                     nonEmpty("El nombre es requerido"),
                     minLength(2, "El nombre debe tener al menos 2 caracteres")
                 ),
-                product_description: pipe(
-                    string("La descripción es requerida"),
-                    nonEmpty("La descripción es requerida"),
-                    minLength(10, "La descripción debe tener al menos 10 caracteres")
-                ),
                 product_color: pipe(
                     string("El color es requerido"),
                     nonEmpty("El color es requerido"),
