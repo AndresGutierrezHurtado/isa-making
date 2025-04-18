@@ -119,6 +119,16 @@ export async function GET(request) {
 
         await OrderProduct.bulkCreate(cartItems, { transaction });
 
+        await Promise.all(
+            cart.map(async (crt) => {
+                await Product.decrement("product_stock", {
+                    by: crt.product_quantity,
+                    where: { product_id: crt.product_id },
+                    transaction,
+                });
+            })
+        );
+
         await Cart.destroy({
             where: {
                 user_id: user.user_id,

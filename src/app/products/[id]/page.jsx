@@ -135,11 +135,25 @@ export default function Page() {
                                         </div>
                                     </div>
 
+                                    <p className="text-sm text-base-content/80">
+                                        {product.product_stock}{" "}
+                                        {product.product_stock !== 1
+                                            ? "unidades disponibles"
+                                            : "unidad disponible"}
+                                    </p>
                                     <button
                                         onClick={handleAddToCart}
-                                        className="btn w-full btn-primary text-lg"
+                                        className="btn w-full btn-primary text-lg tooltip tooltip-bottom"
+                                        disabled={product.product_stock <= 0}
+                                        data-tip={
+                                            product.product_stock <= 0
+                                                ? "No hay stock suficiente"
+                                                : "Agregar al carrito"
+                                        }
                                     >
-                                        Agregar al carrito
+                                        {product.product_stock <= 0
+                                            ? "Agotado"
+                                            : "Agregar al carrito"}
                                     </button>
 
                                     <ul className="space-y-2 leading-[1]">

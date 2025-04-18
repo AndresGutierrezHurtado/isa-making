@@ -48,6 +48,33 @@ export async function POST(request, { params }) {
         const { id } = await params;
         const { product_id, size_id } = await request.json();
 
+        const product = await Product.findOne({
+            where: {
+                product_id,
+            },
+        });
+
+        if (!product) {
+            return NextResponse.json({
+                success: false,
+                message: "El producto no existe",
+            });
+        }
+
+        const carts = await Cart.findAll({
+            where: {
+                product_id,
+            },
+        });
+        const cartsQuantity = carts.reduce((acc, cart) => acc + cart.product_quantity, 0);
+
+        if (cartsQuantity >= product.product_stock) {
+            return NextResponse.json({
+                success: false,
+                message: "No hay stock suficiente",
+            });
+        }
+
         const [cart, created] = await Cart.findOrCreate({
             where: {
                 user_id: id,
@@ -63,6 +90,13 @@ export async function POST(request, { params }) {
         });
 
         if (!created) {
+            if (cartsQuantity + 1 >= product.product_stock) {
+                return NextResponse.json({
+                    success: false,
+                    message: "No hay stock suficiente",
+                });
+            }
+
             await cart.increment("product_quantity", { by: 1 });
 
             return NextResponse.json(
@@ -88,7 +122,7 @@ export async function POST(request, { params }) {
         return NextResponse.json(
             {
                 success: false,
-                message: "Error al crear el carrito",
+                message: "Error al crear el carrito: " + error.message,
             },
             { status: 500 }
         );
@@ -106,7 +140,7 @@ export async function PUT(request, { params }) {
                 product_id,
                 size_id,
             },
-            include: ["product"]
+            include: ["product"],
         });
 
         if (!cart) {
@@ -136,7 +170,6 @@ export async function PUT(request, { params }) {
         } else if (action === "decrement" && cart.product_quantity === 1) {
             await cart.destroy();
         }
-
 
         return NextResponse.json(
             {
