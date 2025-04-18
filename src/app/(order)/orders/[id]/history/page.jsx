@@ -14,9 +14,12 @@ export default async function Page({ params }) {
         data: { shipping },
     } = await useGetData(`/orders/${id}`);
     const { histories } = shipping;
+    const sortedHistories = histories.sort(
+        (a, b) => new Date(a.createdAt) - new Date(b.createdAt)
+    );
 
-    const firstHistory = histories[0];
-    const lastHistory = histories[histories.length - 1];
+    const firstHistory = sortedHistories[0];
+    const lastHistory = sortedHistories[sortedHistories.length - 1];
 
     const getTitle = (state) => {
         switch (state) {
@@ -25,7 +28,7 @@ export default async function Page({ params }) {
             case "ready":
                 return "Listo para ser enviado";
             case "recoding":
-                return "En camino";
+                return "Recogido";
             case "shipping":
                 return "En camino";
             case "delivered":
@@ -44,8 +47,9 @@ export default async function Page({ params }) {
                     </p>
                     <div className="w-full mt-10 bg-base-200 p-5 rounded-lg">
                         <ul className="timeline timeline-snap-icon max-md:timeline-compact timeline-vertical">
-                            {histories.map((history, idx) => (
+                            {sortedHistories.map((history, idx) => (
                                 <li key={idx}>
+                                    {idx > 0 && <hr />}
                                     <div className="timeline-middle">
                                         <svg
                                             xmlns="http://www.w3.org/2000/svg"
@@ -91,7 +95,7 @@ export default async function Page({ params }) {
                                             </p>
                                         )}
                                     </div>
-                                    <hr />
+                                    {idx < sortedHistories.length - 1 && <hr />}
                                 </li>
                             ))}
                         </ul>
