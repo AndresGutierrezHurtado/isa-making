@@ -60,6 +60,11 @@ export default function AdminLayout({ children }) {
                                 </Link>
                             </li>
                             <li>
+                                <Link href="/dashboard/categories" className={`${pahtname === "/dashboard/categories" ? "text-primary" : ""}`}>
+                                    Categorías
+                                </Link>
+                            </li>
+                            <li>
                                 <Link
                                     href="/dashboard/orders"
                                     className={`${pahtname === "/dashboard/orders" ? "text-primary" : ""}`}

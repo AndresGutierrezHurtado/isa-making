@@ -73,7 +73,6 @@ export default function page() {
 
     const handleRestore = async (id) => {
         const response = await usePutData(`/products/${id}/paranoid`);
-        console.log(response);
         if (response.success) {
             setPage(1);
             setSearch("");
