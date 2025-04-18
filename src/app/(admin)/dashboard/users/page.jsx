@@ -3,43 +3,90 @@
 import React, { useState } from "react";
 
 // Hooks
-import { useGetData } from "@/hooks/useClientData";
+import { useDeleteData, useGetData, usePutData } from "@/hooks/useClientData";
 import useSetTitle from "@/hooks/useSetTitle";
 
 // Components
 import LoadingComponent from "@/components/loading";
 import { BsArrowLeft, BsArrowRight, BsPencil, BsPlus, BsTrash } from "react-icons/bs";
+import Swal from "sweetalert2";
+import { useSession } from "next-auth/react";
+import { useValidateForm } from "@/hooks/useValidateForm";
 
 export default function page() {
     const [page, setPage] = useState(1);
     const [search, setSearch] = useState("");
     const [limit, setLimit] = useState(5);
     const [sort, setSort] = useState("createdAt:desc");
-    const { data: users, loading, total } = useGetData(`/users?page=${page}&limit=${limit}&sort=${sort}&search=${search}`);
+
+    const {
+        data: users,
+        loading,
+        total,
+        reload,
+    } = useGetData(`/users?page=${page}&limit=${limit}&sort=${sort}&search=${search}`);
+
+    const { data: session } = useSession();
+    const userSession = session?.user;
 
     useSetTitle("Usuarios | ISA Making");
 
     if (loading) return <LoadingComponent />;
 
-    /**
-        [
-            {
-                "user_id": "466a6548-4f56-4781-bd2f-80d6a1f1e717",
-                "user_name": "Juan Esteban",
-                "user_lastname": "Perez Salamanca",
-                "user_email": "juan@gmail.com",
-                "user_password": "$2a$10$qgoPKwk7M6UHRIEeXRrWDeYaV0LQweEt4qJWlDOF5tVioiyMjEuMO",
-                "role_id": 1,
-                "createdAt": "2025-04-13T10:00:00.000Z",
-                "updatedAt": "2025-04-13T10:00:00.000Z",
-                "deletedAt": null,
-                "role": {
-                "role_id": 1,
-                "role_name": "cliente"
+    const handleDelete = async (id) => {
+        if (id === userSession.user_id) {
+            Swal.fire({
+                title: "¡Ups!",
+                text: "No puedes eliminar tu propio usuario",
+                icon: "error",
+            });
+            return;
+        }
+        Swal.fire({
+            title: "¿Estás seguro?",
+            text: "No podrás revertir esto!",
+            icon: "warning",
+            showCancelButton: true,
+            confirmButtonColor: "#3085d6",
+            cancelButtonColor: "#d33",
+            confirmButtonText: "Si, eliminar!",
+        }).then(async (result) => {
+            if (result.isConfirmed) {
+                const response = await useDeleteData(`/users/${id}`);
+                if (response.success) {
+                    setPage(1);
+                    setSearch("");
+                    setLimit(5);
+                    setSort("createdAt:desc");
+                    reload();
                 }
             }
-        ]
-     */
+        });
+    };
+
+    const handleSubmit = async (e) => {
+        e.preventDefault();
+
+        const data = Object.fromEntries(new FormData(e.target));
+        const validation = useValidateForm("update-user-form", data);
+
+        if (validation.success) {
+            delete data.user_password;
+
+            const response = await usePutData(`/users/${data.user_id}`, { user: data });
+            if (response.success) {
+                setPage(1);
+                setSearch("");
+                setLimit(5);
+                setSort("createdAt:desc");
+                reload();
+                e.target.reset();
+                const $dialog = document.getElementById(`user-edit-${data.user_id}`);
+                $dialog.close();
+            }
+        }
+    };
+
     return (
         <>
             <section className="flex-1 w-full px-3">
@@ -59,9 +106,24 @@ export default function page() {
                             <table className="table table-zebra">
                                 <thead className="bg-base-100">
                                     <tr>
-                                        <th className="cursor-pointer" onClick={() => setSort("user_name:asc")}>Nombre</th>
-                                        <th className="cursor-pointer" onClick={() => setSort("user_email:asc")}>Email</th>
-                                        <th className="cursor-pointer" onClick={() => setSort("role_id:asc")}>Rol</th>
+                                        <th
+                                            className="cursor-pointer"
+                                            onClick={() => setSort("user_name:asc")}
+                                        >
+                                            Nombre
+                                        </th>
+                                        <th
+                                            className="cursor-pointer"
+                                            onClick={() => setSort("user_email:asc")}
+                                        >
+                                            Email
+                                        </th>
+                                        <th
+                                            className="cursor-pointer"
+                                            onClick={() => setSort("role_id:asc")}
+                                        >
+                                            Rol
+                                        </th>
                                         <th>Acciones</th>
                                     </tr>
                                 </thead>
@@ -75,11 +137,23 @@ export default function page() {
                                             <td className="capitalize">{user.role.role_name}</td>
                                             <td>
                                                 <div className="flex items-center gap-2">
-                                                    <button className="btn btn-outline btn-primary btn-sm">
+                                                    <button
+                                                        onClick={() =>
+                                                            document
+                                                                .getElementById(
+                                                                    `user-edit-${user.user_id}`
+                                                                )
+                                                                .show()
+                                                        }
+                                                        className="btn btn-outline btn-primary btn-sm"
+                                                    >
                                                         <BsPencil size={16} />
                                                         <span>Editar</span>
                                                     </button>
-                                                    <button className="btn btn-outline btn-error btn-sm">
+                                                    <button
+                                                        onClick={() => handleDelete(user.user_id)}
+                                                        className="btn btn-outline btn-error btn-sm"
+                                                    >
                                                         <BsTrash size={16} />
                                                         <span>Eliminar</span>
                                                     </button>
@@ -92,8 +166,8 @@ export default function page() {
                         </div>
                         <div className="flex items-center justify-between p-5">
                             <p className="text-sm text-base-content/80">
-                                mostrando {limit * (page - 1) + 1} - {limit * (page - 1) + users.length} de{" "}
-                                {total} usuarios
+                                mostrando {limit * (page - 1) + 1} -{" "}
+                                {limit * (page - 1) + users.length} de {total} usuarios
                             </p>
                             <div className="flex items-center gap-2">
                                 <button
@@ -117,6 +191,70 @@ export default function page() {
                     </div>
                 </div>
             </section>
+
+            {users.map((user) => (
+                <dialog key={user.user_id} id={`user-edit-${user.user_id}`} className="modal">
+                    <div className="modal-box">
+                        <h3 className="font-bold text-lg">Editar usuario</h3>
+                        <p className="py-4">Presiona ESC o click fuera para cerrar</p>
+                        <form onSubmit={handleSubmit}>
+                            <input type="hidden" name="user_id" value={user.user_id} />
+                            <input type="hidden" name="user_password" value="" />
+                            <fieldset className="fieldset">
+                                <label className="fieldset-label">
+                                    <span>Nombre</span>
+                                </label>
+                                <input
+                                    className="input input-bordered w-full focus:outline-none focus:border-primary"
+                                    defaultValue={user.user_name}
+                                    name="user_name"
+                                />
+                            </fieldset>
+                            <fieldset className="fieldset">
+                                <label className="fieldset-label">
+                                    <span>Apellido</span>
+                                </label>
+                                <input
+                                    className="input input-bordered w-full focus:outline-none focus:border-primary"
+                                    defaultValue={user.user_lastname}
+                                    name="user_lastname"
+                                />
+                            </fieldset>
+                            <fieldset className="fieldset">
+                                <label className="fieldset-label">
+                                    <span>Email</span>
+                                </label>
+                                <input
+                                    className="input input-bordered w-full focus:outline-none focus:border-primary"
+                                    defaultValue={user.user_email}
+                                    name="user_email"
+                                />
+                            </fieldset>
+                            <fieldset className="fieldset">
+                                <label className="fieldset-label">
+                                    <span>Rol</span>
+                                </label>
+                                <select
+                                    className="select select-bordered w-full focus:outline-none focus:border-primary"
+                                    defaultValue={user.role_id}
+                                    name="role_id"
+                                >
+                                    <option value="1">Cliente</option>
+                                    <option value="2">Administrador</option>
+                                </select>
+                            </fieldset>
+                            <fieldset className="fieldset mt-5">
+                                <button type="submit" className="btn btn-primary">
+                                    Guardar
+                                </button>
+                            </fieldset>
+                        </form>
+                    </div>
+                    <form method="dialog" className="modal-backdrop">
+                        <button>close</button>
+                    </form>
+                </dialog>
+            ))}
         </>
     );
 }

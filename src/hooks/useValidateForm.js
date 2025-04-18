@@ -66,6 +66,11 @@ export const useValidateForm = (form, data) => {
                         "La contraseña debe tener al menos 6 caracteres, una mayúscula, una minúscula, un número y un símbolo, o estar vacía"
                     )
                 ),
+                role_id: pipe(
+                    string("El rol es requerido"),
+                    nonEmpty("El rol es requerido"),
+                    regex(/^[1-2]|^$/, "El rol debe ser 1, 2 o estar vacío")
+                ),
             });
             break;
         case "checkout-form":
