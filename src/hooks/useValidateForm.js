@@ -121,6 +121,30 @@ export const useValidateForm = (form, data) => {
                 ),
             });
             break;
+        case "edit-product-form":
+            schema = object({
+                product_name: pipe(
+                    string("El nombre es requerido"),
+                    nonEmpty("El nombre es requerido"),
+                    minLength(2, "El nombre debe tener al menos 2 caracteres")
+                ),
+                product_description: pipe(
+                    string("La descripción es requerida"),
+                    nonEmpty("La descripción es requerida"),
+                    minLength(10, "La descripción debe tener al menos 10 caracteres")
+                ),
+                product_color: pipe(
+                    string("El color es requerido"),
+                    nonEmpty("El color es requerido"),
+                    regex(/^#([0-9a-fA-F]{6})$/, "El color debe ser un código hexadecimal válido")
+                ),
+                product_stock: pipe(
+                    string("El stock es requerido"),
+                    nonEmpty("El stock es requerido"),
+                    regex(/^[0-9]+$/, "El stock debe ser un número")
+                ),
+            });
+            break;
         default:
             break;
     }

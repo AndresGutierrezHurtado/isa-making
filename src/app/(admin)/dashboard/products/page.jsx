@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useSession } from "next-auth/react";
 import { BsArrowLeft, BsArrowRight, BsPencil, BsTrash } from "react-icons/bs";
 import Swal from "sweetalert2";
@@ -12,6 +12,8 @@ import { useValidateForm } from "@/hooks/useValidateForm";
 
 // Components
 import LoadingComponent from "@/components/loading";
+import MDEditor from "@uiw/react-md-editor";
+import { useBase64 } from "@/hooks/useBase64";
 
 export default function page() {
     const [page, setPage] = useState(1);
@@ -81,10 +83,6 @@ export default function page() {
             reload();
             paranoidReload();
         }
-    };
-
-    const handleSubmit = async (e) => {
-        e.preventDefault();
     };
 
     return (
@@ -242,20 +240,7 @@ export default function page() {
                     <div className="modal-box">
                         <h1 className="text-lg font-bold">Editar producto</h1>
                         <p className="py-4">Presiona ESC o click fuera para cerrar</p>
-                        <form onSubmit={handleSubmit}>
-                            <input type="hidden" name="product_id" value={product.product_id} />
-                            <fieldset className="fieldset">
-                                <label className="fieldset-label">
-                                    <span>Nombre</span>
-                                </label>
-                                <input
-                                    type="text"
-                                    name="product_name"
-                                    className="input input-bordered w-full focus:outline-none focus:border-primary"
-                                    defaultValue={product.product_name}
-                                />
-                            </fieldset>
-                        </form>
+                        <ProductUpdate product={product} reload={reload} />
                     </div>
                     <form method="dialog" className="modal-backdrop">
                         <button>close</button>
@@ -265,3 +250,101 @@ export default function page() {
         </>
     );
 }
+
+const ProductUpdate = ({ product, reload }) => {
+    const [description, setDescription] = useState("");
+
+    useEffect(() => {
+        setDescription(product.product_description);
+    }, [product]);
+
+    const handleEdit = async (e) => {
+        e.preventDefault();
+        const formData = new FormData(e.target);
+        const data = Object.fromEntries(formData);
+        data.product_description = description;
+        if (formData.get("product_image").size > 0) {
+            data.product_image = await useBase64(formData.get("product_image"));
+        } else {
+            delete data.product_image;
+        }
+
+        const validation = useValidateForm("edit-product-form", data);
+
+        if (!validation.success) return;
+
+        const response = await usePutData(`/products/${data.product_id}`, { product: data });
+
+        if (!response.success) return;
+
+        reload();
+        const $form = document.getElementById(`edit-product-${data.product_id}`);
+        $form.close();
+        e.target.reset();
+    };
+
+    return (
+        <form onSubmit={handleEdit}>
+            <input type="hidden" name="product_id" value={product.product_id} />
+            <fieldset className="fieldset">
+                <label className="fieldset-label">
+                    <span>Nombre</span>
+                </label>
+                <input
+                    type="text"
+                    name="product_name"
+                    placeholder="Nombre del producto"
+                    className="input input-bordered w-full focus:outline-none focus:border-primary"
+                    defaultValue={product.product_name}
+                />
+            </fieldset>
+            <fieldset className="fieldset">
+                <label className="fieldset-label">
+                    <span>Descripción</span>
+                </label>
+                <MDEditor value={description} onChange={setDescription} />
+            </fieldset>
+            <fieldset className="fieldset">
+                <label className="fieldset-label">
+                    <span>Imagen</span>
+                </label>
+                <input
+                    type="file"
+                    name="product_image"
+                    placeholder="Imagen del producto"
+                    className="file-input file-input-bordered w-full focus:outline-none focus:border-primary"
+                    accept="image/*"
+                />
+            </fieldset>
+            <fieldset className="fieldset">
+                <label className="fieldset-label">
+                    <span>Color</span>
+                </label>
+                <input
+                    type="color"
+                    name="product_color"
+                    placeholder="Color del producto"
+                    className="input input-bordered w-full focus:outline-none focus:border-primary"
+                    defaultValue={product.product_color}
+                />
+            </fieldset>
+            <fieldset className="fieldset">
+                <label className="fieldset-label">
+                    <span>Stock</span>
+                </label>
+                <input
+                    type="number"
+                    name="product_stock"
+                    placeholder="Unidades disponibles del producto"
+                    className="input input-bordered w-full focus:outline-none focus:border-primary"
+                    defaultValue={product.product_stock}
+                />
+            </fieldset>
+            <fieldset className="fieldset mt-6">
+                <button type="submit" className="btn btn-primary">
+                    Actualizar
+                </button>
+            </fieldset>
+        </form>
+    );
+};

@@ -1,5 +1,6 @@
 import { NextResponse } from "next/server";
 import { Product } from "@/database/models";
+import { uploadImage } from "@/hooks/useCloudinary";
 
 export async function GET(request, { params }) {
     try {
@@ -30,9 +31,10 @@ export async function GET(request, { params }) {
 }
 
 export async function PUT(request, { params }) {
+    const transaction = await Product.sequelize.transaction();
     try {
         const { id } = await params;
-        const { product: productJSON } = await request.json();
+        const { product: body } = await request.json();
 
         const product = await Product.findByPk(id);
 
@@ -46,7 +48,14 @@ export async function PUT(request, { params }) {
             );
         }
 
-        await product.update(productJSON);
+        await product.update(body, { transaction });
+
+        if (body.product_image) {
+            const { data: imageUrl } = await uploadImage("/products", body.product_image, product.product_id);
+            await product.update({ product_image: imageUrl }, { transaction });
+        }
+
+        await transaction.commit();
 
         return NextResponse.json(
             {
@@ -57,6 +66,7 @@ export async function PUT(request, { params }) {
             { status: 200 }
         );
     } catch (error) {
+        await transaction.rollback();
         console.error(error);
         return NextResponse.json(
             {
