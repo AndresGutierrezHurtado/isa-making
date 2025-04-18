@@ -651,7 +651,6 @@ const ProductCreate = ({ categories, sizes, reload }) => {
         if (fetchData.categories.length === 0)
             return alert("Debes seleccionar al menos una categoría");
 
-        console.log(fetchData);
         const response = await usePostData("/products", fetchData);
         if (!response.success) return;
 

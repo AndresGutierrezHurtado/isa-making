@@ -140,6 +140,27 @@ export const useValidateForm = (form, data) => {
                 ),
             });
             break;
+        case "update-order":
+            schema = object({
+                shipping_courier: pipe(
+                    string("La empresa mensajera es requerida"),
+                    nonEmpty("La empresa mensajera es requerida")
+                ),
+                shipping_guide: pipe(
+                    string("La guía es requerida"),
+                    nonEmpty("La guía es requerida")
+                ),
+                tracking_url: pipe(
+                    string("La URL de seguimiento es requerida"),
+                    nonEmpty("La URL de seguimiento es requerida"),
+                    url("La URL de seguimiento debe ser una URL válida")
+                ),
+                shipping_state: pipe(
+                    string("El estado es requerido"),
+                    nonEmpty("El estado es requerido")
+                ),
+            });
+            break;
         default:
             break;
     }

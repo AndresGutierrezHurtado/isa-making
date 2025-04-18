@@ -1,7 +1,7 @@
 "use client";
 
 import React from "react";
-import { useSession } from "next-auth/react";
+import { signOut, useSession } from "next-auth/react";
 
 // Components
 import Auth from "@/components/auth";
@@ -42,39 +42,61 @@ export default function AdminLayout({ children }) {
                         </div>
                         <div className="space-y-2">
                             <li>
-                                <Link href="/dashboard/stats" className={`${pahtname === "/dashboard/stats" ? "text-primary" : ""}`}>
+                                <Link
+                                    href="/dashboard/stats"
+                                    className={`${
+                                        pahtname === "/dashboard/stats" ? "text-primary" : ""
+                                    }`}
+                                >
                                     Estadísticas
                                 </Link>
                             </li>
                             <li>
                                 <Link
                                     href="/dashboard/products"
-                                    className={`${pahtname === "/dashboard/products" ? "text-primary" : ""}`}
+                                    className={`${
+                                        pahtname === "/dashboard/products" ? "text-primary" : ""
+                                    }`}
                                 >
                                     Productos
                                 </Link>
                             </li>
                             <li>
-                                <Link href="/dashboard/users" className={`${pahtname === "/dashboard/users" ? "text-primary" : ""}`}>
+                                <Link
+                                    href="/dashboard/users"
+                                    className={`${
+                                        pahtname === "/dashboard/users" ? "text-primary" : ""
+                                    }`}
+                                >
                                     Usuarios
                                 </Link>
                             </li>
                             <li>
-                                <Link href="/dashboard/categories" className={`${pahtname === "/dashboard/categories" ? "text-primary" : ""}`}>
+                                <Link
+                                    href="/dashboard/categories"
+                                    className={`${
+                                        pahtname === "/dashboard/categories" ? "text-primary" : ""
+                                    }`}
+                                >
                                     Categorías
                                 </Link>
                             </li>
                             <li>
                                 <Link
                                     href="/dashboard/orders"
-                                    className={`${pahtname === "/dashboard/orders" ? "text-primary" : ""}`}
+                                    className={`${
+                                        pahtname === "/dashboard/orders" ? "text-primary" : ""
+                                    }`}
                                 >
                                     Pedidos
                                 </Link>
                             </li>
                         </div>
                         <div>
-                            <button className="btn w-full text-lg font-normal btn-outline btn-error">
+                            <button
+                                onClick={() => signOut({ callbackUrl: "/" })}
+                                className="btn w-full text-lg font-normal btn-outline btn-error"
+                            >
                                 <IoLogOutOutline size={20} />
                                 Cerrar sesión
                             </button>
