@@ -30,6 +30,8 @@ export default function page() {
         total,
         reload,
     } = useGetData(`/products?page=${page}&limit=${limit}&sort=${sort}&search=${search}`);
+    const { data: categories, loading: categoriesLoading } = useGetData("/categories");
+    const { data: sizes, loading: sizesLoading } = useGetData("/sizes");
     const {
         data: paranoidProducts,
         loading: paranoidLoading,
@@ -38,7 +40,9 @@ export default function page() {
 
     useSetTitle("Productos | ISA Making");
 
-    if (loading || paranoidLoading || status === "loading") return <LoadingComponent />;
+    if (loading || paranoidLoading || status === "loading" || categoriesLoading || sizesLoading) {
+        return <LoadingComponent />;
+    }
 
     const handleDelete = async (id, permanent = false) => {
         if (id === userSession.user_id) {
@@ -237,10 +241,15 @@ export default function page() {
                     id={`edit-product-${product.product_id}`}
                     className="modal"
                 >
-                    <div className="modal-box">
+                    <div className="modal-box w-full max-w-xl max-h-[90vh] overflow-y-auto">
                         <h1 className="text-lg font-bold">Editar producto</h1>
                         <p className="py-4">Presiona ESC o click fuera para cerrar</p>
-                        <ProductUpdate product={product} reload={reload} />
+                        <ProductUpdate
+                            product={product}
+                            categories={categories}
+                            sizes={sizes}
+                            reload={reload}
+                        />
                     </div>
                     <form method="dialog" className="modal-backdrop">
                         <button>close</button>
@@ -251,30 +260,96 @@ export default function page() {
     );
 }
 
-const ProductUpdate = ({ product, reload }) => {
+const ProductUpdate = ({ product, categories, sizes, reload }) => {
     const [description, setDescription] = useState("");
+    const [mediaFiles, setMediaFiles] = useState([]);
+    const [productSizes, setProductSizes] = useState([]);
+    const [selectedCategories, setSelectedCategories] = useState([]);
 
     useEffect(() => {
         setDescription(product.product_description);
+        setProductSizes(
+            product.sizes.map((s) => ({
+                size_id: s.size_id,
+                size_slug: s.size_slug,
+                product_price: s.ProductSize.product_price,
+            }))
+        );
+        setSelectedCategories(product.categories.map((c) => c.category_id));
     }, [product]);
+
+    const handleAddSize = () => {
+        const available = sizes.find((s) => !productSizes.some((ps) => ps.size_id === s.size_id));
+        if (available) {
+            setProductSizes([
+                ...productSizes,
+                {
+                    size_id: available.size_id,
+                    size_slug: available.size_slug,
+                    product_price: 0,
+                },
+            ]);
+        }
+    };
+
+    const handleRemoveSize = (index) => {
+        const updated = [...productSizes];
+        updated.splice(index, 1);
+        setProductSizes(updated);
+    };
+
+    const handleSizeChange = (index, key, value) => {
+        const updated = [...productSizes];
+        updated[index][key] = value;
+        setProductSizes(updated);
+    };
+
+    const handleCategoryChange = (id) => {
+        setSelectedCategories((prev) =>
+            prev.includes(id) ? prev.filter((cid) => cid !== id) : [...prev, id]
+        );
+    };
 
     const handleEdit = async (e) => {
         e.preventDefault();
         const formData = new FormData(e.target);
         const data = Object.fromEntries(formData);
         data.product_description = description;
-        if (formData.get("product_image").size > 0) {
-            data.product_image = await useBase64(formData.get("product_image"));
+
+        const mainImage = formData.get("product_image");
+        if (mainImage && mainImage.size > 0) {
+            data.product_image = await useBase64(mainImage);
         } else {
             delete data.product_image;
         }
 
-        const validation = useValidateForm("edit-product-form", data);
+        if (mediaFiles.length > 0) {
+            const mediaBase64 = await Promise.all(
+                Array.from(mediaFiles).map((file) => useBase64(file))
+            );
+            data.product_medias = mediaBase64;
+        } else {
+            delete data.product_medias;
+        }
 
+        data.sizes = productSizes;
+        data.categories = selectedCategories;
+
+        const validation = useValidateForm("edit-product-form", data);
         if (!validation.success) return;
 
-        const response = await usePutData(`/products/${data.product_id}`, { product: data });
+        const fetchData = {
+            product: data,
+            categories: selectedCategories,
+            sizes: productSizes,
+            medias: data.product_medias || [],
+        };
 
+        if (fetchData.sizes.length === 0) return alert("Debes agregar al menos una talla");
+        if (fetchData.categories.length === 0)
+            return alert("Debes seleccionar al menos una categoría");
+
+        const response = await usePutData(`/products/${data.product_id}`, fetchData);
         if (!response.success) return;
 
         reload();
@@ -283,9 +358,26 @@ const ProductUpdate = ({ product, reload }) => {
         e.target.reset();
     };
 
+    const handleDeleteMedia = async (mediaId) => {
+        Swal.fire({
+            title: "¿Estás seguro?",
+            text: "Esta acción es irreversible",
+            icon: "warning",
+            showCancelButton: true,
+            confirmButtonText: "Si, eliminar!",
+        }).then(async (result) => {
+            if (result.isConfirmed) {
+                const response = await useDeleteData(`/medias/${mediaId}`);
+                if (!response.success) return;
+                reload();
+            }
+        });
+    };
+
     return (
         <form onSubmit={handleEdit}>
             <input type="hidden" name="product_id" value={product.product_id} />
+
             <fieldset className="fieldset">
                 <label className="fieldset-label">
                     <span>Nombre</span>
@@ -293,9 +385,8 @@ const ProductUpdate = ({ product, reload }) => {
                 <input
                     type="text"
                     name="product_name"
-                    placeholder="Nombre del producto"
-                    className="input input-bordered w-full focus:outline-none focus:border-primary"
                     defaultValue={product.product_name}
+                    className="input input-bordered w-full"
                 />
             </fieldset>
             <fieldset className="fieldset">
@@ -306,14 +397,50 @@ const ProductUpdate = ({ product, reload }) => {
             </fieldset>
             <fieldset className="fieldset">
                 <label className="fieldset-label">
-                    <span>Imagen</span>
+                    <span>Imagen principal</span>
                 </label>
                 <input
                     type="file"
                     name="product_image"
-                    placeholder="Imagen del producto"
-                    className="file-input file-input-bordered w-full focus:outline-none focus:border-primary"
                     accept="image/*"
+                    className="file-input file-input-bordered w-full"
+                />
+            </fieldset>
+
+            {/* Medias */}
+            <fieldset className="fieldset">
+                <label className="fieldset-label">
+                    <span>Imágenes adicionales</span>
+                </label>
+                <div className="flex gap-2 flex-wrap">
+                    {product.medias.length === 0 ? (
+                        <span className="text-sm text-base-content/80">No hay imágenes</span>
+                    ) : (
+                        product.medias.map((media) => (
+                            <figure key={media.media_id} className="w-16 h-16 relative group">
+                                <img
+                                    key={media.media_id}
+                                    src={media.media_image}
+                                    alt={`Imagen ${media.media_id}`}
+                                    className="w-full h-full object-cover rounded-md"
+                                />
+                                <button
+                                    type="button"
+                                    className="btn btn-error btn-xs absolute top-1 right-1 opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+                                    onClick={() => handleDeleteMedia(media.media_id)}
+                                >
+                                    ✕
+                                </button>
+                            </figure>
+                        ))
+                    )}
+                </div>
+                <input
+                    type="file"
+                    multiple
+                    accept="image/*"
+                    onChange={(e) => setMediaFiles(e.target.files)}
+                    className="file-input file-input-bordered w-full mt-2"
                 />
             </fieldset>
             <fieldset className="fieldset">
@@ -323,25 +450,106 @@ const ProductUpdate = ({ product, reload }) => {
                 <input
                     type="color"
                     name="product_color"
-                    placeholder="Color del producto"
-                    className="input input-bordered w-full focus:outline-none focus:border-primary"
                     defaultValue={product.product_color}
+                    className="input input-bordered w-full"
                 />
             </fieldset>
             <fieldset className="fieldset">
                 <label className="fieldset-label">
-                    <span>Stock</span>
+                    <span>Unidades Disponibles</span>
                 </label>
                 <input
                     type="number"
                     name="product_stock"
-                    placeholder="Unidades disponibles del producto"
-                    className="input input-bordered w-full focus:outline-none focus:border-primary"
                     defaultValue={product.product_stock}
+                    className="input input-bordered w-full"
                 />
             </fieldset>
+
+            {/* Tallas */}
+            <fieldset className="fieldset">
+                <label className="fieldset-label flex justify-between items-center">
+                    <span>Tallas</span>
+                    <button
+                        type="button"
+                        onClick={handleAddSize}
+                        className="btn btn-sm btn-outline"
+                    >
+                        + Agregar talla
+                    </button>
+                </label>
+                <div className="space-y-2">
+                    {productSizes.map((size, index) => (
+                        <div key={index} className="flex gap-2 items-center">
+                            <select
+                                className="select select-bordered w-1/2"
+                                value={size.size_id}
+                                onChange={(e) => {
+                                    const selected = sizes.find(
+                                        (s) => s.size_id === parseInt(e.target.value)
+                                    );
+                                    handleSizeChange(index, "size_id", selected.size_id);
+                                    handleSizeChange(index, "size_slug", selected.size_slug);
+                                }}
+                            >
+                                <option value={size.size_id}>{size.size_slug}</option>
+                                {sizes
+                                    .filter(
+                                        (s) => !productSizes.some((ps) => ps.size_id === s.size_id)
+                                    )
+                                    .map((s) => (
+                                        <option key={s.size_id} value={s.size_id}>
+                                            {s.size_slug}
+                                        </option>
+                                    ))}
+                            </select>
+                            <input
+                                type="number"
+                                placeholder="Precio"
+                                className="input input-bordered w-full"
+                                value={size.product_price}
+                                onChange={(e) =>
+                                    handleSizeChange(
+                                        index,
+                                        "product_price",
+                                        parseFloat(e.target.value)
+                                    )
+                                }
+                            />
+                            <button
+                                type="button"
+                                className="btn btn-error btn-sm"
+                                onClick={() => handleRemoveSize(index)}
+                            >
+                                ✕
+                            </button>
+                        </div>
+                    ))}
+                </div>
+            </fieldset>
+
+            {/* Categorías */}
+            <fieldset className="fieldset">
+                <label className="fieldset-label">
+                    <span>Categorías</span>
+                </label>
+                <div className="flex flex-wrap gap-3">
+                    {categories.map((cat) => (
+                        <label key={cat.category_id} className="flex items-center gap-1">
+                            <input
+                                type="checkbox"
+                                value={cat.category_id}
+                                checked={selectedCategories.includes(cat.category_id)}
+                                onChange={() => handleCategoryChange(cat.category_id)}
+                            />
+                            {cat.category_name}
+                        </label>
+                    ))}
+                </div>
+            </fieldset>
+
             <fieldset className="fieldset mt-6">
-                <button type="submit" className="btn btn-primary">
+                <button type="submit" className="btn btn-primary w-full">
                     Actualizar
                 </button>
             </fieldset>
