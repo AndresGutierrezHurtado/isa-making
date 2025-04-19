@@ -1,54 +1,194 @@
 # 🛍️ ISA Making
 
-El sistema de información está diseñado para gestionar todo el proceso de compra, desde la selección del producto hasta el pago final, integrando funcionalidades que permiten al cliente elegir ciertos aspectos de la prenda como el color y talla. Además, permite agregar al carrito, hacer la compra y rastreo del envío con un delivery como Interrapidísimo. Los administradores también pueden gestionar los productos.
+[Versión en Español](README.es.md)
 
-## 📑 Tabla de Contenido
+ISA Making is an information system designed to manage the entire e-commerce workflow — from product selection and customization to payment and delivery tracking. It allows users to add products to a cart, complete secure payments, and monitor shipping status via services like Interrapidísimo. Administrators have full control over product management and inventory updates.
 
-1. Características Principales
+![App Preview](./docs/screenshots/preview.png)
 
-2. Stack Tecnológico
+---
 
-3. Arquitectura del Sistema
+## 📑 Table of Contents
 
-4. Flujos del Sistema
+1. [Key Features](#-key-features)
+2. [Tech Stack](#-tech-stack)
+3. [System Architecture](#system-architecture)
+4. [System Workflows](#-system-workflows)
+5. [Installation](#installation)
+6. [Contact](#contact)
 
-## 🚀 Características Principales
+---
 
-El sistema incluye funcionalidades clave como:
+## 🚀 Key Features
 
--   Catalogo de productos
--   Autenticacion con credenciales y proveedores (google, behance)
--   Edcion de prendas ( impresion frontal, trasera, mangas, etiqueta interior/exterior )
--   Pasarela de pago
--   Rastreo de envío
+The system provides the following core functionalities:
 
-## **💻 STACK TECNOLÓGICO:**
+---
 
-### **FRONTEND:**
+### 🧥 Product Management
 
--   Next.js
--   Tailwind CSS v4
--   DaisyUI
+-   Inventory control and availability
+-   Admin interface for product CRUD operations
 
-### **BACKEND:**
+![Product Management Screenshot](./docs/screenshots/product-management.png)
 
--   Next API (App Router)
--   Sequelize CLI with MySQL
--   PayU
+---
 
-## 🏗️ Arquitectura del sistema 
-El sistema está basado en una arquitectura cliente-servidor clásica, donde el frontend y el backend están claramente separados, pero trabajan de forma coordinada a través de peticiones HTTP. Esta arquitectura es ideal para aplicaciones web donde se requiere una experiencia dinámica para el usuario y un control robusto desde el servidor.
+## 🛒 Product Purchase
 
-## 🔄 Flujos del Sistema
+-   Secure checkout process with multiple payment options
+-   Real-time order tracking and status updates
+-   Integration with shipping providers for efficient delivery
 
-### **🚶‍♂️ Flujo de Usuario**
+![Product Purchase Screenshot](./docs/screenshots/product-purchase.png)
 
-1. **Login:** El usuario se autentica a través de credenciales o proveedores como Google o Behance.
-2. **Visualización de Productos:** El usuario puede ver el catálogo de productos, incluyendo detalles como color, talla, y edición de prendas.
-3. **Agregar al Carrito:** El usuario puede agregar productos al carrito de compras.
-4. **Pago:** El usuario puede realizar el pago a través de la pasarela de pago integrada.
-5. **Rastreo de Envío:** El usuario puede ver el rastro de su guía de envío.
+---
 
-### **🚧 Flujo de Administrador**
+### 🔐 Authentication
 
-1. **Edición de Productos:** Los administradores pueden editar los productos, incluyendo detalles como color, talla, y edición de prendas.
+-   Secure login via credentials
+-   OAuth integration with Google
+
+![Authentication Screenshot](./docs/screenshots/authentication.png)
+
+---
+
+### 💳 Integrated Payment Gateway
+
+-   PayU integration for real-time payment processing
+-   Secure transaction flow with success/failure handling
+
+![Payment Screenshot](./docs/screenshots/payment.png)
+
+---
+
+### 🚚 Shipping Tracking
+
+-   Administrators update product status based on shipment tracking updates
+
+![Shipping Screenshot](./docs/screenshots/shipping.png)
+
+---
+
+### 📈 Analytics and Insights
+
+-   Sales and analysis
+-   Product performance monitoring
+-   Customer behavior insights
+-   Data visualization for informed decision-making
+
+![Statistics Screenshot](./docs/screenshots/stats.png)
+
+---
+
+## 💻 Tech Stack
+
+### **Frontend**
+
+-   **Next.js 15**
+-   **Tailwind CSS v4**
+-   **DaisyUI**
+-   **react-chartjs-2**
+-   **Valibot**
+
+### **Backend**
+
+-   **Next.js API (App Router)**
+-   **Sequelize CLI + MySQL**
+-   **PayU Payment Gateway**
+
+---
+
+## 🏗️ System Architecture
+
+ISA Making follows a **client-server architecture**, with a clear separation between frontend and backend layers. Communication occurs via HTTP requests and API endpoints, ensuring scalability, maintainability, and dynamic user experiences.
+
+> **Frontend:** Delivers a responsive, interactive UI  
+> **Backend:** Handles business logic, authentication, payments, and database operations
+
+![Architecture Diagram](./docs/architecture.png)
+
+---
+
+## 🔄 System Workflows
+
+### **🚶‍♂️ User Workflow**
+
+1. **Login** – Users sign in using credentials or Google/Behance OAuth
+2. **Browse Products** – Explore product catalog with detailed views and customization options
+3. **Add to Cart** – Add garments with selected attributes to cart
+4. **Payment** – Complete payment via PayU integration
+5. **Shipping Tracking** – Monitor delivery progress after purchase
+
+---
+
+### **🚧 Admin Workflow**
+
+1. **Manage Products** – Add, edit, or remove products
+2. **Customize Options** – Configure available customization features (categories)
+3. **Monitor Orders** – Review purchase history and delivery status
+4. **View Statistics** – Access sales statistics and analytics for better decision-making
+
+---
+
+## 🛠️ Installation
+
+Follow these steps to run ISA Making locally:
+
+### **Prerequisites**
+
+-   Node.js >= 18
+-   MySQL Database
+-   PayU sandbox/test credentials
+
+### **Steps**
+
+1. **Clone the repository**
+
+    ```bash
+    git clone https://github.com/your-username/isa-making.git
+    cd isa-making
+    ```
+
+2. **Install dependencies**
+
+    ```bash
+    npm install
+    ```
+
+3. **Configure environment variables**
+
+    Copy the `.env.example` file to create a `.env` file:
+
+    ```bash
+    cp .env.example .env
+    ```
+
+    Then, add your config to the `.env` file.
+
+4. **Create the PHPMyAdmin database**
+    ```SQL
+    CREATE DATABASE `isa_making`
+    ```
+5. **Run database migrations**
+
+    ```bash
+    npm run db:migrate && npm run db:seed
+    ```
+
+6. **Start the development server**
+
+    ```bash
+    npm run dev
+    ```
+
+---
+
+## 📬 Contact
+
+For questions, support, or collaboration, please contact:
+
+-   Andrés Gutiérrez Hurtado
+-   Email: [andres52885241@gmail.com](mailto:andres52885241@gmail.com)
+-   GitHub: [@andresghurtado](https://github.com/AndresGutierrezHurtado)
+-   LinkedIn: [Andrés Gutiérrez](https://www.linkedin.com/in/andr%C3%A9s-guti%C3%A9rrez-hurtado-25946728b/)

@@ -1,0 +1,1726 @@
+{
+    "openapi": "3.0.0",
+    "info": {
+        "title": "API de EduWeb",
+        "version": "1.0.0",
+        "description": "API para la aplicación de EduWeb"
+    },
+    "tags": [
+        {
+            "name": "users",
+            "description": "Operaciones relacionadas con los usuarios"
+        },
+        {
+            "name": "products",
+            "description": "Operaciones relacionadas con los productos"
+        },
+        {
+            "name": "orders",
+            "description": "Operaciones relacionadas con las órdenes"
+        },
+        {
+            "name": "stats",
+            "description": "Operaciones relacionadas con las estadísticas"
+        }
+    ],
+    "paths": {
+        "/api/users": {
+            "get": {
+                "tags": ["users"],
+                "summary": "Obtener todos los usuarios",
+                "responses": {
+                    "200": {
+                        "description": "Lista de usuarios",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "array",
+                                    "items": {
+                                        "$ref": "#/components/schemas/User"
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "500": {
+                        "description": "Error al obtener los usuarios",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "properties": {
+                                        "success": {
+                                            "type": "boolean",
+                                            "example": false
+                                        },
+                                        "message": {
+                                            "type": "string",
+                                            "example": "Error al obtener los usuarios"
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "post": {
+                "tags": ["users"],
+                "summary": "Crear un nuevo usuario",
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/User"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "201": {
+                        "description": "Usuario creado correctamente",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/User"
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Error al crear el usuario",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "properties": {
+                                        "success": {
+                                            "type": "boolean",
+                                            "example": false
+                                        },
+                                        "message": {
+                                            "type": "string",
+                                            "example": "Error al crear el usuario: [detalles del error]"
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/users/{id}": {
+            "get": {
+                "tags": ["users"],
+                "summary": "Obtener un usuario por ID",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "description": "ID del usuario",
+                        "schema": {
+                            "type": "string",
+                            "format": "uuid"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Usuario encontrado",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/User"
+                                }
+                            }
+                        }
+                    },
+                    "404": {
+                        "description": "Usuario no encontrado",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "properties": {
+                                        "success": {
+                                            "type": "boolean",
+                                            "example": false
+                                        },
+                                        "message": {
+                                            "type": "string",
+                                            "example": "Usuario no encontrado"
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "put": {
+                "tags": ["users"],
+                "summary": "Actualizar un usuario por ID",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "description": "ID del usuario",
+                        "schema": {
+                            "type": "string",
+                            "format": "uuid"
+                        }
+                    }
+                ],
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/User"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Usuario actualizado correctamente",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/User"
+                                }
+                            }
+                        }
+                    },
+                    "404": {
+                        "description": "Usuario no encontrado",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "properties": {
+                                        "success": {
+                                            "type": "boolean",
+                                            "example": false
+                                        },
+                                        "message": {
+                                            "type": "string",
+                                            "example": "Usuario no encontrado"
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "delete": {
+                "tags": ["users"],
+                "summary": "Eliminar un usuario por ID",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "description": "ID del usuario",
+                        "schema": {
+                            "type": "string",
+                            "format": "uuid"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Usuario eliminado correctamente"
+                    },
+                    "404": {
+                        "description": "Usuario no encontrado",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "properties": {
+                                        "success": {
+                                            "type": "boolean",
+                                            "example": false
+                                        },
+                                        "message": {
+                                            "type": "string",
+                                            "example": "Usuario no encontrado"
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/users/{id}/cart": {
+            "get": {
+                "tags": ["users"],
+                "summary": "Obtener el carrito de un usuario por ID",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "description": "ID del usuario",
+                        "schema": {
+                            "type": "string",
+                            "format": "uuid"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Carrito encontrado",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "array",
+                                    "items": {
+                                        "$ref": "#/components/schemas/Cart"
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "404": {
+                        "description": "Carrito no encontrado",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "properties": {
+                                        "success": {
+                                            "type": "boolean",
+                                            "example": false
+                                        },
+                                        "message": {
+                                            "type": "string",
+                                            "example": "Carrito no encontrado"
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "post": {
+                "tags": ["users"],
+                "summary": "Agregar un producto al carrito de un usuario",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "description": "ID del usuario",
+                        "schema": {
+                            "type": "string",
+                            "format": "uuid"
+                        }
+                    }
+                ],
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/Cart"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "201": {
+                        "description": "Producto agregado al carrito correctamente"
+                    },
+                    "400": {
+                        "description": "Error al agregar el producto al carrito",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "properties": {
+                                        "success": {
+                                            "type": "boolean",
+                                            "example": false
+                                        },
+                                        "message": {
+                                            "type": "string",
+                                            "example": "Error al agregar el producto al carrito"
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/users/{id}/orders": {
+            "get": {
+                "tags": ["users"],
+                "summary": "Obtener las órdenes de un usuario por ID",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "description": "ID del usuario",
+                        "schema": {
+                            "type": "string",
+                            "format": "uuid"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Órdenes encontradas",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "array",
+                                    "items": {
+                                        "$ref": "#/components/schemas/Order"
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "404": {
+                        "description": "Órdenes no encontradas",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "properties": {
+                                        "success": {
+                                            "type": "boolean",
+                                            "example": false
+                                        },
+                                        "message": {
+                                            "type": "string",
+                                            "example": "Órdenes no encontradas"
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/users/{id}/paranoid": {
+            "get": {
+                "tags": ["users"],
+                "summary": "Obtener usuarios eliminados (paranoid) por ID",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "description": "ID del usuario",
+                        "schema": {
+                            "type": "string",
+                            "format": "uuid"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Usuario eliminado encontrado",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/User"
+                                }
+                            }
+                        }
+                    },
+                    "404": {
+                        "description": "Usuario eliminado no encontrado",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "properties": {
+                                        "success": {
+                                            "type": "boolean",
+                                            "example": false
+                                        },
+                                        "message": {
+                                            "type": "string",
+                                            "example": "Usuario eliminado no encontrado"
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/stats": {
+            "get": {
+                "tags": ["stats"],
+                "summary": "Obtener estadísticas de la aplicación",
+                "responses": {
+                    "200": {
+                        "description": "Estadísticas obtenidas correctamente",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "properties": {
+                                        "users": {
+                                            "type": "array",
+                                            "items": {
+                                                "$ref": "#/components/schemas/User"
+                                            }
+                                        },
+                                        "orders": {
+                                            "type": "array",
+                                            "items": {
+                                                "$ref": "#/components/schemas/Order"
+                                            }
+                                        },
+                                        "products": {
+                                            "type": "array",
+                                            "items": {
+                                                "$ref": "#/components/schemas/Product"
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "500": {
+                        "description": "Error al obtener estadísticas",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "properties": {
+                                        "success": {
+                                            "type": "boolean",
+                                            "example": false
+                                        },
+                                        "message": {
+                                            "type": "string",
+                                            "example": "Error al obtener estadísticas"
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/sizes": {
+            "get": {
+                "tags": ["products"],
+                "summary": "Obtener todas las tallas",
+                "responses": {
+                    "200": {
+                        "description": "Lista de tallas",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "array",
+                                    "items": {
+                                        "$ref": "#/components/schemas/Size"
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "500": {
+                        "description": "Error al obtener las tallas",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "properties": {
+                                        "success": {
+                                            "type": "boolean",
+                                            "example": false
+                                        },
+                                        "message": {
+                                            "type": "string",
+                                            "example": "Error al obtener las tallas"
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/products": {
+            "get": {
+                "tags": ["products"],
+                "summary": "Obtener todos los productos",
+                "responses": {
+                    "200": {
+                        "description": "Lista de productos",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "array",
+                                    "items": {
+                                        "$ref": "#/components/schemas/Product"
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "500": {
+                        "description": "Error al obtener los productos",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "properties": {
+                                        "success": {
+                                            "type": "boolean",
+                                            "example": false
+                                        },
+                                        "message": {
+                                            "type": "string",
+                                            "example": "Error al obtener los productos"
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "post": {
+                "tags": ["products"],
+                "summary": "Crear un nuevo producto",
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/Product"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "201": {
+                        "description": "Producto creado correctamente",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/Product"
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Error al crear el producto",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "properties": {
+                                        "success": {
+                                            "type": "boolean",
+                                            "example": false
+                                        },
+                                        "message": {
+                                            "type": "string",
+                                            "example": "Error al crear el producto: [detalles del error]"
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/products/{id}": {
+            "get": {
+                "tags": ["products"],
+                "summary": "Obtener un producto por ID",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "description": "ID del producto",
+                        "schema": {
+                            "type": "string",
+                            "format": "uuid"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Producto encontrado",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/Product"
+                                }
+                            }
+                        }
+                    },
+                    "404": {
+                        "description": "Producto no encontrado",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "properties": {
+                                        "success": {
+                                            "type": "boolean",
+                                            "example": false
+                                        },
+                                        "message": {
+                                            "type": "string",
+                                            "example": "Producto no encontrado"
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "put": {
+                "tags": ["products"],
+                "summary": "Actualizar un producto por ID",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "description": "ID del producto",
+                        "schema": {
+                            "type": "string",
+                            "format": "uuid"
+                        }
+                    }
+                ],
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/Product"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Producto actualizado correctamente",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/Product"
+                                }
+                            }
+                        }
+                    },
+                    "404": {
+                        "description": "Producto no encontrado",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "properties": {
+                                        "success": {
+                                            "type": "boolean",
+                                            "example": false
+                                        },
+                                        "message": {
+                                            "type": "string",
+                                            "example": "Producto no encontrado"
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "delete": {
+                "tags": ["products"],
+                "summary": "Eliminar un producto por ID",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "description": "ID del producto",
+                        "schema": {
+                            "type": "string",
+                            "format": "uuid"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Producto eliminado correctamente"
+                    },
+                    "404": {
+                        "description": "Producto no encontrado",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "properties": {
+                                        "success": {
+                                            "type": "boolean",
+                                            "example": false
+                                        },
+                                        "message": {
+                                            "type": "string",
+                                            "example": "Producto no encontrado"
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/products/{id}/paranoid": {
+            "get": {
+                "tags": ["products"],
+                "summary": "Obtener un producto eliminado (paranoid) por ID",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "description": "ID del producto",
+                        "schema": {
+                            "type": "string",
+                            "format": "uuid"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Producto eliminado encontrado",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/Product"
+                                }
+                            }
+                        }
+                    },
+                    "404": {
+                        "description": "Producto eliminado no encontrado",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "properties": {
+                                        "success": {
+                                            "type": "boolean",
+                                            "example": false
+                                        },
+                                        "message": {
+                                            "type": "string",
+                                            "example": "Producto eliminado no encontrado"
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/orders": {
+            "get": {
+                "tags": ["orders"],
+                "summary": "Obtener todas las órdenes",
+                "responses": {
+                    "200": {
+                        "description": "Lista de órdenes",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "array",
+                                    "items": {
+                                        "$ref": "#/components/schemas/Order"
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "500": {
+                        "description": "Error al obtener las órdenes",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "properties": {
+                                        "success": {
+                                            "type": "boolean",
+                                            "example": false
+                                        },
+                                        "message": {
+                                            "type": "string",
+                                            "example": "Error al obtener las órdenes"
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/orders/{id}": {
+            "get": {
+                "tags": ["orders"],
+                "summary": "Obtener una orden por ID",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "description": "ID de la orden",
+                        "schema": {
+                            "type": "string",
+                            "format": "uuid"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Orden encontrada",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/Order"
+                                }
+                            }
+                        }
+                    },
+                    "404": {
+                        "description": "Orden no encontrada",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "properties": {
+                                        "success": {
+                                            "type": "boolean",
+                                            "example": false
+                                        },
+                                        "message": {
+                                            "type": "string",
+                                            "example": "Orden no encontrada"
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "put": {
+                "tags": ["orders"],
+                "summary": "Actualizar una orden por ID",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "description": "ID de la orden",
+                        "schema": {
+                            "type": "string",
+                            "format": "uuid"
+                        }
+                    }
+                ],
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "type": "object",
+                                "properties": {
+                                    "shippingDetail": {
+                                        "$ref": "#/components/schemas/ShippingDetail"
+                                    },
+                                    "shippingHistory": {
+                                        "$ref": "#/components/schemas/ShippingHistory"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Estado de la orden actualizado correctamente"
+                    },
+                    "404": {
+                        "description": "Orden no encontrada",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "properties": {
+                                        "success": {
+                                            "type": "boolean",
+                                            "example": false
+                                        },
+                                        "message": {
+                                            "type": "string",
+                                            "example": "Orden no encontrada"
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/orders/callback": {
+            "get": {
+                "tags": ["orders"],
+                "summary": "Callback para recibir detalles de la orden",
+                "responses": {
+                    "200": {
+                        "description": "Detalles de la orden recibidos correctamente"
+                    },
+                    "500": {
+                        "description": "Error al recibir los detalles de la orden",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "properties": {
+                                        "success": {
+                                            "type": "boolean",
+                                            "example": false
+                                        },
+                                        "message": {
+                                            "type": "string",
+                                            "example": "Error al recibir y almacenar la orden: [detalles del error]"
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/medias/{id}": {
+            "delete": {
+                "tags": ["products"],
+                "summary": "Eliminar una media por ID",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "description": "ID de la media",
+                        "schema": {
+                            "type": "string",
+                            "format": "uuid"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Media eliminada correctamente"
+                    },
+                    "404": {
+                        "description": "Media no encontrada",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "properties": {
+                                        "success": {
+                                            "type": "boolean",
+                                            "example": false
+                                        },
+                                        "message": {
+                                            "type": "string",
+                                            "example": "Media no encontrada"
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/info": {
+            "get": {
+                "tags": ["stats"],
+                "summary": "Obtener información general de la aplicación",
+                "responses": {
+                    "200": {
+                        "description": "Información obtenida correctamente",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "properties": {
+                                        "users": {
+                                            "type": "array",
+                                            "items": {
+                                                "$ref": "#/components/schemas/User"
+                                            }
+                                        },
+                                        "roles": {
+                                            "type": "array",
+                                            "items": {
+                                                "$ref": "#/components/schemas/Role"
+                                            }
+                                        },
+                                        "products": {
+                                            "type": "array",
+                                            "items": {
+                                                "$ref": "#/components/schemas/Product"
+                                            }
+                                        },
+                                        "medias": {
+                                            "type": "array",
+                                            "items": {
+                                                "$ref": "#/components/schemas/Media"
+                                            }
+                                        },
+                                        "categories": {
+                                            "type": "array",
+                                            "items": {
+                                                "$ref": "#/components/schemas/Category"
+                                            }
+                                        },
+                                        "sizes": {
+                                            "type": "array",
+                                            "items": {
+                                                "$ref": "#/components/schemas/Size"
+                                            }
+                                        },
+                                        "productCategories": {
+                                            "type": "array",
+                                            "items": {
+                                                "$ref": "#/components/schemas/ProductCategory"
+                                            }
+                                        },
+                                        "productSizes": {
+                                            "type": "array",
+                                            "items": {
+                                                "$ref": "#/components/schemas/ProductSize"
+                                            }
+                                        },
+                                        "carts": {
+                                            "type": "array",
+                                            "items": {
+                                                "$ref": "#/components/schemas/Cart"
+                                            }
+                                        },
+                                        "orders": {
+                                            "type": "array",
+                                            "items": {
+                                                "$ref": "#/components/schemas/Order"
+                                            }
+                                        },
+                                        "orderProducts": {
+                                            "type": "array",
+                                            "items": {
+                                                "$ref": "#/components/schemas/OrderProduct"
+                                            }
+                                        },
+                                        "paymentDetails": {
+                                            "type": "array",
+                                            "items": {
+                                                "$ref": "#/components/schemas/PaymentDetail"
+                                            }
+                                        },
+                                        "shippingDetails": {
+                                            "type": "array",
+                                            "items": {
+                                                "$ref": "#/components/schemas/ShippingDetail"
+                                            }
+                                        },
+                                        "shippingHistories": {
+                                            "type": "array",
+                                            "items": {
+                                                "$ref": "#/components/schemas/ShippingHistory"
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "500": {
+                        "description": "Error al obtener la información",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "properties": {
+                                        "success": {
+                                            "type": "boolean",
+                                            "example": false
+                                        },
+                                        "message": {
+                                            "type": "string",
+                                            "example": "Error al obtener la información"
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/categories": {
+            "get": {
+                "tags": ["products"],
+                "summary": "Obtener todas las categorías",
+                "responses": {
+                    "200": {
+                        "description": "Lista de categorías",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "array",
+                                    "items": {
+                                        "$ref": "#/components/schemas/Category"
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "500": {
+                        "description": "Error al obtener las categorías",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "properties": {
+                                        "success": {
+                                            "type": "boolean",
+                                            "example": false
+                                        },
+                                        "message": {
+                                            "type": "string",
+                                            "example": "Error al obtener las categorías"
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "post": {
+                "tags": ["products"],
+                "summary": "Crear una nueva categoría",
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/Category"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "201": {
+                        "description": "Categoría creada correctamente",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/Category"
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Error al crear la categoría",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "properties": {
+                                        "success": {
+                                            "type": "boolean",
+                                            "example": false
+                                        },
+                                        "message": {
+                                            "type": "string",
+                                            "example": "Error al crear la categoría: [detalles del error]"
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/categories/{id}": {
+            "get": {
+                "tags": ["products"],
+                "summary": "Obtener una categoría por ID",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "description": "ID de la categoría",
+                        "schema": {
+                            "type": "string",
+                            "format": "uuid"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Categoría encontrada",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/Category"
+                                }
+                            }
+                        }
+                    },
+                    "404": {
+                        "description": "Categoría no encontrada",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "properties": {
+                                        "success": {
+                                            "type": "boolean",
+                                            "example": false
+                                        },
+                                        "message": {
+                                            "type": "string",
+                                            "example": "Categoría no encontrada"
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "put": {
+                "tags": ["products"],
+                "summary": "Actualizar una categoría por ID",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "description": "ID de la categoría",
+                        "schema": {
+                            "type": "string",
+                            "format": "uuid"
+                        }
+                    }
+                ],
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/Category"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Categoría actualizada correctamente",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/Category"
+                                }
+                            }
+                        }
+                    },
+                    "404": {
+                        "description": "Categoría no encontrada",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "properties": {
+                                        "success": {
+                                            "type": "boolean",
+                                            "example": false
+                                        },
+                                        "message": {
+                                            "type": "string",
+                                            "example": "Categoría no encontrada"
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "delete": {
+                "tags": ["products"],
+                "summary": "Eliminar una categoría por ID",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "description": "ID de la categoría",
+                        "schema": {
+                            "type": "string",
+                            "format": "uuid"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Categoría eliminada correctamente"
+                    },
+                    "404": {
+                        "description": "Categoría no encontrada",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "properties": {
+                                        "success": {
+                                            "type": "boolean",
+                                            "example": false
+                                        },
+                                        "message": {
+                                            "type": "string",
+                                            "example": "Categoría no encontrada"
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    },
+    "components": {
+        "schemas": {
+            "User": {
+                "type": "object",
+                "properties": {
+                    "user_id": {
+                        "type": "string",
+                        "format": "uuid",
+                        "description": "ID único del usuario"
+                    },
+                    "user_name": {
+                        "type": "string",
+                        "description": "Nombre del usuario"
+                    },
+                    "user_lastname": {
+                        "type": "string",
+                        "description": "Apellido del usuario"
+                    },
+                    "user_email": {
+                        "type": "string",
+                        "format": "email",
+                        "description": "Correo electrónico del usuario"
+                    },
+                    "user_password": {
+                        "type": "string",
+                        "description": "Contraseña del usuario"
+                    },
+                    "role_id": {
+                        "type": "integer",
+                        "description": "ID del rol asignado al usuario"
+                    },
+                    "createdAt": {
+                        "type": "string",
+                        "format": "date-time",
+                        "description": "Fecha de creación del usuario"
+                    },
+                    "updatedAt": {
+                        "type": "string",
+                        "format": "date-time",
+                        "description": "Fecha de la última actualización del usuario"
+                    }
+                },
+                "required": ["user_name", "user_lastname", "user_email", "user_password", "role_id"]
+            },
+            "Product": {
+                "type": "object",
+                "properties": {
+                    "product_id": {
+                        "type": "string",
+                        "format": "uuid",
+                        "description": "ID único del producto"
+                    },
+                    "product_name": {
+                        "type": "string",
+                        "description": "Nombre del producto"
+                    },
+                    "product_description": {
+                        "type": "string",
+                        "description": "Descripción del producto"
+                    },
+                    "product_image": {
+                        "type": "string",
+                        "description": "URL de la imagen del producto"
+                    },
+                    "product_color": {
+                        "type": "string",
+                        "description": "Color del producto"
+                    },
+                    "product_stock": {
+                        "type": "integer",
+                        "description": "Cantidad de stock disponible"
+                    },
+                    "createdAt": {
+                        "type": "string",
+                        "format": "date-time",
+                        "description": "Fecha de creación del producto"
+                    },
+                    "updatedAt": {
+                        "type": "string",
+                        "format": "date-time",
+                        "description": "Fecha de la última actualización del producto"
+                    }
+                },
+                "required": [
+                    "product_name",
+                    "product_description",
+                    "product_image",
+                    "product_color",
+                    "product_stock"
+                ]
+            },
+            "Cart": {
+                "type": "object",
+                "properties": {
+                    "user_id": {
+                        "type": "string",
+                        "format": "uuid",
+                        "description": "ID del usuario"
+                    },
+                    "product_id": {
+                        "type": "string",
+                        "format": "uuid",
+                        "description": "ID del producto"
+                    },
+                    "size_id": {
+                        "type": "integer",
+                        "description": "ID de la talla"
+                    },
+                    "product_quantity": {
+                        "type": "integer",
+                        "description": "Cantidad del producto en el carrito"
+                    }
+                },
+                "required": ["user_id", "product_id", "size_id", "product_quantity"]
+            },
+            "Order": {
+                "type": "object",
+                "properties": {
+                    "order_id": {
+                        "type": "string",
+                        "format": "uuid",
+                        "description": "ID único de la orden"
+                    },
+                    "user_id": {
+                        "type": "string",
+                        "format": "uuid",
+                        "description": "ID del usuario que realizó la orden"
+                    },
+                    "order_state": {
+                        "type": "string",
+                        "enum": ["pending", "completed"],
+                        "description": "Estado de la orden"
+                    },
+                    "createdAt": {
+                        "type": "string",
+                        "format": "date-time",
+                        "description": "Fecha de creación de la orden"
+                    },
+                    "updatedAt": {
+                        "type": "string",
+                        "format": "date-time",
+                        "description": "Fecha de la última actualización de la orden"
+                    }
+                },
+                "required": ["user_id", "order_state"]
+            },
+            "ShippingDetail": {
+                "type": "object",
+                "properties": {
+                    "shipping_id": {
+                        "type": "string",
+                        "format": "uuid",
+                        "description": "ID único del detalle de envío"
+                    },
+                    "order_id": {
+                        "type": "string",
+                        "format": "uuid",
+                        "description": "ID de la orden asociada"
+                    },
+                    "shipping_guide": {
+                        "type": "string",
+                        "description": "Guía de envío"
+                    },
+                    "shipping_courier": {
+                        "type": "string",
+                        "description": "Nombre del courier"
+                    },
+                    "tracking_url": {
+                        "type": "string",
+                        "description": "URL de seguimiento"
+                    },
+                    "shipping_estimated": {
+                        "type": "string",
+                        "format": "date-time",
+                        "description": "Fecha estimada de envío"
+                    }
+                },
+                "required": ["order_id", "shipping_courier"]
+            },
+            "ShippingHistory": {
+                "type": "object",
+                "properties": {
+                    "shipping_id": {
+                        "type": "string",
+                        "format": "uuid",
+                        "description": "ID único del historial de envío"
+                    },
+                    "shipping_state": {
+                        "type": "string",
+                        "description": "Estado del envío"
+                    }
+                },
+                "required": ["shipping_id", "shipping_state"]
+            },
+            "OrderProduct": {
+                "type": "object",
+                "properties": {
+                    "order_product_id": {
+                        "type": "string",
+                        "format": "uuid",
+                        "description": "ID único del producto en la orden"
+                    },
+                    "order_id": {
+                        "type": "string",
+                        "format": "uuid",
+                        "description": "ID de la orden asociada"
+                    },
+                    "product_id": {
+                        "type": "string",
+                        "format": "uuid",
+                        "description": "ID del producto"
+                    },
+                    "size_id": {
+                        "type": "integer",
+                        "description": "ID de la talla"
+                    },
+                    "product_quantity": {
+                        "type": "integer",
+                        "description": "Cantidad del producto en la orden"
+                    },
+                    "product_price": {
+                        "type": "number",
+                        "description": "Precio del producto"
+                    }
+                },
+                "required": [
+                    "order_id",
+                    "product_id",
+                    "size_id",
+                    "product_quantity",
+                    "product_price"
+                ]
+            },
+            "Category": {
+                "type": "object",
+                "properties": {
+                    "category_id": {
+                        "type": "integer",
+                        "description": "ID único de la categoría"
+                    },
+                    "category_name": {
+                        "type": "string",
+                        "description": "Nombre de la categoría"
+                    },
+                    "category_image": {
+                        "type": "string",
+                        "description": "URL de la imagen de la categoría"
+                    },
+                    "category_slug": {
+                        "type": "string",
+                        "description": "Slug de la categoría"
+                    }
+                },
+                "required": ["category_name", "category_image", "category_slug"]
+            },
+            "Size": {
+                "type": "object",
+                "properties": {
+                    "size_id": {
+                        "type": "integer",
+                        "description": "ID único de la talla"
+                    },
+                    "size_slug": {
+                        "type": "string",
+                        "description": "Slug de la talla"
+                    }
+                },
+                "required": ["size_slug"]
+            },
+            "Media": {
+                "type": "object",
+                "properties": {
+                    "media_id": {
+                        "type": "string",
+                        "format": "uuid",
+                        "description": "ID único de la media"
+                    },
+                    "media_image": {
+                        "type": "string",
+                        "description": "URL de la imagen de la media"
+                    }
+                },
+                "required": ["media_image"]
+            }
+        }
+    }
+}

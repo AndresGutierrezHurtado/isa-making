@@ -222,7 +222,7 @@ export default function Page() {
                                             <h4 className="text-lg font-medium">{name}:</h4>
                                             <div className="flex flex-row flex-wrap gap-2">
                                                 {methods.map((method, index) => (
-                                                    <div className="badge">
+                                                    <div className="badge" key={index}>
                                                         <p key={index}>{method}</p>
                                                     </div>
                                                 ))}
