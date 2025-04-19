@@ -12,10 +12,10 @@ ISA Making is an information system designed to manage the entire e-commerce wor
 
 1. [Key Features](#-key-features)
 2. [Tech Stack](#-tech-stack)
-3. [System Architecture](#system-architecture)
+3. [System Architecture](#%EF%B8%8F-system-architecture)
 4. [System Workflows](#-system-workflows)
-5. [Installation](#installation)
-6. [Contact](#contact)
+5. [Installation](#%EF%B8%8F-installation)
+6. [Contact](#-contact)
 
 ---
 
@@ -146,7 +146,7 @@ Follow these steps to run ISA Making locally:
 1. **Clone the repository**
 
     ```bash
-    git clone https://github.com/your-username/isa-making.git
+    git clone https://github.com/AndresGutierrezHurtado/isa-making.git
     cd isa-making
     ```
 
@@ -190,5 +190,5 @@ For questions, support, or collaboration, please contact:
 
 -   Andrés Gutiérrez Hurtado
 -   Email: [andres52885241@gmail.com](mailto:andres52885241@gmail.com)
--   GitHub: [@andresghurtado](https://github.com/AndresGutierrezHurtado)
+-   GitHub: [@AndresGutierrezHurtado](https://github.com/AndresGutierrezHurtado)
 -   LinkedIn: [Andrés Gutiérrez](https://www.linkedin.com/in/andr%C3%A9s-guti%C3%A9rrez-hurtado-25946728b/)

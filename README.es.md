@@ -12,10 +12,10 @@ ISA Making es un sistema de información diseñado para gestionar todo el flujo 
 
 1. [Características Clave](#-características-clave)
 2. [Stack Tecnológico](#-stack-tecnológico)
-3. [Arquitectura del Sistema](#arquitectura-del-sistema)
+3. [Arquitectura del Sistema](#%EF%B8%8F-arquitectura-del-sistema)
 4. [Flujos del Sistema](#-flujos-del-sistema)
-5. [Instalación](#instalación)
-6. [Contacto](#contacto)
+5. [Instalación](#%EF%B8%8F-instalación)
+6. [Contacto](#-contacto)
 
 ---
 
@@ -146,7 +146,7 @@ Sigue estos pasos para ejecutar ISA Making localmente:
 1. **Clonar el repositorio**
 
     ```bash
-    git clone https://github.com/your-username/isa-making.git
+    git clone https://github.com/AndresGutierrezHurtado/isa-making.git
     cd isa-making
     ```
 
@@ -190,5 +190,5 @@ Para preguntas, soporte o colaboración, por favor contacta:
 
 - Andrés Gutiérrez Hurtado
 - Correo: [andres52885241@gmail.com](mailto:andres52885241@gmail.com)
-- GitHub: [@andresghurtado](https://github.com/AndresGutierrezHurtado)
+- GitHub: [@AndresGutierrezHurtado](https://github.com/AndresGutierrezHurtado)
 - LinkedIn: [Andrés Gutiérrez](https://www.linkedin.com/in/andr%C3%A9s-guti%C3%A9rrez-hurtado-25946728b/)
