@@ -45,16 +45,6 @@ export default function page() {
     }
 
     const handleDelete = async (id, permanent = false) => {
-        if (id === userSession.user_id) {
-            Swal.fire({
-                title: "¡Ups!",
-                text: "No puedes eliminar tu propio usuario",
-                icon: "error",
-                confirmButtonText: "Cerrar",
-            });
-            return;
-        }
-
         Swal.fire({
             title: "¿Estás seguro?",
             text: "Esta acción es irreversible",

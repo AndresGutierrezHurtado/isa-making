@@ -109,7 +109,7 @@ export default function Footer() {
                     </div>
                     <div>
                         <h4 className="text-2xl font-medium">Ayuda</h4>
-                        <Link className="hover:underline" href="/shipping">
+                        <Link className="hover:underline" href="/profile">
                             Seguimiento de envío
                         </Link>
                     </div>

@@ -86,8 +86,8 @@ export default function Page() {
                             </h2>
 
                             <fieldset className="fieldset w-full">
-                                <label className="fieldset-label text-base-content/80 text-base">
-                                    Nombre completo del pagador:
+                                <label className="fieldset-label text-base-content/80 text-base after:content-['*'] after:text-red-500">
+                                    Nombre completo:
                                 </label>
                                 <input
                                     name="payerFullName"
@@ -100,8 +100,8 @@ export default function Page() {
                             </fieldset>
 
                             <fieldset className="fieldset w-full">
-                                <label className="fieldset-label text-base-content/80 text-base">
-                                    Correo electrónico del pagador:
+                                <label className="fieldset-label text-base-content/80 text-base after:content-['*'] after:text-red-500">
+                                    Correo electrónico:
                                 </label>
                                 <input
                                     name="payerEmail"
@@ -112,8 +112,8 @@ export default function Page() {
                             </fieldset>
 
                             <fieldset className="fieldset w-full">
-                                <label className="fieldset-label text-base-content/80 text-base">
-                                    Teléfono del pagador:
+                                <label className="fieldset-label text-base-content/80 text-base after:content-['*'] after:text-red-500">
+                                    Teléfono:
                                 </label>
                                 <input
                                     name="payerPhone"
@@ -122,9 +122,9 @@ export default function Page() {
                                 />
                             </fieldset>
 
-                            <div className="flex flex-col md:flex-row w-full gap-10">
+                            <div className="flex flex-col md:flex-row w-full gap-2 md:gap-10">
                                 <fieldset className="fieldset flex-1">
-                                    <label className="fieldset-label text-base-content/80 text-base">
+                                    <label className="fieldset-label text-base-content/80 text-base after:content-['*'] after:text-red-500">
                                         Tipo de documento:
                                     </label>
                                     <select
@@ -142,7 +142,7 @@ export default function Page() {
                                 </fieldset>
 
                                 <fieldset className="fieldset flex-3">
-                                    <label className="fieldset-label text-base-content/80 text-base">
+                                    <label className="fieldset-label text-base-content/80 text-base after:content-['*'] after:text-red-500">
                                         Número de documento:
                                     </label>
                                     <input
@@ -154,7 +154,7 @@ export default function Page() {
                             </div>
 
                             <fieldset className="fieldset w-full">
-                                <label className="fieldset-label text-base-content/80 text-base">
+                                <label className="fieldset-label text-base-content/80 text-base after:content-['*'] after:text-red-500">
                                     Dirección:
                                 </label>
                                 <input
