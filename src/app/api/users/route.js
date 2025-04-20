@@ -72,6 +72,16 @@ export async function POST(request) {
         );
     } catch (error) {
         console.error(error);
+        if (error.name === "SequelizeUniqueConstraintError") {
+            return NextResponse.json(
+                {
+                    success: false,
+                    message: "Error al crear el usuario: El correo electrónico ya está en uso",
+                },
+                { status: 400 }
+            );
+        }
+
         return NextResponse.json(
             {
                 success: false,

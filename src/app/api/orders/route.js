@@ -26,6 +26,7 @@ export async function GET(req) {
             message: "Pedidos obtenidos correctamente",
         });
     } catch (error) {
+        console.error(error);
         return NextResponse.json(
             {
                 success: false,

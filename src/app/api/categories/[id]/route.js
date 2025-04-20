@@ -18,6 +18,7 @@ export async function GET(req, { params }) {
             { status: 200 }
         );
     } catch (error) {
+        console.error(error);
         return NextResponse.json(
             {
                 success: false,
@@ -90,6 +91,7 @@ export async function PUT(req, { params }) {
             { status: 200 }
         );
     } catch (error) {
+        console.error(error);
         await transaction.rollback();
         return NextResponse.json(
             {
@@ -135,6 +137,7 @@ export async function DELETE(req, { params }) {
             { status: 200 }
         );
     } catch (error) {
+        console.error(error);
         await transaction.rollback();
         return NextResponse.json(
             {

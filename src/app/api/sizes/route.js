@@ -11,6 +11,7 @@ export async function GET(req, res) {
             message: "Tallas obtenidas correctamente",
         });
     } catch (error) {
+        console.error(error);
         return NextResponse.json({
             success: false,
             message: "Error al obtener las tallas",

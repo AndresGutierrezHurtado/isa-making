@@ -100,6 +100,7 @@ export async function GET(req) {
             message: "Estadísticas obtenidas correctamente",
         });
     } catch (error) {
+        console.error(error);
         return NextResponse.json({
             success: false,
             message: "Error al obtener la información: " + error.message,

@@ -33,6 +33,7 @@ export async function GET(request, { params }) {
             message: "Pedido encontrado correctamente",
         });
     } catch (error) {
+        console.error(error);
         return NextResponse.json(
             {
                 success: false,
@@ -83,6 +84,7 @@ export async function PUT(request, { params }) {
             message: "Estado del pedido actualizado correctamente",
         });
     } catch (error) {
+        console.error(error);
         return NextResponse.json(
             {
                 success: false,

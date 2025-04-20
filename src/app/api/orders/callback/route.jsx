@@ -147,6 +147,7 @@ export async function GET(request) {
 
         return NextResponse.redirect(process.env.NEXT_PUBLIC_URL + "/orders/" + order.order_id);
     } catch (error) {
+        console.error(error);
         await transaction.rollback();
         return NextResponse.json(
             {

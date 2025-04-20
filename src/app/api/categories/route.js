@@ -17,6 +17,7 @@ export async function GET(req) {
             { status: 200 }
         );
     } catch (error) {
+        console.error(error);
         return NextResponse.json(
             {
                 success: false,
@@ -71,6 +72,7 @@ export async function POST(req) {
             { status: 201 }
         );
     } catch (error) {
+        console.error(error);
         await transaction.rollback();
         return NextResponse.json(
             {
