@@ -2,6 +2,8 @@
 
 [Versión en Español](README.es.md)
 
+[Versión para telefonos](https://github.com/AndresGutierrezHurtado/isa-making-mobile)
+
 ISA Making is an information system designed to manage the entire e-commerce workflow — from product selection and customization to payment and delivery tracking. It allows users to add products to a cart, complete secure payments, and monitor shipping status via services like Interrapidísimo. Administrators have full control over product management and inventory updates.
 
 ![App Preview](./docs/screenshots/preview.png)

@@ -36,78 +36,81 @@ export default function Page() {
                         <div className="p-5">
                             <h2 className="text-2xl font-medium">Pedidos pendientes</h2>
                         </div>
-                        <table className="table">
-                            <thead className="bg-base-100">
-                                <tr>
-                                    <th>ID</th>
-                                    <th>Fecha</th>
-                                    <th>Productos</th>
-                                    <th>Cliente</th>
-                                    <th>Estado</th>
-                                    <th>Acciones</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                {pendingOrders.map((order) => {
-                                    const lastHistory =
-                                        order.shipping.histories[
-                                            order.shipping.histories.length - 1
-                                        ];
+                        <div className="overflow-x-auto w-full">
+                            <table className="table">
+                                <thead className="bg-base-100">
+                                    <tr>
+                                        <th>ID</th>
+                                        <th>Fecha</th>
+                                        <th>Productos</th>
+                                        <th>Cliente</th>
+                                        <th>Estado</th>
+                                        <th>Acciones</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    {pendingOrders.map((order) => {
+                                        const lastHistory =
+                                            order.shipping.histories[
+                                                order.shipping.histories.length - 1
+                                            ];
 
-                                    let state = "";
-                                    switch (lastHistory.shipping_state) {
-                                        case "pending":
-                                            state = "Pendiente";
-                                            break;
-                                        case "ready":
-                                            state = "Listo para ser recogido";
-                                            break;
-                                        case "recoding":
-                                            state = "Recogido";
-                                            break;
-                                        case "shipping":
-                                            state = "En tránsito";
-                                            break;
-                                        case "delivered":
-                                            state = "Entregado";
-                                            break;
-                                    }
+                                        let state = "";
+                                        switch (lastHistory.shipping_state) {
+                                            case "pending":
+                                                state = "Pendiente";
+                                                break;
+                                            case "ready":
+                                                state = "Listo para ser recogido";
+                                                break;
+                                            case "recoding":
+                                                state = "Recogido";
+                                                break;
+                                            case "shipping":
+                                                state = "En tránsito";
+                                                break;
+                                            case "delivered":
+                                                state = "Entregado";
+                                                break;
+                                        }
 
-                                    return (
-                                        <tr key={order.order_id}>
-                                            <td>{order.order_id}</td>
-                                            <td>{order.createdAt}</td>
-                                            <td>{order.products.length}</td>
-                                            <td>
-                                                {order.user.user_name} {order.user.user_lastname}
-                                            </td>
-                                            <td>{state}</td>
-                                            <td>
-                                                <div className="flex gap-2">
-                                                    <Link href={`/orders/${order.order_id}`}>
-                                                        <button className="btn btn-primary btn-sm btn-outline text-sm font-normal">
-                                                            Ver
+                                        return (
+                                            <tr key={order.order_id}>
+                                                <td>{order.order_id}</td>
+                                                <td>{order.createdAt}</td>
+                                                <td>{order.products.length}</td>
+                                                <td>
+                                                    {order.user.user_name}{" "}
+                                                    {order.user.user_lastname}
+                                                </td>
+                                                <td>{state}</td>
+                                                <td>
+                                                    <div className="flex gap-2">
+                                                        <Link href={`/orders/${order.order_id}`}>
+                                                            <button className="btn btn-primary btn-sm btn-outline text-sm font-normal">
+                                                                Ver
+                                                            </button>
+                                                        </Link>
+                                                        <button
+                                                            onClick={() =>
+                                                                document
+                                                                    .getElementById(
+                                                                        `update-order-${order.order_id}`
+                                                                    )
+                                                                    .showModal()
+                                                            }
+                                                            className="btn btn-success btn-sm btn-outline text-sm font-normal"
+                                                        >
+                                                            Actualizar estado
                                                         </button>
-                                                    </Link>
-                                                    <button
-                                                        onClick={() =>
-                                                            document
-                                                                .getElementById(
-                                                                    `update-order-${order.order_id}`
-                                                                )
-                                                                .showModal()
-                                                        }
-                                                        className="btn btn-success btn-sm btn-outline text-sm font-normal"
-                                                    >
-                                                        Actualizar estado
-                                                    </button>
-                                                </div>
-                                            </td>
-                                        </tr>
-                                    );
-                                })}
-                            </tbody>
-                        </table>
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                        );
+                                    })}
+                                </tbody>
+                            </table>
+                        </div>
                         {pendingOrders.length === 0 && (
                             <div className="flex justify-center items-center py-10">
                                 <p className="text-lg">No hay pedidos pendientes</p>
@@ -120,29 +123,31 @@ export default function Page() {
                             <input type="checkbox" />
                             <div className="collapse-title font-semibold">Pedidos completados</div>
                             <div className="collapse-content text-sm">
-                                <table className="table">
-                                    <thead className="bg-base-100">
-                                        <tr>
-                                            <th>ID</th>
-                                            <th>Fecha</th>
-                                            <th>Productos</th>
-                                            <th>Cliente</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        {completedOrders.map((order) => (
-                                            <tr key={order.order_id}>
-                                                <td>{order.order_id}</td>
-                                                <td>{order.createdAt}</td>
-                                                <td>{order.products.length}</td>
-                                                <td>
-                                                    {order.user.user_name}{" "}
-                                                    {order.user.user_lastname}
-                                                </td>
+                                <div className="oveflow-x-auto w-full">
+                                    <table className="table">
+                                        <thead className="bg-base-100">
+                                            <tr>
+                                                <th>ID</th>
+                                                <th>Fecha</th>
+                                                <th>Productos</th>
+                                                <th>Cliente</th>
                                             </tr>
-                                        ))}
-                                    </tbody>
-                                </table>
+                                        </thead>
+                                        <tbody>
+                                            {completedOrders.map((order) => (
+                                                <tr key={order.order_id}>
+                                                    <td>{order.order_id}</td>
+                                                    <td>{order.createdAt}</td>
+                                                    <td>{order.products.length}</td>
+                                                    <td>
+                                                        {order.user.user_name}{" "}
+                                                        {order.user.user_lastname}
+                                                    </td>
+                                                </tr>
+                                            ))}
+                                        </tbody>
+                                    </table>
+                                </div>
                             </div>
                         </div>
                     )}

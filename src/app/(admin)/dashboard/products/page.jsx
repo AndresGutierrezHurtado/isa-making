@@ -95,7 +95,7 @@ export default function page() {
                 <div className="w-full max-w-[1300px] mx-auto py-15 space-y-20">
                     <h1 className="text-3xl font-otomanopee">Productos</h1>
                     <div className="bg-base-200 border border-base-300 rounded-lg">
-                        <div className="flex justify-between items-center p-5">
+                        <div className="flex flex-col md:flex-row gap-5 justify-between items-center p-5">
                             <input
                                 type="text"
                                 placeholder="Buscar producto"
@@ -162,7 +162,7 @@ export default function page() {
                                 </tbody>
                             </table>
                         </div>
-                        <div className="flex items-center justify-between p-5">
+                        <div className="flex flex-col sm:flex-row gap-5 items-center justify-between p-5">
                             <p className="text-sm text-base-content/80">
                                 mostrando {limit * (page - 1) + 1} -{" "}
                                 {limit * (page - 1) + products.length} de {total} productos

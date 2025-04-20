@@ -183,7 +183,7 @@ export default function page() {
                                 </tbody>
                             </table>
                         </div>
-                        <div className="flex items-center justify-between p-5">
+                        <div className="flex flex-col sm:flex-row gap-5 items-center justify-between p-5">
                             <p className="text-sm text-base-content/80">
                                 mostrando {limit * (page - 1) + 1} -{" "}
                                 {limit * (page - 1) + users.length} de {total} usuarios

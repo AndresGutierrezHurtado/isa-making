@@ -31,7 +31,7 @@ export default function AdminLayout({ children }) {
                         aria-label="close sidebar"
                         className="drawer-overlay"
                     ></label>
-                    <ul className="menu bg-base-200 text-base-content text-lg min-h-full w-80 p-4 justify-between">
+                    <ul className="menu bg-base-200 text-base-content text-lg min-h-full w-48 sm:w-60 md:w-72 lg:w-80 p-4 justify-between">
                         <div className="flex justify-center">
                             <Link
                                 href="/"

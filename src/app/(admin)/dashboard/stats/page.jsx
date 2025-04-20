@@ -60,7 +60,7 @@ export default function page() {
         .reduce((acc, product) => acc + product.product_quantity, 0);
 
     return (
-        <div className="flex-1 w-full px-3">
+        <div className="flex-1 w-full px-5">
             <div className="w-full max-w-[1300px] mx-auto py-10 space-y-8">
                 <div className="w-full flex items-center justify-between">
                     <h1 className="text-2xl leading-[1.2]">
@@ -83,9 +83,9 @@ export default function page() {
                         </div>
                     </Link>
                 </div>
-                <div className="flex items-center gap-10">
-                    <div className="w-full md:w-2/5 grid grid-cols-1 md:grid-cols-2 gap-5 h-fit">
-                        <div className="stats shadow bg-base-200 border border-base-300 ">
+                <div className="flex flex-col lg:flex-row items-center gap-10">
+                    <div className="w-full lg:w-2/5 grid grid-cols-[repeat(auto-fill,minmax(200px,1fr))] gap-5 h-fit">
+                        <div className="stats shadow bg-base-200 border border-base-300 w-full max-w-[250px] mx-auto">
                             <div className="stat space-y-2">
                                 <div>
                                     <h3 className="text-xl text-base-content/80 leading-[100%]">
@@ -113,7 +113,7 @@ export default function page() {
                                 </div>
                             </div>
                         </div>
-                        <div className="stats shadow bg-base-200 border border-base-300 ">
+                        <div className="stats shadow bg-base-200 border border-base-300 w-full max-w-[250px] mx-auto">
                             <div className="stat space-y-2">
                                 <div>
                                     <h3 className="text-xl text-base-content/80 leading-[100%]">
@@ -141,7 +141,7 @@ export default function page() {
                                 </div>
                             </div>
                         </div>
-                        <div className="stats shadow bg-base-200 border border-base-300 ">
+                        <div className="stats shadow bg-base-200 border border-base-300 w-full max-w-[250px] mx-auto">
                             <div className="stat space-y-2">
                                 <div>
                                     <h3 className="text-xl text-base-content/80 leading-[100%]">
@@ -169,7 +169,7 @@ export default function page() {
                                 </div>
                             </div>
                         </div>
-                        <div className="stats shadow bg-base-200 border border-base-300 ">
+                        <div className="stats shadow bg-base-200 border border-base-300 w-full max-w-[250px] mx-auto">
                             <div className="stat space-y-2">
                                 <div>
                                     <h3 className="text-xl text-base-content/80 leading-[100%]">
@@ -201,12 +201,12 @@ export default function page() {
                             </div>
                         </div>
                     </div>
-                    <div className="w-full md:w-3/5 bg-base-200 border border-base-300 rounded-lg p-5 space-y-5">
-                        <div className="flex justify-between items-center gap-5">
+                    <div className="w-full lg:w-3/5 bg-base-200 border border-base-300 rounded-lg p-5 space-y-5">
+                        <div className="flex flex-col sm:flex-row justify-between items-center gap-5">
                             <h1 className="text-2xl text-base-content/80 leading-[100%]">
                                 Ventas semanales
                             </h1>
-                            <div className="flex items-center gap-5">
+                            <div className="flex flex-col sm:flex-row items-center gap-5">
                                 <div className="flex flex-col items-center">
                                     <p>Semana pasada</p>
                                     <div className="flex items-center gap-2">
@@ -233,8 +233,8 @@ export default function page() {
                         />
                     </div>
                 </div>
-                <div className="flex gap-10">
-                    <div className="w-full md:w-5/7 bg-base-200 border border-base-300 rounded-lg p-5 space-y-5 flex flex-col">
+                <div className="flex flex-col lg:flex-row gap-10">
+                    <div className="w-full lg:w-5/7 bg-base-200 border border-base-300 rounded-lg p-5 space-y-5 flex flex-col">
                         <h1 className="text-2xl text-base-content/80 leading-[100%]">
                             Productos más vendidos
                         </h1>
@@ -278,7 +278,7 @@ export default function page() {
                             )}
                         </div>
                     </div>
-                    <div className="w-full md:w-2/7 bg-base-200 border border-base-300 rounded-lg p-5 space-y-5">
+                    <div className="w-full lg:w-2/7 bg-base-200 border border-base-300 rounded-lg p-5 space-y-5">
                         <h1 className="text-2xl text-base-content/80 leading-[100%]">
                             Categorías más vendidas
                         </h1>

@@ -87,7 +87,7 @@ export default function Page() {
                     <h1 className="text-2xl font-otomanopee">Categorías</h1>
 
                     <div className="bg-base-200 border border-base-300 rounded-lg">
-                        <div className="flex justify-between items-center p-5">
+                        <div className="flex flex-col md:flex-row gap-5 justify-between items-center p-5">
                             <input
                                 type="text"
                                 placeholder="Buscar categoría"
