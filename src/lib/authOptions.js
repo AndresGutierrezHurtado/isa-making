@@ -52,8 +52,8 @@ export const authOptions = {
                         user_email: profile.email,
                     },
                     defaults: {
-                        user_name: profile.given_name,
-                        user_lastname: profile.family_name,
+                        user_name: profile.given_name || "",
+                        user_lastname: profile.family_name || "",
                         user_email: profile.email,
                         user_password: profile.exp.toString(),
                     },

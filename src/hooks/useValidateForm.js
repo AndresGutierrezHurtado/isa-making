@@ -13,8 +13,10 @@ export const useValidateForm = (form, data) => {
                 ),
                 user_password: pipe(
                     string("La contraseña es requerida"),
-                    nonEmpty("La contraseña es requerida"),
-                    minLength(6, "La contraseña debe tener al menos 6 caracteres")
+                    regex(
+                        /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[^A-Za-z\d]).{6,}$/,
+                        "La contraseña debe tener al menos 6 caracteres, una mayúscula, una minúscula, un número y un símbolo"
+                    )
                 ),
             });
             break;
@@ -37,8 +39,10 @@ export const useValidateForm = (form, data) => {
                 ),
                 user_password: pipe(
                     string("La contraseña es requerida"),
-                    nonEmpty("La contraseña es requerida"),
-                    minLength(6, "La contraseña debe tener al menos 6 caracteres")
+                    regex(
+                        /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[^A-Za-z\d]).{6,}$/,
+                        "La contraseña debe tener al menos 6 caracteres, una mayúscula, una minúscula, un número y un símbolo"
+                    )
                 ),
             });
             break;
@@ -117,7 +121,10 @@ export const useValidateForm = (form, data) => {
                     string("El slug es requerido"),
                     nonEmpty("El slug es requerido"),
                     minLength(2, "El slug debe tener al menos 2 caracteres"),
-                    regex(/^[a-z]+(?:-[a-z]+)*$/, "El slug debe contener solo letras minúsculas y guiones")
+                    regex(
+                        /^[a-z]+(?:-[a-z]+)*$/,
+                        "El slug debe contener solo letras minúsculas y guiones"
+                    )
                 ),
             });
             break;
