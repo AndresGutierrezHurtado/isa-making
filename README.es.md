@@ -2,7 +2,7 @@
 
 [English Version](README.md)
 
-[Cellphone Version](https://github.com/AndresGutierrezHurtado/isa-making-mobile)
+[Versión para Teléfonos](https://github.com/AndresGutierrezHurtado/isa-making-mobile)
 
 ISA Making es un sistema de información diseñado para gestionar todo el flujo de trabajo de comercio electrónico, desde la selección y personalización de productos hasta el pago y el seguimiento de la entrega. Permite a los usuarios agregar productos a un carrito, completar pagos seguros y monitorear el estado del envío a través de servicios como Interrapidísimo. Los administradores tienen control total sobre la gestión de productos y actualizaciones de inventario.
 
@@ -29,8 +29,8 @@ El sistema proporciona las siguientes funcionalidades clave:
 
 ### 🧥 Gestión de Productos
 
-- Control de inventario y disponibilidad
-- Interfaz de administración para operaciones CRUD de productos
+-   Control de inventario y disponibilidad
+-   Interfaz de administración para operaciones CRUD de productos
 
 ![Product Management Screenshot](./docs/screenshots/product-management.png)
 
@@ -38,9 +38,9 @@ El sistema proporciona las siguientes funcionalidades clave:
 
 ## 🛒 Compra de Productos
 
-- Proceso de pago seguro con múltiples opciones de pago
-- Seguimiento de pedidos en tiempo real y actualizaciones de estado
-- Integración con proveedores de envío para una entrega eficiente
+-   Proceso de pago seguro con múltiples opciones de pago
+-   Seguimiento de pedidos en tiempo real y actualizaciones de estado
+-   Integración con proveedores de envío para una entrega eficiente
 
 ![Product Purchase Screenshot](./docs/screenshots/product-purchase.png)
 
@@ -48,8 +48,8 @@ El sistema proporciona las siguientes funcionalidades clave:
 
 ### 🔐 Autenticación
 
-- Inicio de sesión seguro a través de credenciales
-- Integración de OAuth con Google
+-   Inicio de sesión seguro a través de credenciales
+-   Integración de OAuth con Google
 
 ![Authentication Screenshot](./docs/screenshots/authentication.png)
 
@@ -57,8 +57,8 @@ El sistema proporciona las siguientes funcionalidades clave:
 
 ### 💳 Pasarela de Pago Integrada
 
-- Integración de PayU para procesamiento de pagos en tiempo real
-- Flujo de transacciones seguras con manejo de éxito/fallo
+-   Integración de PayU para procesamiento de pagos en tiempo real
+-   Flujo de transacciones seguras con manejo de éxito/fallo
 
 ![Payment Screenshot](./docs/screenshots/payment.png)
 
@@ -66,7 +66,7 @@ El sistema proporciona las siguientes funcionalidades clave:
 
 ### 🚚 Seguimiento de Envío
 
-- Los administradores actualizan el estado del producto basado en las actualizaciones de seguimiento de envío
+-   Los administradores actualizan el estado del producto basado en las actualizaciones de seguimiento de envío
 
 ![Shipping Screenshot](./docs/screenshots/shipping.png)
 
@@ -74,10 +74,10 @@ El sistema proporciona las siguientes funcionalidades clave:
 
 ### 📈 Análisis e Insights
 
-- Ventas y análisis
-- Monitoreo del rendimiento del producto
-- Insights sobre el comportamiento del cliente
-- Visualización de datos para una toma de decisiones informada
+-   Ventas y análisis
+-   Monitoreo del rendimiento del producto
+-   Insights sobre el comportamiento del cliente
+-   Visualización de datos para una toma de decisiones informada
 
 ![Statistics Screenshot](./docs/screenshots/stats.png)
 
@@ -87,17 +87,17 @@ El sistema proporciona las siguientes funcionalidades clave:
 
 ### **Frontend**
 
-- **Next.js 15**
-- **Tailwind CSS v4**
-- **DaisyUI**
-- **react-chartjs-2**
-- **Valibot**
+-   **Next.js 15**
+-   **Tailwind CSS v4**
+-   **DaisyUI**
+-   **react-chartjs-2**
+-   **Valibot**
 
 ### **Backend**
 
-- **Next.js API (App Router)**
-- **Sequelize CLI + MySQL**
-- **Pasarela de Pago PayU**
+-   **Next.js API (App Router)**
+-   **Sequelize CLI + MySQL**
+-   **Pasarela de Pago PayU**
 
 ---
 
@@ -139,9 +139,9 @@ Sigue estos pasos para ejecutar ISA Making localmente:
 
 ### **Requisitos Previos**
 
-- Node.js >= 18
-- Base de Datos MySQL
-- Credenciales de prueba/sandbox de PayU
+-   Node.js >= 18
+-   Base de Datos MySQL
+-   Credenciales de prueba/sandbox de PayU
 
 ### **Pasos**
 
@@ -190,7 +190,8 @@ Sigue estos pasos para ejecutar ISA Making localmente:
 
 Para preguntas, soporte o colaboración, por favor contacta:
 
-- Andrés Gutiérrez Hurtado
-- Correo: [andres52885241@gmail.com](mailto:andres52885241@gmail.com)
-- GitHub: [@AndresGutierrezHurtado](https://github.com/AndresGutierrezHurtado)
-- LinkedIn: [Andrés Gutiérrez](https://www.linkedin.com/in/andr%C3%A9s-guti%C3%A9rrez-hurtado-25946728b/)
+-   Andrés Gutiérrez Hurtado
+-   Correo: [andres52885241@gmail.com](mailto:andres52885241@gmail.com)
+-   LinkedIn: [Andrés Gutiérrez](https://www.linkedin.com/in/andr%C3%A9s-guti%C3%A9rrez-hurtado-25946728b/)
+-   GitHub: [@AndresGutierrezHurtado](https://github.com/AndresGutierrezHurtado)
+-   Portafolio: [Link portafolio](https://andres-portfolio-b4dv.onrender.com)
