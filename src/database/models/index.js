@@ -7,7 +7,7 @@ const sequelize = new Sequelize(config.database, config.username, config.passwor
     dialectModule: require("mysql2"),
     logging: false,
     pool: {
-        max: 3,
+        max: 2,
         min: 0,
         acquire: 30000,
         idle: 10000,
