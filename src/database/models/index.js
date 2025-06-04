@@ -6,6 +6,12 @@ const sequelize = new Sequelize(config.database, config.username, config.passwor
     dialect: config.dialect,
     dialectModule: require("mysql2"),
     logging: false,
+    pool: {
+        max: 3,
+        min: 0,
+        acquire: 30000,
+        idle: 10000,
+    },
 });
 
 (async () => {
