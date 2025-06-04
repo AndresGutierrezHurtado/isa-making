@@ -11,6 +11,8 @@ import useSetTitle from "@/hooks/useSetTitle";
 // Components
 import LoadingComponent from "@/components/loading";
 
+export const dynamic = "force-dynamic";
+
 export default function Page() {
     const { data: session, status } = useSession();
     const userSession = session?.user;

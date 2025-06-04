@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, Suspense } from "react";
 import Link from "next/link";
 
 // Hooks
@@ -10,7 +10,16 @@ import { useSearchParams } from "next/navigation";
 // Components
 import LoadingComponent from "@/components/loading";
 
-export default function Page() {
+export const dynamic = "force-dynamic";
+
+export default function ProductsPage() {
+    return (
+        <Suspense fallback={<LoadingComponent />}>
+            <ProductSearchClient />
+        </Suspense>
+    );
+}
+function ProductSearchClient() {
     const [search, setSearch] = useState("");
     const [limit, setLimit] = useState(8);
     const searchParams = useSearchParams();

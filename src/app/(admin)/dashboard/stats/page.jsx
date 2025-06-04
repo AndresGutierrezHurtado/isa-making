@@ -13,13 +13,15 @@ import LoadingComponent from "@/components/loading";
 import { useGetData } from "@/hooks/useClientData";
 import useSetTitle from "@/hooks/useSetTitle";
 
+export const dynamic = "force-dynamic";
+
 export default function page() {
     const { data: session, status } = useSession();
     const userSession = session?.user;
 
-    useSetTitle("Dashboard | ISA Making");
-
     const { data: stats, loading } = useGetData("/stats");
+
+    useSetTitle("Panel de estadísticas | ISA Making");
 
     if (status === "loading" || loading) return <LoadingComponent />;
 

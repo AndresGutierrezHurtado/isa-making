@@ -1,15 +1,18 @@
 "use client";
 
 import React from "react";
+import Swal from "sweetalert2";
+import Link from "next/link";
 
 // Hooks
 import { useGetData, usePutData } from "@/hooks/useClientData";
+import { useValidateForm } from "@/hooks/useValidateForm";
+import useSetTitle from "@/hooks/useSetTitle";
 
 // Components
 import LoadingComponent from "@/components/loading";
-import Link from "next/link";
-import { useValidateForm } from "@/hooks/useValidateForm";
-import Swal from "sweetalert2";
+
+export const dynamic = "force-dynamic";
 
 export default function Page() {
     const {
@@ -23,6 +26,7 @@ export default function Page() {
         reload: completedOrdersReload,
     } = useGetData("/orders?status=completed");
 
+    useSetTitle("Pedidos | ISA Making");
     if (pendingOrdersLoading || completedOrdersLoading) return <LoadingComponent />;
     return (
         <>

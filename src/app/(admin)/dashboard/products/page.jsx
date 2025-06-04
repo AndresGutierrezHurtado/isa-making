@@ -2,6 +2,7 @@
 
 import React, { useEffect, useState } from "react";
 import { useSession } from "next-auth/react";
+import MDEditor from "@uiw/react-md-editor";
 import { BsArrowLeft, BsArrowRight, BsPencil, BsPlus, BsTrash } from "react-icons/bs";
 import Swal from "sweetalert2";
 
@@ -9,11 +10,12 @@ import Swal from "sweetalert2";
 import { useDeleteData, useGetData, usePostData, usePutData } from "@/hooks/useClientData";
 import useSetTitle from "@/hooks/useSetTitle";
 import { useValidateForm } from "@/hooks/useValidateForm";
+import { useBase64 } from "@/hooks/useBase64";
 
 // Components
 import LoadingComponent from "@/components/loading";
-import MDEditor from "@uiw/react-md-editor";
-import { useBase64 } from "@/hooks/useBase64";
+
+export const dynamic = "force-dynamic";
 
 export default function page() {
     const [page, setPage] = useState(1);

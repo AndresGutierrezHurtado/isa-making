@@ -1,15 +1,18 @@
 "use client";
 import React from "react";
 import { BsPencil, BsPlus, BsTrash } from "react-icons/bs";
+import Swal from "sweetalert2";
 
 // Hooks
 import { useBase64 } from "@/hooks/useBase64";
 import { useGetData, usePostData, usePutData, useDeleteData } from "@/hooks/useClientData";
 import { useValidateForm } from "@/hooks/useValidateForm";
+import useSetTitle from "@/hooks/useSetTitle";
 
 // Components
 import LoadingComponent from "@/components/loading";
-import Swal from "sweetalert2";
+
+export const dynamic = "force-dynamic";
 
 export default function Page() {
     const {
@@ -17,6 +20,8 @@ export default function Page() {
         loading: categoriesLoading,
         reload: reloadCategories,
     } = useGetData("/categories");
+
+    useSetTitle("Pedidos | ISA Making");
 
     if (categoriesLoading) return <LoadingComponent />;
 

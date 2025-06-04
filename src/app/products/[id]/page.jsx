@@ -14,6 +14,8 @@ import useSetTitle from "@/hooks/useSetTitle";
 import { BoxIcon, ClockIcon, ArrowLeftRightIcon, CreditCardIcon } from "@/components/icons";
 import LoadingComponent from "@/components/loading";
 
+export const dynamic = "force-dynamic";
+
 export default function Page() {
     const { id } = useParams();
     const [currentSize, setCurrentSize] = useState(null);

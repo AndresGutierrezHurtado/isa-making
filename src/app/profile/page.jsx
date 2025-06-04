@@ -5,18 +5,20 @@ import Swal from "sweetalert2";
 import { useRouter } from "next/navigation";
 import Image from "next/image";
 import Link from "next/link";
+import { IoLogOutOutline } from "react-icons/io5";
+import { signOut, useSession } from "next-auth/react";
 
 // Hooks
 import { useDeleteData, useGetData, usePutData } from "@/hooks/useClientData";
-import { signOut, useSession } from "next-auth/react";
 import { useValidateForm } from "@/hooks/useValidateForm";
+import useSetTitle from "@/hooks/useSetTitle";
 
 // Components
 import Auth from "@/components/auth";
 import { GearIcon, TrashIcon } from "@/components/icons";
-import { IoLogOutOutline } from "react-icons/io5";
-import useSetTitle from "@/hooks/useSetTitle";
 import LoadingComponent from "@/components/loading";
+
+export const dynamic = "force-dynamic";
 
 export default function Profile() {
     const router = useRouter();

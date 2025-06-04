@@ -13,6 +13,8 @@ import { useValidateForm } from "@/hooks/useValidateForm";
 // Components
 import LoadingComponent from "@/components/loading";
 
+export const dynamic = "force-dynamic";
+
 export default function page() {
     const [page, setPage] = useState(1);
     const [search, setSearch] = useState("");
