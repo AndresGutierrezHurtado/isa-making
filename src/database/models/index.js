@@ -1,5 +1,5 @@
 const { Sequelize } = require("sequelize");
-const { development: config } = require("../config.json");
+const { [process.env.NODE_ENV]: config } = require("../config.cjs");
 
 const sequelize = new Sequelize(config.database, config.username, config.password, {
     host: config.host,
@@ -7,6 +7,16 @@ const sequelize = new Sequelize(config.database, config.username, config.passwor
     dialectModule: require("mysql2"),
     logging: false,
 });
+
+(async () => {
+    try {
+        await sequelize.authenticate();
+        console.log("Connection has been established successfully.");
+    } catch (error) {
+        console.error("Unable to connect to the database:", error);
+    }
+})();
+
 const User = require("./user")(sequelize, Sequelize.DataTypes);
 const Role = require("./role")(sequelize, Sequelize.DataTypes);
 const Product = require("./product")(sequelize, Sequelize.DataTypes);
@@ -28,8 +38,16 @@ User.belongsTo(Role, { foreignKey: "role_id", as: "role" });
 Product.hasMany(Media, { foreignKey: "product_id", as: "medias" });
 Media.belongsTo(Product, { foreignKey: "product_id", as: "product" });
 
-Product.belongsToMany(Category, { through: ProductCategory, foreignKey: "product_id", as: "categories" });
-Category.belongsToMany(Product, { through: ProductCategory, foreignKey: "category_id", as: "products" });
+Product.belongsToMany(Category, {
+    through: ProductCategory,
+    foreignKey: "product_id",
+    as: "categories",
+});
+Category.belongsToMany(Product, {
+    through: ProductCategory,
+    foreignKey: "category_id",
+    as: "products",
+});
 
 Product.belongsToMany(Size, { through: ProductSize, foreignKey: "product_id", as: "sizes" });
 Size.belongsToMany(Product, { through: ProductSize, foreignKey: "size_id", as: "products" });

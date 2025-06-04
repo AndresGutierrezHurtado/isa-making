@@ -1,14 +1,23 @@
-import { Category } from "@/database/models";
+"use client";
+
 import Link from "next/link";
 import React from "react";
 
-export const metadata = {
-    title: "Colecciones | ISA Making",
-    description: "Colecciones de ISA Making",
-};
+// Hooks
+import { useGetData } from "@/hooks/useClientData";
+import useSetTitle from "@/hooks/useSetTitle";
 
-export default async function Page() {
-    const collections = await Category.findAll();
+// Components
+import LoadingComponent from "@/components/loading";
+
+export const dynamic = "force-dynamic";
+
+export default function Page() {
+    const { data: collections, loading: collecitonsLoading } = useGetData("/collections");
+
+    useSetTitle("Colecciones | ISA Making");
+
+    if (collecitonsLoading) return <LoadingComponent />;
 
     return (
         <section className="w-full px-3">

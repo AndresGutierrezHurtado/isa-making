@@ -1,16 +1,24 @@
+"use client";
+
 import Image from "next/image";
 import Link from "next/link";
-import { Category, Product } from "@/database/models/index";
 
-export const metadata = {
-    title: "Inicio | ISA Making",
-    description: "ISA Making es una tienda de ropa urbana",
-};
+// Hooks
+import { useGetData } from "@/hooks/useClientData";
+import useSetTitle from "@/hooks/useSetTitle";
 
-export default async function Home() {
-    const categories = await Category.findAll({ limit: 4 });
-    const products = await Product.findAll({ limit: 8, include: ["sizes"] });
+// Components
+import LoadingComponent from "@/components/loading";
 
+export const dynamic = "force-dynamic";
+
+export default function Home() {
+    const { data: categories, loading: loadingCategories } = useGetData("/collections?limit=4");
+    const { data: products, loading: loadingProducts } = useGetData("/products?limit=8");
+
+    useSetTitle("Inicio | ISA Making");
+
+    if (loadingCategories || loadingProducts) return <LoadingComponent />;
     return (
         <>
             <section className="w-full min-h-[400px] flex items-center justify-center bg-black">
