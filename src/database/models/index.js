@@ -1,18 +1,26 @@
 const { Sequelize } = require("sequelize");
 const { [process.env.NODE_ENV]: config } = require("../config.cjs");
 
-const sequelize = new Sequelize(config.database, config.username, config.password, {
-    host: config.host,
-    dialect: config.dialect,
-    dialectModule: require("mysql2"),
-    logging: false,
-    pool: {
-        max: 2,
-        min: 0,
-        acquire: 30000,
-        idle: 10000,
-    },
-});
+let sequelize;
+
+if (!global.sequelizeInstance) {
+    sequelize = new Sequelize(config.database, config.username, config.password, {
+        host: config.host,
+        dialect: config.dialect,
+        dialectModule: require("mysql2"),
+        logging: false,
+        pool: {
+            max: 3,
+            min: 0,
+            acquire: 30000,
+            idle: 10000,
+        },
+    });
+
+    global.sequelizeInstance = sequelize;
+} else {
+    sequelize = global.sequelizeInstance;
+}
 
 (async () => {
     try {
