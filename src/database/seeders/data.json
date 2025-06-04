@@ -7,8 +7,8 @@
             "user_email": "andres52885241@gmail.com",
             "user_password": "$2a$10$zGiSMtcqI1R69IgwMbydnu3iCdKJuBUMOzwLYbi2I6FLXUZK/hZKG",
             "role_id": 2,
-            "createdAt": "2025-04-13T10:00:00",
-            "updatedAt": "2025-04-13T10:00:00",
+            "createdAt": "2025-04-13 10:00:00",
+            "updatedAt": "2025-04-13 10:00:00",
             "deletedAt": null
         },
         {
@@ -18,8 +18,8 @@
             "user_email": "juan@gmail.com",
             "user_password": "$2a$10$K/0zQFYa7h7RtsoCoEXv/erF6OA1dNcrht/ob5uAp8fnWdIof2B0u",
             "role_id": 1,
-            "createdAt": "2025-04-13T10:00:00",
-            "updatedAt": "2025-04-13T10:00:00",
+            "createdAt": "2025-04-13 10:00:00",
+            "updatedAt": "2025-04-13 10:00:00",
             "deletedAt": null
         },
         {
@@ -29,8 +29,8 @@
             "user_email": "nwendy798@gmail.com",
             "user_password": "$2a$10$y9Xr9ZOh08mlnb/s9j9Rn.RIjPBl2466o1vBLBzGQYYhC/c3vAC8W",
             "role_id": 1,
-            "createdAt": "2025-04-14T06:10:30.000Z",
-            "updatedAt": "2025-04-14T06:10:30.000Z",
+            "createdAt": "2025-04-14 06:10:30.000",
+            "updatedAt": "2025-04-14 06:10:30.000",
             "deletedAt": null
         },
         {
@@ -40,8 +40,8 @@
             "user_email": "carlos.ramirez@gmail.com",
             "user_password": "$2a$10$oA1YfT/3TMWf/KP6gJjLV.ZiL.pCyqajcE/YgGX0e7bFyZ2prsZ7K",
             "role_id": 1,
-            "createdAt": "2025-03-05T08:30:00",
-            "updatedAt": "2025-03-05T08:30:00",
+            "createdAt": "2025-03-05 08:30:00",
+            "updatedAt": "2025-03-05 08:30:00",
             "deletedAt": null
         },
         {
@@ -51,8 +51,8 @@
             "user_email": "laura.martinez@gmail.com",
             "user_password": "$2a$10$ZYTswlKfuW2YBDHnnOVJX.jTsuLgrpQm3DUH8uAyPeFJ4yZVD5cf.",
             "role_id": 1,
-            "createdAt": "2025-03-15T12:45:00",
-            "updatedAt": "2025-03-15T12:45:00",
+            "createdAt": "2025-03-15 12:45:00",
+            "updatedAt": "2025-03-15 12:45:00",
             "deletedAt": null
         },
         {
@@ -62,8 +62,8 @@
             "user_email": "mateo.gonzalez@gmail.com",
             "user_password": "$2a$10$k.XuNqJGvUNQULOIgUxS5ukEaQ9TjHodhyzavVuo63yBgoEuclXLe",
             "role_id": 1,
-            "createdAt": "2025-03-28T09:15:00",
-            "updatedAt": "2025-03-28T09:15:00",
+            "createdAt": "2025-03-28 09:15:00",
+            "updatedAt": "2025-03-28 09:15:00",
             "deletedAt": null
         },
         {
@@ -73,8 +73,8 @@
             "user_email": "valentina.lopez@gmail.com",
             "user_password": "$2a$10$3fU.8THG2qwIScYCwSB/puTEtxRHMqmtt/.gOG9kL3pUDmCALLv/G",
             "role_id": 1,
-            "createdAt": "2025-04-02T14:00:00",
-            "updatedAt": "2025-04-02T14:00:00",
+            "createdAt": "2025-04-02 14:00:00",
+            "updatedAt": "2025-04-02 14:00:00",
             "deletedAt": null
         },
         {
@@ -84,8 +84,8 @@
             "user_email": "sebastian.morales@gmail.com",
             "user_password": "$2a$10$S55iGvQZkrChEhuzVIKHnO7pWSlXPJ2mXXEGDfTngp0bgPGHXddSW",
             "role_id": 1,
-            "createdAt": "2025-04-08T16:20:00",
-            "updatedAt": "2025-04-08T16:20:00",
+            "createdAt": "2025-04-08 16:20:00",
+            "updatedAt": "2025-04-08 16:20:00",
             "deletedAt": null
         },
         {
@@ -95,8 +95,8 @@
             "user_email": "camila.ortiz@gmail.com",
             "user_password": "$2a$10$z9wJAoZix8AnB8jLsgyNge/1ofsvAHk0tHJzep4eKEnw0JnzT1DAW",
             "role_id": 1,
-            "createdAt": "2025-04-11T11:35:00",
-            "updatedAt": "2025-04-11T11:35:00",
+            "createdAt": "2025-04-11 11:35:00",
+            "updatedAt": "2025-04-11 11:35:00",
             "deletedAt": null
         },
         {
@@ -106,8 +106,8 @@
             "user_email": "santiago.reyes@gmail.com",
             "user_password": "$2a$10$KnCwC033.JnM.py1U8Qvrej3vTSfOgKo72BUTW3E8A8buMo5.ulli",
             "role_id": 1,
-            "createdAt": "2025-03-17T18:50:00",
-            "updatedAt": "2025-03-17T18:50:00",
+            "createdAt": "2025-03-17 18:50:00",
+            "updatedAt": "2025-03-17 18:50:00",
             "deletedAt": null
         }
     ],
@@ -130,8 +130,8 @@
             "product_image": "https://res.cloudinary.com/dyuh7jesr/image/upload/v1745012879/isa-making/products/097055ce-0c7f-4d83-9137-fa8efd08efe6.webp",
             "product_color": "#aead99",
             "product_stock": 17,
-            "createdAt": "2025-04-18T21:47:58.000Z",
-            "updatedAt": "2025-04-18T21:47:59.000Z",
+            "createdAt": "2025-04-18 21:47:58.000",
+            "updatedAt": "2025-04-18 21:47:59.000",
             "deletedAt": null
         },
         {
@@ -141,8 +141,8 @@
             "product_image": "https://res.cloudinary.com/dyuh7jesr/image/upload/v1745012390/isa-making/products/309f1062-4eb1-415b-9df3-c16100eb2e42.webp",
             "product_color": "#111111",
             "product_stock": 6,
-            "createdAt": "2025-04-18T21:39:49.000Z",
-            "updatedAt": "2025-04-18T21:39:50.000Z",
+            "createdAt": "2025-04-18 21:39:49.000",
+            "updatedAt": "2025-04-18 21:39:50.000",
             "deletedAt": null
         },
         {
@@ -152,8 +152,8 @@
             "product_image": "https://res.cloudinary.com/dyuh7jesr/image/upload/v1745013086/isa-making/products/33ce3d08-f42c-46a6-9995-7127ba72882c.webp",
             "product_color": "#f7faf1",
             "product_stock": 14,
-            "createdAt": "2025-04-18T21:51:26.000Z",
-            "updatedAt": "2025-04-18T21:51:27.000Z",
+            "createdAt": "2025-04-18 21:51:26.000",
+            "updatedAt": "2025-04-18 21:51:27.000",
             "deletedAt": null
         },
         {
@@ -163,8 +163,8 @@
             "product_image": "https://res.cloudinary.com/dyuh7jesr/image/upload/v1745012143/isa-making/products/b0abc550-c22b-4cca-bd50-62fc128512c6.webp",
             "product_color": "#d6d3c9",
             "product_stock": 13,
-            "createdAt": "2025-04-01T10:00:00.000Z",
-            "updatedAt": "2025-04-18T21:35:43.000Z",
+            "createdAt": "2025-04-01 10:00:00.000",
+            "updatedAt": "2025-04-18 21:35:43.000",
             "deletedAt": null
         },
         {
@@ -174,8 +174,8 @@
             "product_image": "https://res.cloudinary.com/dyuh7jesr/image/upload/v1745014416/isa-making/products/bacd17a6-9f35-4b4e-a8a0-a4822529160c.webp",
             "product_color": "#ff1717",
             "product_stock": 5,
-            "createdAt": "2025-04-18T22:13:35.000Z",
-            "updatedAt": "2025-04-18T22:13:36.000Z",
+            "createdAt": "2025-04-18 22:13:35.000",
+            "updatedAt": "2025-04-18 22:13:36.000",
             "deletedAt": null
         },
         {
@@ -185,8 +185,8 @@
             "product_image": "https://res.cloudinary.com/dyuh7jesr/image/upload/v1745012758/isa-making/products/e45d9f43-01f2-4418-ba8a-d227a2ef407e.webp",
             "product_color": "#141414",
             "product_stock": 7,
-            "createdAt": "2025-04-18T21:45:58.000Z",
-            "updatedAt": "2025-04-18T21:45:58.000Z",
+            "createdAt": "2025-04-18 21:45:58.000",
+            "updatedAt": "2025-04-18 21:45:58.000",
             "deletedAt": null
         },
         {
@@ -196,8 +196,8 @@
             "product_image": "https://res.cloudinary.com/dyuh7jesr/image/upload/v1745012464/isa-making/products/e8eeff09-7c0d-4fcf-bd84-478b1cf7a4c9.webp",
             "product_color": "#000000",
             "product_stock": 10,
-            "createdAt": "2025-04-18T21:33:14.000Z",
-            "updatedAt": "2025-04-18T21:41:04.000Z",
+            "createdAt": "2025-04-18 21:33:14.000",
+            "updatedAt": "2025-04-18 21:41:04.000",
             "deletedAt": null
         },
         {
@@ -207,8 +207,8 @@
             "product_image": "https://res.cloudinary.com/dyuh7jesr/image/upload/v1745014298/isa-making/products/ecb7a623-6bde-4de9-90fd-9984dcd7e9a2.webp",
             "product_color": "#000000",
             "product_stock": 8,
-            "createdAt": "2025-04-18T22:11:37.000Z",
-            "updatedAt": "2025-04-18T22:11:38.000Z",
+            "createdAt": "2025-04-18 22:11:37.000",
+            "updatedAt": "2025-04-18 22:11:38.000",
             "deletedAt": null
         },
         {
@@ -218,8 +218,8 @@
             "product_image": "https://res.cloudinary.com/dyuh7jesr/image/upload/v1745012280/isa-making/products/f44350c3-d9f4-482d-9160-71f1834be337.webp",
             "product_color": "#8a9faa",
             "product_stock": 8,
-            "createdAt": "2025-04-18T21:37:59.000Z",
-            "updatedAt": "2025-04-18T21:38:00.000Z",
+            "createdAt": "2025-04-18 21:37:59.000",
+            "updatedAt": "2025-04-18 21:38:00.000",
             "deletedAt": null
         },
         {
@@ -229,8 +229,8 @@
             "product_image": "https://res.cloudinary.com/dyuh7jesr/image/upload/v1745013255/isa-making/products/f7babb7f-d10e-4d86-a120-eb2fe01fcfd4.webp",
             "product_color": "#000000",
             "product_stock": 4,
-            "createdAt": "2025-04-18T21:54:14.000Z",
-            "updatedAt": "2025-04-18T21:54:15.000Z",
+            "createdAt": "2025-04-18 21:54:14.000",
+            "updatedAt": "2025-04-18 21:54:15.000",
             "deletedAt": null
         },
         {
@@ -240,8 +240,8 @@
             "product_image": "https://res.cloudinary.com/dyuh7jesr/image/upload/v1745012625/isa-making/products/f8ff1fea-1be1-45df-92a3-c3dfa2b51ae5.webp",
             "product_color": "#efefef",
             "product_stock": 8,
-            "createdAt": "2025-04-18T21:43:44.000Z",
-            "updatedAt": "2025-04-18T21:44:13.000Z",
+            "createdAt": "2025-04-18 21:43:44.000",
+            "updatedAt": "2025-04-18 21:44:13.000",
             "deletedAt": null
         },
         {
@@ -251,8 +251,8 @@
             "product_image": "https://res.cloudinary.com/dyuh7jesr/image/upload/v1745014220/isa-making/products/fb2ed5ee-2aee-4c2b-a6d5-06528c21adcb.webp",
             "product_color": "#ffceb7",
             "product_stock": 8,
-            "createdAt": "2025-04-18T22:10:19.000Z",
-            "updatedAt": "2025-04-18T22:10:20.000Z",
+            "createdAt": "2025-04-18 22:10:19.000",
+            "updatedAt": "2025-04-18 22:10:20.000",
             "deletedAt": null
         }
     ],
@@ -735,8 +735,8 @@
             "order_id": "6139a36a-16cc-4483-8ccb-a45abb80b0ee",
             "user_id": "ba6ec110-f2dd-4d75-8b19-b2bcfd96db8f",
             "order_state": "pending",
-            "createdAt": "2025-04-18T22:45:36.000Z",
-            "updatedAt": "2025-04-18T22:45:36.000Z"
+            "createdAt": "2025-04-18 22:45:36.000",
+            "updatedAt": "2025-04-18 22:45:36.000"
         }
     ],
     "orderProducts": [
@@ -780,8 +780,8 @@
             "buyer_email": "nwendy798@gmail.com",
             "buyer_document_type": "CC",
             "buyer_document_number": "1025532941",
-            "createdAt": "2025-04-18T22:45:36.000Z",
-            "updatedAt": "2025-04-18T22:45:36.000Z"
+            "createdAt": "2025-04-18 22:45:36.000",
+            "updatedAt": "2025-04-18 22:45:36.000"
         }
     ],
     "shippingDetails": [
@@ -792,8 +792,8 @@
             "shipping_courier": "interrapidisimo",
             "tracking_url": "https://inerrapidismo.com/track/75029875409287345",
             "shipping_estimated": null,
-            "createdAt": "2025-04-18T22:45:36.000Z",
-            "updatedAt": "2025-04-18T22:49:51.000Z"
+            "createdAt": "2025-04-18 22:45:36.000",
+            "updatedAt": "2025-04-18 22:49:51.000"
         }
     ],
     "shippingHistories": [
@@ -801,22 +801,22 @@
             "history_id": "52788982-e383-4cc5-933f-79e063762ba3",
             "shipping_id": "9025ede9-0485-421a-a838-ccc8f8beea9e",
             "shipping_state": "pending",
-            "createdAt": "2025-04-18T22:45:36.000Z",
-            "updatedAt": "2025-04-18T22:45:36.000Z"
+            "createdAt": "2025-04-18 22:45:36.000",
+            "updatedAt": "2025-04-18 22:45:36.000"
         },
         {
             "history_id": "ac7b9a75-f856-424f-a813-cc2b2ffb9f34",
             "shipping_id": "9025ede9-0485-421a-a838-ccc8f8beea9e",
             "shipping_state": "ready",
-            "createdAt": "2025-04-18T22:49:51.000Z",
-            "updatedAt": "2025-04-18T22:49:51.000Z"
+            "createdAt": "2025-04-18 22:49:51.000",
+            "updatedAt": "2025-04-18 22:49:51.000"
         },
         {
             "history_id": "c248f640-6f6f-48a2-af00-86451e1aad8d",
             "shipping_id": "9025ede9-0485-421a-a838-ccc8f8beea9e",
             "shipping_state": "recoding",
-            "createdAt": "2025-04-18T22:50:05.000Z",
-            "updatedAt": "2025-04-18T22:50:05.000Z"
+            "createdAt": "2025-04-18 22:50:05.000",
+            "updatedAt": "2025-04-18 22:50:05.000"
         }
     ]
 }

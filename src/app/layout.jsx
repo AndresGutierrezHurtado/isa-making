@@ -30,7 +30,7 @@ export default function RootLayout({ children }) {
     const isExcludedPath = excludedPaths.some((path) => pathname.startsWith(path));
     return (
         <html lang="es">
-            <body className="antialiased flex flex-col min-h-screen">
+            <body className={`${otomanopeeOne.className} ${afacad.className} font-afacad flex flex-col min-h-screen`}>
                 <SessionProvider>
                     {!isExcludedPath && <Header />}
                     <main className="flex-grow flex flex-col">{children}</main>
