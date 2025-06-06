@@ -2,9 +2,9 @@
     "users": [
         {
             "user_id": "1fc59594-d2f4-4d9b-8fb9-326d62ffff3e",
-            "user_name": "Andrés",
-            "user_lastname": "Gutiérrez Hurtado",
-            "user_email": "andres52885241@gmail.com",
+            "user_name": "Carlos Eduardo",
+            "user_lastname": "Rodríguez Pérez",
+            "user_email": "carlos.rodriguez@gmail.com",
             "user_password": "$2a$10$zGiSMtcqI1R69IgwMbydnu3iCdKJuBUMOzwLYbi2I6FLXUZK/hZKG",
             "role_id": 2,
             "createdAt": "2025-04-13 10:00:00",
@@ -15,7 +15,7 @@
             "user_id": "466a6548-4f56-4781-bd2f-80d6a1f1e717",
             "user_name": "Juan Esteban",
             "user_lastname": "Perez Salamanca",
-            "user_email": "juan@gmail.com",
+            "user_email": "juan.perez@gmail.com",
             "user_password": "$2a$10$K/0zQFYa7h7RtsoCoEXv/erF6OA1dNcrht/ob5uAp8fnWdIof2B0u",
             "role_id": 1,
             "createdAt": "2025-04-13 10:00:00",
@@ -45,7 +45,7 @@
             "deletedAt": null
         },
         {
-            "user_id": "34b5c678-9d01-4def-b456-7890gh456def",
+            "user_id": "e07b5fef-c7e3-4052-be6a-37a9c8863bf3",
             "user_name": "Laura",
             "user_lastname": "Martínez Gómez",
             "user_email": "laura.martinez@gmail.com",
@@ -56,7 +56,7 @@
             "deletedAt": null
         },
         {
-            "user_id": "56d7e890-1f23-4ghi-c789-0123ij789ghi",
+            "user_id": "a8b67da8-7fe3-4a41-ae43-a230f4e720fb",
             "user_name": "Mateo",
             "user_lastname": "González Ríos",
             "user_email": "mateo.gonzalez@gmail.com",
@@ -67,7 +67,7 @@
             "deletedAt": null
         },
         {
-            "user_id": "78f9g012-3h45-6jkl-d012-3456kl012jkl",
+            "user_id": "3c3c18c1-9f29-4151-93b6-8643446db1b7",
             "user_name": "Valentina",
             "user_lastname": "Lopez Herrera",
             "user_email": "valentina.lopez@gmail.com",
@@ -78,7 +78,7 @@
             "deletedAt": null
         },
         {
-            "user_id": "90h1i234-5k67-8mno-e345-6789mn345mno",
+            "user_id": "4627afa0-82bb-45af-b018-04073dca9c6b",
             "user_name": "Sebastián",
             "user_lastname": "Morales Díaz",
             "user_email": "sebastian.morales@gmail.com",
@@ -89,7 +89,7 @@
             "deletedAt": null
         },
         {
-            "user_id": "12j3k456-7l89-0pqr-f678-9012pq678pqr",
+            "user_id": "a774f719-3c46-45d6-9994-2593a5006e6a",
             "user_name": "Camila",
             "user_lastname": "Ortiz Méndez",
             "user_email": "camila.ortiz@gmail.com",
@@ -100,7 +100,7 @@
             "deletedAt": null
         },
         {
-            "user_id": "34k5l678-9m01-2stu-g901-2345st901stu",
+            "user_id": "b428fad3-0596-4d6d-9d7e-8b139bbc56a0",
             "user_name": "Santiago",
             "user_lastname": "Reyes Beltrán",
             "user_email": "santiago.reyes@gmail.com",

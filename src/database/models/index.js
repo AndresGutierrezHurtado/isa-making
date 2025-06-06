@@ -7,7 +7,7 @@ if (!global.sequelizeInstance) {
     sequelize = new Sequelize(config.database, config.username, config.password, {
         host: config.host,
         dialect: config.dialect,
-        dialectModule: require("mysql2"),
+        dialectModule: require("pg"),
         logging: false,
         pool: {
             max: 3,
