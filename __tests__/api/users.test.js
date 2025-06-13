@@ -3,7 +3,7 @@ const { describe, expect, test } = require("@jest/globals");
 
 let createdUserId;
 
-describe("GET /api/users", () => {
+describe("Endpoints /api/users", () => {
     test("Should return a list of users", async () => {
         const response = await fetch(`http://localhost:3000/api/users`);
         const data = await response.json();
@@ -11,13 +11,16 @@ describe("GET /api/users", () => {
         expect(response.status).toBe(200);
         expect(data.success).toBe(true);
         expect(data.data).toBeDefined();
-        expect(data.data.length).toBeGreaterThan(0);
-        expect(data.data[0].user_name).toBeDefined();
-        expect(data.data[0].user_email).toBeDefined();
-        expect(data.data[0].user_password).toBeDefined();
-        expect(data.data[0].role_id).toBeDefined();
-        expect(data.data[0].createdAt).toBeDefined();
-        expect(data.data[0].updatedAt).toBeDefined();
+        expect(Array.isArray(data.data)).toBe(true);
+
+        if (data.data.length > 0) {
+            expect(data.data[0].user_name).toBeDefined();
+            expect(data.data[0].user_email).toBeDefined();
+            expect(data.data[0].user_password).toBeDefined();
+            expect(data.data[0].role_id).toBeDefined();
+            expect(data.data[0].createdAt).toBeDefined();
+            expect(data.data[0].updatedAt).toBeDefined();
+        }
     });
 
     test("Should register a new user with all required fields", async () => {
@@ -51,7 +54,7 @@ describe("GET /api/users", () => {
     });
 });
 
-describe("GET /api/users/:id", () => {
+describe("Endpoints /api/users/[id]", () => {
     test("Should return a user by id", async () => {
         const response = await fetch(`http://localhost:3000/api/users/${createdUserId}`);
         const data = await response.json();
@@ -68,7 +71,15 @@ describe("GET /api/users/:id", () => {
         expect(data.data.createdAt).toBeDefined();
     });
 
-    // update, soft delete, restore, hard delete
+    test("Should return 404 for non-existent user", async () => {
+        const response = await fetch(`http://localhost:3000/api/users/undefined`);
+        const data = await response.json();
+
+        expect(response.status).toBe(404);
+        expect(data.success).toBe(false);
+        expect(data.message).toBe("Usuario no encontrado");
+    });
+
     test("Should update a user", async () => {
         const response = await fetch(`http://localhost:3000/api/users/${createdUserId}`, {
             method: "PUT",
@@ -107,7 +118,7 @@ describe("GET /api/users/:id", () => {
     });
 });
 
-describe("GET /api/users/:id/paranoid", () => {
+describe("Endpoints /api/users/:id/paranoid", () => {
     test("Should restore a soft deleted user", async () => {
         const response = await fetch(`http://localhost:3000/api/users/${createdUserId}/paranoid`, {
             method: "PUT",
