@@ -120,11 +120,11 @@ export default async function Page({ params }) {
                                     </li>
                                     <li>
                                         <span className="font-medium">ID de envío:</span>{" "}
-                                        {shipping.shipping_id}
+                                        {shipping.shipping_id.split("-")[0]}
                                     </li>
                                     <li>
                                         <span className="font-medium">ID del pedido:</span>{" "}
-                                        {shipping.order_id}
+                                        {shipping.order_id.split("-")[0]}
                                     </li>
                                 </ul>
                             </div>

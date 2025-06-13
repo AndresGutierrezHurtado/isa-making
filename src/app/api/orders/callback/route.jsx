@@ -1,4 +1,6 @@
 import { NextResponse } from "next/server";
+import { getServerSession } from "next-auth";
+import authOptions from "@/lib/authOptions";
 
 // Models
 import {
@@ -10,15 +12,26 @@ import {
     PaymentDetail,
     ShippingDetail,
 } from "@/database/models";
-import authOptions from "@/lib/authOptions";
-import { getServerSession } from "next-auth";
 
 export async function GET(request) {
     const transaction = await Order.sequelize.transaction();
     const { user } = await getServerSession(authOptions);
+
     try {
         const { searchParams } = new URL(request.url);
         const params = Object.fromEntries(searchParams);
+
+        const existingOrder = await PaymentDetail.findOne({
+            where: {
+                payu_reference: params.referenceCode,
+            },
+        });
+
+        if (existingOrder) {
+            return NextResponse.redirect(
+                process.env.NEXT_PUBLIC_URL + "/orders/" + existingOrder.order_id
+            );
+        }
 
         const payuResponse = await fetch(process.env.PAYU_TRANSACTION_REQUEST_URI, {
             method: "POST",
@@ -137,13 +150,6 @@ export async function GET(request) {
         });
 
         await transaction.commit();
-
-        const finalOrder = await Order.findOne({
-            where: {
-                order_id: order.order_id,
-            },
-            include: ["products", "shipping", "payment"],
-        });
 
         return NextResponse.redirect(process.env.NEXT_PUBLIC_URL + "/orders/" + order.order_id);
     } catch (error) {
