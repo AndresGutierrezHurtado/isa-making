@@ -165,8 +165,10 @@ export async function PUT(request, { params }) {
 
         if (action === "increment") {
             await cart.increment("product_quantity", { by: 1 });
+            await cart.reload();
         } else if (action === "decrement" && cart.product_quantity > 1) {
             await cart.decrement("product_quantity", { by: 1 });
+            await cart.reload();
         } else if (action === "decrement" && cart.product_quantity === 1) {
             await cart.destroy();
         }
