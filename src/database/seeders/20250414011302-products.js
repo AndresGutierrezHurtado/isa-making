@@ -20,11 +20,11 @@ module.exports = {
         /**
          * Add commands to revert seed here.
          */
-        if (products.length > 0) await queryInterface.bulkDelete("Products", null, {});
-        if (medias.length > 0) await queryInterface.bulkDelete("Medias", null, {});
-        if (sizes.length > 0) await queryInterface.bulkDelete("Sizes", null, {});
-        if (categories.length > 0) await queryInterface.bulkDelete("Categories", null, {});
-        if (productCategories.length > 0) await queryInterface.bulkDelete("ProductCategories", null, {});
-        if (productSizes.length > 0) await queryInterface.bulkDelete("ProductSizes", null, {});
+        await queryInterface.bulkDelete("Products", null, {});
+        await queryInterface.bulkDelete("Medias", null, {});
+        await queryInterface.bulkDelete("Sizes", null, {});
+        await queryInterface.bulkDelete("Categories", null, {});
+        await queryInterface.bulkDelete("ProductCategories", null, {});
+        await queryInterface.bulkDelete("ProductSizes", null, {});
     },
 };

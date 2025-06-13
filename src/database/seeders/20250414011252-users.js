@@ -17,8 +17,8 @@ module.exports = {
         /**
          * Add commands to revert seed here.
          */
-        if (users.length > 0) await queryInterface.bulkDelete("Users", null, {});
-        if (roles.length > 0) await queryInterface.bulkDelete("Roles", null, {});
-        if (carts.length > 0) await queryInterface.bulkDelete("Carts", null, {});
+        await queryInterface.bulkDelete("Users", null, {});
+        await queryInterface.bulkDelete("Roles", null, {});
+        await queryInterface.bulkDelete("Carts", null, {});
     },
 };
