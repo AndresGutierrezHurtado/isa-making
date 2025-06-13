@@ -71,7 +71,6 @@ export async function POST(request) {
             { status: 201 }
         );
     } catch (error) {
-        console.error(error);
         if (error.name === "SequelizeUniqueConstraintError") {
             return NextResponse.json(
                 {
@@ -81,6 +80,7 @@ export async function POST(request) {
                 { status: 400 }
             );
         }
+        console.error(error);
 
         return NextResponse.json(
             {

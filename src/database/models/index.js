@@ -1,10 +1,11 @@
 const { Sequelize } = require("sequelize");
-const { [process.env.NODE_ENV]: config } = require("../config.cjs");
+const { [process.env.PROCESS_ENV]: config } = require("../config.cjs");
 
+const isProduction = process.env.PROCESS_ENV === "production";
 const sequelize = new Sequelize(config.database, config.username, config.password, {
     host: config.host,
     dialect: config.dialect,
-    dialectModule: require("pg"),
+    dialectModule: isProduction ? require("pg") : require("mysql2"),
     port: config.port,
     logging: false,
     pool: {
