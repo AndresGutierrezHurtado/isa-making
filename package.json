@@ -14,6 +14,7 @@
         "db:reset": "npm run db:migrate:undo && npm run db:migrate && npm run db:seed",
         "db:seed:reset": "npm run db:seed:undo && npm run db:seed",
         "test:reset": "npx sequelize-cli db:migrate:undo:all --env test && npx sequelize-cli db:migrate --env test && npx sequelize-cli db:seed:all --env test",
+        "test:seed:reset": "npx sequelize-cli db:seed:undo:all --env test && npx sequelize-cli db:seed:all --env test",
         "test": "jest"
     },
     "dependencies": {
