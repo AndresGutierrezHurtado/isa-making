@@ -16,6 +16,16 @@ export async function GET(request, { params }) {
             include: ["categories", "sizes", "medias"],
         });
 
+        if (!product) {
+            return NextResponse.json(
+                {
+                    success: false,
+                    message: "Producto no encontrado",
+                },
+                { status: 404 }
+            );
+        }
+
         return NextResponse.json(
             {
                 success: true,
@@ -40,7 +50,7 @@ export async function PUT(request, { params }) {
     const transaction = await Product.sequelize.transaction();
     try {
         const { id } = await params;
-        const { product: body, categories, sizes, medias } = await request.json();
+        const { product: body, categories = [], sizes = [], medias = [] } = await request.json();
 
         const product = await Product.findByPk(id);
 
@@ -56,66 +66,75 @@ export async function PUT(request, { params }) {
 
         await product.update(body, { transaction });
 
-        categories.forEach(async (category) => {
-            const [productCategory, created] = await ProductCategory.findOrCreate({
-                where: {
-                    product_id: product.product_id,
-                    category_id: category,
-                },
-                defaults: {
-                    product_id: product.product_id,
-                    category_id: category,
-                },
-                transaction,
-            });
-
-            if (!created) {
-                await productCategory.update(
-                    {
+        if (categories.length > 0) {
+            for (const category of categories) {
+                const [productCategory, created] = await ProductCategory.findOrCreate({
+                    where: {
+                        product_id: product.product_id,
                         category_id: category,
                     },
-                    { transaction }
-                );
+                    defaults: {
+                        product_id: product.product_id,
+                        category_id: category,
+                    },
+                    transaction,
+                });
+
+                if (!created) {
+                    await productCategory.update(
+                        {
+                            category_id: category,
+                        },
+                        { transaction }
+                    );
+                }
             }
-        });
 
-        await ProductCategory.destroy({
-            where: {
-                product_id: product.product_id,
-                category_id: { [Op.notIn]: categories },
-            },
-            transaction,
-        });
-
-        sizes.forEach(async (size) => {
-            const [productSize, created] = await ProductSize.findOrCreate({
+            await ProductCategory.destroy({
                 where: {
                     product_id: product.product_id,
-                    size_id: size.size_id,
-                },
-                defaults: {
-                    product_id: product.product_id,
-                    size_id: size.size_id,
-                    product_price: size.product_price,
+                    category_id: { [Op.notIn]: categories },
                 },
                 transaction,
             });
+        }
 
-            if (!created) {
-                await productSize.update(
-                    {
+        if (sizes.length > 0) {
+            for (const size of sizes) {
+                const [productSize, created] = await ProductSize.findOrCreate({
+                    where: {
+                        product_id: product.product_id,
+                        size_id: size.size_id,
+                    },
+                    defaults: {
+                        product_id: product.product_id,
+                        size_id: size.size_id,
                         product_price: size.product_price,
                     },
-                    { transaction }
-                );
+                    transaction,
+                });
+
+                if (!created) {
+                    await productSize.update(
+                        {
+                            product_price: size.product_price,
+                        },
+                        { transaction }
+                    );
+                }
             }
-        });
+        }
+
+        const deleteWhere = {
+            product_id: product.product_id,
+        };
+
+        if (sizes.length > 0) {
+            deleteWhere.size_id = { [Op.notIn]: sizes.map((s) => s.size_id) };
+        }
 
         await ProductSize.destroy({
-            where: {
-                product_id: product.product_id,
-                size_id: { [Op.notIn]: sizes.map((s) => s.size_id) },
-            },
+            where: deleteWhere,
             transaction,
         });
 
