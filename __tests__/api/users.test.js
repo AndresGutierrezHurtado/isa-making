@@ -106,3 +106,49 @@ describe("GET /api/users/:id", () => {
         expect(data.success).toBe(true);
     });
 });
+
+describe("GET /api/users/:id/paranoid", () => {
+    test("Should restore a soft deleted user", async () => {
+        const response = await fetch(`http://localhost:3000/api/users/${createdUserId}/paranoid`, {
+            method: "PUT",
+        });
+        const data = await response.json();
+
+        expect(response.status).toBe(200);
+        expect(data.success).toBe(true);
+        expect(data.message).toBe("Usuario restaurado correctamente");
+    });
+
+    test("Should hard delete a user", async () => {
+        const response = await fetch(`http://localhost:3000/api/users/${createdUserId}/paranoid`, {
+            method: "DELETE",
+        });
+        const data = await response.json();
+
+        expect(response.status).toBe(200);
+        expect(data.success).toBe(true);
+        expect(data.message).toBe("Usuario eliminado correctamente");
+    });
+
+    test("Should return 404 when trying to restore non-existent user", async () => {
+        const response = await fetch(`http://localhost:3000/api/users/${createdUserId}/paranoid`, {
+            method: "PUT",
+        });
+        const data = await response.json();
+
+        expect(response.status).toBe(404);
+        expect(data.success).toBe(false);
+        expect(data.message).toBe("Usuario no encontrado");
+    });
+
+    test("Should return 404 when trying to hard delete non-existent user", async () => {
+        const response = await fetch(`http://localhost:3000/api/users/${createdUserId}/paranoid`, {
+            method: "DELETE",
+        });
+        const data = await response.json();
+
+        expect(response.status).toBe(404);
+        expect(data.success).toBe(false);
+        expect(data.message).toBe("Usuario no encontrado");
+    });
+});
