@@ -12,7 +12,9 @@
         "db:seed": "npx sequelize-cli db:seed:all",
         "db:seed:undo": "npx sequelize-cli db:seed:undo:all",
         "db:reset": "npm run db:migrate:undo && npm run db:migrate && npm run db:seed",
-        "db:seed:reset": "npm run db:seed:undo && npm run db:seed"
+        "db:seed:reset": "npm run db:seed:undo && npm run db:seed",
+        "test:reset": "npx sequelize-cli db:migrate:undo:all --env test && npx sequelize-cli db:migrate --env test && npx sequelize-cli db:seed:all --env test",
+        "test": "jest"
     },
     "dependencies": {
         "@uiw/react-md-editor": "^4.0.5",
@@ -23,6 +25,7 @@
         "jsonwebtoken": "^9.0.2",
         "next": "15.3.0",
         "next-auth": "^4.24.11",
+        "next-test-api-route-handler": "^4.0.16",
         "pg": "^8.16.0",
         "pg-hstore": "^2.3.4",
         "react": "^19.0.0",
@@ -39,9 +42,18 @@
     "devDependencies": {
         "@eslint/eslintrc": "^3",
         "@tailwindcss/postcss": "^4",
+        "@testing-library/dom": "^10.4.0",
+        "@testing-library/jest-dom": "^6.6.3",
+        "@testing-library/react": "^16.3.0",
+        "@types/jest": "^29.5.14",
         "daisyui": "^5.0.19",
         "eslint": "^9",
         "eslint-config-next": "15.3.0",
+        "jest": "^30.0.0",
+        "jest-environment-jsdom": "^30.0.0",
         "mysql2": "^3.14.1",
+        "node-fetch": "^3.3.2",
+        "tailwindcss": "^4",
+        "ts-node": "^10.9.2"
     }
 }
