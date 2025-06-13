@@ -81,9 +81,9 @@ export async function GET(request) {
 export async function POST(request) {
     const transaction = await Product.sequelize.transaction();
     try {
-        const { product: body, categories, sizes, medias } = await request.json();
+        const { product: body, categories = [], sizes = [], medias = [] } = await request.json();
 
-        const { product_image, ...productData } = body;
+        const { product_image = null, ...productData } = body;
         const product = await Product.create(
             { ...productData, product_image: "/default.jpg" },
             { transaction }
@@ -163,7 +163,7 @@ export async function POST(request) {
         return NextResponse.json(
             {
                 success: false,
-                message: "Error al crear el producto",
+                message: "Error al crear el producto: " + error.message,
             },
             { status: 500 }
         );

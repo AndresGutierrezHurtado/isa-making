@@ -15,7 +15,9 @@
         "db:seed:reset": "npm run db:seed:undo && npm run db:seed",
         "test:reset": "npx sequelize-cli db:migrate:undo:all --env test && npx sequelize-cli db:migrate --env test && npx sequelize-cli db:seed:all --env test",
         "test:seed:reset": "npx sequelize-cli db:seed:undo:all --env test && npx sequelize-cli db:seed:all --env test",
-        "test": "jest"
+        "test": "jest --detectOpenHandles",
+        "test:users": "jest __tests__/api/users.test.js",
+        "test:products": "jest __tests__/api/products.test.js"
     },
     "dependencies": {
         "@uiw/react-md-editor": "^4.0.5",
