@@ -9,6 +9,16 @@ export async function GET(request, { params }) {
             include: ["role"],
         });
 
+        if (!user) {
+            return NextResponse.json(
+                {
+                    success: false,
+                    message: "Usuario no encontrado",
+                },
+                { status: 404 }
+            );
+        }
+
         return NextResponse.json(
             {
                 success: true,

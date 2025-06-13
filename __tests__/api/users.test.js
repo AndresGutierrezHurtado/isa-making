@@ -50,3 +50,59 @@ describe("GET /api/users", () => {
         createdUserId = data.data.user_id;
     });
 });
+
+describe("GET /api/users/:id", () => {
+    test("Should return a user by id", async () => {
+        const response = await fetch(`http://localhost:3000/api/users/${createdUserId}`);
+        const data = await response.json();
+
+        expect(response.status).toBe(200);
+        expect(data.success).toBe(true);
+        expect(data.data).toBeDefined();
+        expect(data.data.user_id).toBe(createdUserId);
+        expect(data.data.user_name).toBe("John");
+        expect(data.data.user_lastname).toBe("Doe");
+        expect(data.data.user_email).toBe("john.doe@example.com");
+        expect(data.data.user_password).not.toBe("111Aa@");
+        expect(data.data.role_id).toBe(1);
+        expect(data.data.createdAt).toBeDefined();
+    });
+
+    // update, soft delete, restore, hard delete
+    test("Should update a user", async () => {
+        const response = await fetch(`http://localhost:3000/api/users/${createdUserId}`, {
+            method: "PUT",
+            headers: {
+                "Content-Type": "application/json",
+            },
+            body: JSON.stringify({
+                user: {
+                    user_name: "Camilo",
+                    user_lastname: "García",
+                    user_email: "camilo.garcia@gmail.com",
+                    user_password: "111Aa@",
+                    role_id: 1,
+                },
+            }),
+        });
+        const data = await response.json();
+        expect(response.status).toBe(200);
+        expect(data.success).toBe(true);
+        expect(data.data).toBeDefined();
+        expect(data.data.user_name).toBe("Camilo");
+        expect(data.data.user_lastname).toBe("García");
+        expect(data.data.user_email).toBe("camilo.garcia@gmail.com");
+        expect(data.data.user_password).not.toBe("111Aa@");
+        expect(data.data.role_id).toBe(1);
+    });
+
+    test("Should soft delete a user", async () => {
+        const response = await fetch(`http://localhost:3000/api/users/${createdUserId}`, {
+            method: "DELETE",
+        });
+        const data = await response.json();
+
+        expect(response.status).toBe(200);
+        expect(data.success).toBe(true);
+    });
+});
