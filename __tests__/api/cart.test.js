@@ -1,13 +1,9 @@
-// add to cart POST	http://localhost:3000/api/users/9f23b03d-5971-4610-845d-09304d40224f/cart
-// update cart PUT	http://localhost:3000/api/users/9f23b03d-5971-4610-845d-09304d40224f/cart { action: "increment" | "decrement" }
-// test: add to cart, increment, decrement, remove, add
-
 const { describe, test, expect } = require("@jest/globals");
 
 describe("Endpoints /api/users/[id]/cart", () => {
     test("Should add a product to the cart", async () => {
         const response = await fetch(
-            `http://localhost:3000/api/users/9f23b03d-5971-4610-845d-09304d40224f/cart`,
+            `http://localhost:3000/api/users/ba6ec110-f2dd-4d75-8b19-b2bcfd96db8f/cart`,
             {
                 method: "POST",
                 body: JSON.stringify({
@@ -25,7 +21,7 @@ describe("Endpoints /api/users/[id]/cart", () => {
 
     test("Should increment the quantity of a product in the cart", async () => {
         const response = await fetch(
-            `http://localhost:3000/api/users/9f23b03d-5971-4610-845d-09304d40224f/cart`,
+            `http://localhost:3000/api/users/ba6ec110-f2dd-4d75-8b19-b2bcfd96db8f/cart`,
             {
                 method: "PUT",
                 body: JSON.stringify({
@@ -44,7 +40,7 @@ describe("Endpoints /api/users/[id]/cart", () => {
     });
 
     test("Should increment the quantity of a product in the cart to the max stock", async () => {
-        await fetch(`http://localhost:3000/api/users/9f23b03d-5971-4610-845d-09304d40224f/cart`, {
+        await fetch(`http://localhost:3000/api/users/ba6ec110-f2dd-4d75-8b19-b2bcfd96db8f/cart`, {
             method: "PUT",
             body: JSON.stringify({
                 action: "increment",
@@ -53,7 +49,7 @@ describe("Endpoints /api/users/[id]/cart", () => {
             }),
         });
 
-        await fetch(`http://localhost:3000/api/users/9f23b03d-5971-4610-845d-09304d40224f/cart`, {
+        await fetch(`http://localhost:3000/api/users/ba6ec110-f2dd-4d75-8b19-b2bcfd96db8f/cart`, {
             method: "PUT",
             body: JSON.stringify({
                 action: "increment",
@@ -63,7 +59,7 @@ describe("Endpoints /api/users/[id]/cart", () => {
         });
 
         const response = await fetch(
-            `http://localhost:3000/api/users/9f23b03d-5971-4610-845d-09304d40224f/cart`,
+            `http://localhost:3000/api/users/ba6ec110-f2dd-4d75-8b19-b2bcfd96db8f/cart`,
             {
                 method: "PUT",
                 body: JSON.stringify({
@@ -82,7 +78,7 @@ describe("Endpoints /api/users/[id]/cart", () => {
 
     test("Should decrement the quantity of a product in the cart", async () => {
         const response = await fetch(
-            `http://localhost:3000/api/users/9f23b03d-5971-4610-845d-09304d40224f/cart`,
+            `http://localhost:3000/api/users/ba6ec110-f2dd-4d75-8b19-b2bcfd96db8f/cart`,
             {
                 method: "PUT",
                 body: JSON.stringify({
@@ -102,7 +98,7 @@ describe("Endpoints /api/users/[id]/cart", () => {
 
     test("Should update an unexistent product in the cart", async () => {
         const response = await fetch(
-            `http://localhost:3000/api/users/9f23b03d-5971-4610-845d-09304d40224f/cart`,
+            `http://localhost:3000/api/users/ba6ec110-f2dd-4d75-8b19-b2bcfd96db8f/cart`,
             {
                 method: "PUT",
                 body: JSON.stringify({
@@ -121,7 +117,7 @@ describe("Endpoints /api/users/[id]/cart", () => {
 
     test("Should remove a product from the cart", async () => {
         const response = await fetch(
-            `http://localhost:3000/api/users/9f23b03d-5971-4610-845d-09304d40224f/cart`,
+            `http://localhost:3000/api/users/ba6ec110-f2dd-4d75-8b19-b2bcfd96db8f/cart`,
             {
                 method: "POST",
                 body: JSON.stringify({
@@ -137,7 +133,7 @@ describe("Endpoints /api/users/[id]/cart", () => {
         expect(data.data).toBeDefined();
 
         const response2 = await fetch(
-            `http://localhost:3000/api/users/9f23b03d-5971-4610-845d-09304d40224f/cart`,
+            `http://localhost:3000/api/users/ba6ec110-f2dd-4d75-8b19-b2bcfd96db8f/cart`,
             {
                 method: "DELETE",
                 body: JSON.stringify({
@@ -155,7 +151,7 @@ describe("Endpoints /api/users/[id]/cart", () => {
 
     test("Should return 404 if the product is not in the cart", async () => {
         const response = await fetch(
-            `http://localhost:3000/api/users/9f23b03d-5971-4610-845d-09304d40224f/cart`,
+            `http://localhost:3000/api/users/ba6ec110-f2dd-4d75-8b19-b2bcfd96db8f/cart`,
             {
                 method: "DELETE",
                 body: JSON.stringify({

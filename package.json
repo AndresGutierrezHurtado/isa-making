@@ -18,7 +18,8 @@
         "test": "jest --detectOpenHandles",
         "test:users": "jest __tests__/api/users.test.js",
         "test:products": "jest __tests__/api/products.test.js",
-        "test:cart": "jest __tests__/api/cart.test.js"
+        "test:cart": "jest __tests__/api/cart.test.js",
+        "test:orders": "jest __tests__/api/orders.test.js"
     },
     "dependencies": {
         "@uiw/react-md-editor": "^4.0.5",
